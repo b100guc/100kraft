@@ -1,4 +1,5 @@
 import { Reveal } from "./Reveal";
+import { Instagram } from "lucide-react";
 
 const inquiries = [
   ["Manufacturing inquiries", "production@100kraft.com"],
@@ -96,13 +97,65 @@ export function Contact() {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border py-10">
-      <div className="mx-auto flex max-w-[1600px] flex-wrap items-center justify-between gap-4 px-6 md:px-12">
-        <span className="font-display text-base tracking-[-0.04em]">100KRAFT</span>
-        <span className="label-technical">
-          Product Design · 3D Printing · Mold Design · Manufacturing
-        </span>
-        <span className="label-technical">© {new Date().getFullYear()} Antalya</span>
+    <footer className="border-t border-border py-14">
+      <div className="mx-auto flex max-w-[1600px] flex-col gap-10 px-6 md:px-12">
+        <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+          <div className="flex flex-col gap-4">
+            <span className="font-display text-2xl tracking-[-0.04em]">100KRAFT</span>
+            <span className="label-technical text-muted-foreground">
+              Product Design · 3D Printing · Mold Design · Manufacturing
+            </span>
+          </div>
+
+          <div className="flex flex-col gap-6 md:items-end">
+            <div className="flex items-center gap-6">
+              <a
+                href="https://www.instagram.com/100kraft/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-foreground/70 transition-colors hover:text-foreground"
+              >
+                <Instagram className="h-4 w-4" />
+                <span className="label-technical">100KRAFT</span>
+              </a>
+              <a
+                href="https://www.instagram.com/grainzstudio/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-foreground/70 transition-colors hover:text-foreground"
+              >
+                <Instagram className="h-4 w-4" />
+                <span className="label-technical">GRAINZ STUDIO</span>
+              </a>
+            </div>
+
+            <a
+              href="https://grainz.site"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-2"
+            >
+              <span className="label-technical text-muted-foreground transition-colors group-hover:text-foreground">
+                A COMPANY BY
+              </span>
+              <span className="font-display text-lg tracking-wide transition-colors group-hover:text-accent">
+                GRAINZ STUDIO
+              </span>
+            </a>
+          </div>
+        </div>
+
+        <div className="border-t border-border/50 pt-8 flex justify-between items-center">
+          <span className="label-technical text-muted-foreground">
+            © {new Date().getFullYear()} Antalya, Turkey
+          </span>
+          <a
+            href="#top"
+            className="label-technical text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Back to Top ↑
+          </a>
+        </div>
       </div>
     </footer>
   );

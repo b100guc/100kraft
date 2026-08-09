@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Instagram } from "lucide-react";
 
 const links = [
   { href: "#about", label: "Atelier" },
@@ -44,15 +45,39 @@ export function Nav() {
           ))}
         </nav>
 
-        <a
-          href="#contact"
-          className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5"
-        >
-          <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
-          <span className="label-technical relative text-foreground transition-colors duration-500 group-hover:text-primary-foreground">
-            Start a Project
-          </span>
-        </a>
+        <div className="flex items-center gap-4">
+          <div className="hidden sm:flex items-center gap-3 border-r border-foreground/20 pr-4">
+            <a
+              href="https://www.instagram.com/100kraft/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/70 transition-colors hover:text-foreground"
+              aria-label="100KRAFT Instagram"
+              title="100KRAFT Instagram"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.instagram.com/grainzstudio/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-foreground/70 transition-colors hover:text-foreground"
+              aria-label="GRAINZ STUDIO Instagram"
+              title="GRAINZ STUDIO Instagram"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+          </div>
+          <a
+            href="#contact"
+            className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5"
+          >
+            <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
+            <span className="label-technical relative text-foreground transition-colors duration-500 group-hover:text-primary-foreground">
+              Start a Project
+            </span>
+          </a>
+        </div>
       </div>
     </header>
   );
