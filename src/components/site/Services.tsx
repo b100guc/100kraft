@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { motion } from "motion/react";
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 import { Reveal, SectionLabel } from "./Reveal";
 
 type Service = {
@@ -127,9 +127,42 @@ function ProcessVisual({ kind, active }: { kind: Service["visual"]; active: bool
   );
 }
 
-export function Services() {
-  const [active, setActive] = useState<string | null>(null);
+function ServiceCard({ s, i }: { s: Service; i: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { margin: "-20% 0px", once: false });
 
+  return (
+    <Reveal delay={0.04 * i}>
+      <div
+        ref={ref}
+        className="group relative flex h-full min-h-[22rem] flex-col justify-between bg-background p-8 transition-colors duration-500 hover:bg-secondary/60 md:p-10"
+      >
+        <div className="flex items-start justify-between">
+          <span className="label-technical">{s.id}</span>
+          <span className="label-technical opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+            {s.meta}
+          </span>
+        </div>
+        <div className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-1/2 md:inset-x-10">
+          <div className="h-32">
+            <ProcessVisual kind={s.visual} active={inView} />
+          </div>
+        </div>
+        <div>
+          <h3 className="font-display text-2xl transition-transform duration-500 group-hover:-translate-y-1 md:text-[1.75rem]">
+            {s.title}
+          </h3>
+          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground transition-opacity duration-500 group-hover:opacity-40">
+            {s.description}
+          </p>
+        </div>
+        <span className="absolute bottom-0 left-0 h-px w-0 bg-accent transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
+      </div>
+    </Reveal>
+  );
+}
+
+export function Services() {
   return (
     <section id="services" className="relative border-t border-border py-28 md:py-40">
       <div className="mx-auto max-w-[1600px] px-6 md:px-12">
@@ -145,41 +178,7 @@ export function Services() {
 
         <div className="mt-16 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <Reveal key={s.id} delay={0.04 * i}>
-              <div
-                data-cursor
-                onMouseEnter={() => setActive(s.id)}
-                onMouseLeave={() => setActive(null)}
-                onFocus={() => setActive(s.id)}
-                onBlur={() => setActive(null)}
-                tabIndex={0}
-                className="group relative flex h-full min-h-[22rem] flex-col justify-between bg-background p-8 transition-colors duration-500 hover:bg-secondary/60 focus:outline-none md:p-10"
-              >
-                <div className="flex items-start justify-between">
-                  <span className="label-technical">{s.id}</span>
-                  <span className="label-technical opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100">
-                    {s.meta}
-                  </span>
-                </div>
-
-                <div className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-500 group-hover:opacity-100 group-focus:opacity-100 md:inset-x-10">
-                  <div className="h-32">
-                    <ProcessVisual kind={s.visual} active={active === s.id} />
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="font-display text-2xl transition-transform duration-500 group-hover:-translate-y-1 md:text-[1.75rem]">
-                    {s.title}
-                  </h3>
-                  <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground transition-opacity duration-500 group-hover:opacity-40">
-                    {s.description}
-                  </p>
-                </div>
-
-                <span className="absolute bottom-0 left-0 h-px w-0 bg-accent transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full group-focus:w-full" />
-              </div>
-            </Reveal>
+            <ServiceCard key={s.id} s={s} i={i} />
           ))}
         </div>
       </div>

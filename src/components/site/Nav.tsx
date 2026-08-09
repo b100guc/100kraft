@@ -28,9 +28,8 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-12">
-        <a href="/#top" className="flex items-baseline gap-2">
-          <span className="font-display text-lg tracking-[-0.04em]">100KRAFT</span>
-          <span className="label-technical hidden sm:inline">Antalya</span>
+        <a href="/#top" className="flex items-baseline gap-2 z-10">
+          <span className="font-display text-xl sm:text-2xl tracking-[-0.04em]">100KRAFT</span>
         </a>
 
         <nav className="hidden items-center gap-9 md:flex">
