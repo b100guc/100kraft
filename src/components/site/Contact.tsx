@@ -1,5 +1,6 @@
 import { Reveal } from "./Reveal";
 import { Instagram } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const inquiries = [
   ["Manufacturing inquiries", "production@100kraft.com"],
@@ -108,26 +109,42 @@ export function Footer() {
           </div>
 
           <div className="flex flex-col gap-6 md:items-end">
-            <div className="flex items-center gap-6">
-              <a
-                href="https://www.instagram.com/100kraft/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-foreground/70 transition-colors hover:text-foreground"
-              >
-                <Instagram className="h-4 w-4" />
-                <span className="label-technical">100KRAFT</span>
-              </a>
-              <a
-                href="https://www.instagram.com/grainzstudio/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-center gap-2 text-foreground/70 transition-colors hover:text-foreground"
-              >
-                <Instagram className="h-4 w-4" />
-                <span className="label-technical">GRAINZ STUDIO</span>
-              </a>
-            </div>
+            <TooltipProvider delayDuration={100}>
+              <div className="flex items-center gap-6">
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a
+                      href="https://www.instagram.com/100kraft/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 text-foreground/70 transition-colors hover:text-foreground"
+                    >
+                      <Instagram className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="label-technical">100KRAFT</span>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Visit 100KRAFT Instagram</p>
+                  </TooltipContent>
+                </Tooltip>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <a
+                      href="https://www.instagram.com/grainzstudio/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center gap-2 text-foreground/70 transition-colors hover:text-foreground"
+                    >
+                      <Instagram className="h-4 w-4 transition-transform duration-300 group-hover:scale-110" />
+                      <span className="label-technical">GRAINZ STUDIO</span>
+                    </a>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Visit GRAINZ STUDIO Instagram</p>
+                  </TooltipContent>
+                </Tooltip>
+              </div>
+            </TooltipProvider>
 
             <a
               href="https://grainz.site"

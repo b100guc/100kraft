@@ -130,16 +130,6 @@ export function Hero() {
           </motion.div>
         </motion.div>
       </div>
-
-      <div className="absolute right-6 bottom-14 hidden md:block md:right-12">
-        <motion.div
-          className="label-technical [writing-mode:vertical-rl]"
-          animate={{ opacity: [0.35, 1, 0.35] }}
-          transition={{ duration: 3, repeat: Infinity }}
-        >
-          Scroll
-        </motion.div>
-      </div>
     </section>
   );
 }
