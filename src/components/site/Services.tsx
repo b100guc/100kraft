@@ -70,9 +70,7 @@ function ProcessVisual({ kind, active }: { kind: Service["visual"]; active: bool
 
   const draw = (delay: number) => ({
     initial: { pathLength: 0, opacity: 0 },
-    animate: active
-      ? { pathLength: 1, opacity: 1 }
-      : { pathLength: 0, opacity: 0 },
+    animate: active ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 },
     transition: { duration: 0.9, delay, ease: "easeInOut" as const },
   });
 
@@ -80,7 +78,11 @@ function ProcessVisual({ kind, active }: { kind: Service["visual"]; active: bool
     <svg viewBox="0 0 100 60" className="h-full w-full text-accent">
       {kind === "form" && (
         <>
-          <motion.path d="M18 44 C18 20 42 12 58 20 C72 27 78 40 70 46 C60 52 30 54 18 44 Z" {...stroke} {...draw(0)} />
+          <motion.path
+            d="M18 44 C18 20 42 12 58 20 C72 27 78 40 70 46 C60 52 30 54 18 44 Z"
+            {...stroke}
+            {...draw(0)}
+          />
           <motion.path d="M26 44 C30 30 44 24 56 28" {...stroke} {...draw(0.2)} />
         </>
       )}
@@ -135,8 +137,8 @@ export function Services() {
           <SectionLabel index="03" title="Capabilities" />
           <Reveal>
             <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-              Six disciplines, one continuous workflow. A project can enter at any point and
-              leave as a manufacturable product.
+              Six disciplines, one continuous workflow. A project can enter at any point and leave
+              as a manufacturable product.
             </p>
           </Reveal>
         </div>

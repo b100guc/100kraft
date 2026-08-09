@@ -74,7 +74,6 @@ export function Hero() {
           >
             <span>Design &amp; Manufacturing Atelier</span>
             <span className="text-accent">Antalya · TR</span>
-            
           </motion.div>
 
           <h1 className="font-display text-[13vw] leading-[0.86] tracking-[-0.045em] sm:text-[9vw] lg:text-[7.4vw]">

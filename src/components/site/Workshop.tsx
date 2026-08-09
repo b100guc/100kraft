@@ -36,8 +36,8 @@ export function Workshop() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-10 text-lg leading-relaxed text-background/60">
-                Design and production share one roof in Antalya. A geometry change in the morning
-                is a part in hand by afternoon — which is why our iterations are measured in hours
+                Design and production share one roof in Antalya. A geometry change in the morning is
+                a part in hand by afternoon — which is why our iterations are measured in hours
                 instead of weeks.
               </p>
             </Reveal>
