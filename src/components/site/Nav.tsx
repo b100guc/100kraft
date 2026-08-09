@@ -3,11 +3,9 @@ import { Instagram } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const links = [
-  { href: "#about", label: "Atelier" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Work" },
-  { href: "#process", label: "Process" },
-  { href: "#workshop", label: "Workshop" },
+  { href: "/#about", label: "Atelier" },
+  { href: "/#services", label: "Services" },
+  { href: "/#projects", label: "Work" },
 ];
 
 export function Nav() {
@@ -29,7 +27,7 @@ export function Nav() {
       }`}
     >
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-12">
-        <a href="#top" className="flex items-baseline gap-2">
+        <a href="/#top" className="flex items-baseline gap-2">
           <span className="font-display text-lg tracking-[-0.04em]">100KRAFT</span>
           <span className="label-technical hidden sm:inline">Antalya</span>
         </a>
@@ -84,7 +82,15 @@ export function Nav() {
             </div>
           </TooltipProvider>
           <a
-            href="#contact"
+            href="/store"
+            className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5 bg-foreground/5 hover:bg-foreground/10 transition-colors duration-300"
+          >
+            <span className="label-technical relative text-foreground font-semibold">
+              STORE
+            </span>
+          </a>
+          <a
+            href="/#contact"
             className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5"
           >
             <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
