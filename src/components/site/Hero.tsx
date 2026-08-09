@@ -51,14 +51,14 @@ export function Hero() {
       <div className="relative mx-auto flex min-h-[100svh] max-w-[1600px] flex-col justify-end px-6 pt-32 pb-14 md:px-12">
         <motion.div
           style={{ y: imgY }}
-          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] items-center justify-end lg:flex"
+          className="pointer-events-none absolute inset-y-0 right-0 hidden w-[54%] items-start justify-end pt-24 lg:flex"
         >
           <motion.img
             src={heroImage}
             alt="3D printed prototype parts and machined components produced by 100KRAFT"
             width={1600}
             height={1200}
-            className="h-[76vh] w-full object-cover object-center mix-blend-multiply"
+            className="h-[64vh] w-full object-cover object-center mix-blend-multiply"
             initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
@@ -74,7 +74,7 @@ export function Hero() {
           >
             <span>Design &amp; Manufacturing Atelier</span>
             <span className="text-accent">Antalya · TR</span>
-            <span className="hidden sm:inline">est. 100KRAFT</span>
+            
           </motion.div>
 
           <h1 className="font-display text-[13vw] leading-[0.86] tracking-[-0.045em] sm:text-[9vw] lg:text-[7.4vw]">
