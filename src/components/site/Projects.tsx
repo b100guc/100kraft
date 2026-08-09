@@ -45,7 +45,7 @@ export function Projects() {
   const [stage, setStage] = useState<(typeof stages)[number]["key"]>("sketch");
   const [openIndex, setOpenIndex] = useState(0);
   const activeStage = stages.find((s) => s.key === stage)!;
-  const project = projects[openIndex];
+  const project = projects[openIndex]!;
 
   return (
     <section id="projects" className="relative border-t border-border py-28 md:py-40">
