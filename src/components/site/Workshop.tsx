@@ -66,11 +66,6 @@ export function Workshop() {
                 className="absolute inset-0 h-[116%] w-full object-cover"
               />
             </div>
-            <Reveal>
-              <p className="label-technical mt-5 text-background/45">
-                Antalya, Turkey — production floor
-              </p>
-            </Reveal>
           </div>
         </div>
       </div>

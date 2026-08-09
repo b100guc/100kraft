@@ -47,11 +47,6 @@ export function About() {
                 </Reveal>
               ))}
             </div>
-            <Reveal delay={0.2}>
-              <p className="label-technical mt-8 leading-loose">
-                Precision · Craftsmanship · Innovation · Design Thinking
-              </p>
-            </Reveal>
           </div>
         </div>
       </div>

@@ -36,9 +36,6 @@ export function Expertise() {
                 />
               </div>
             </Reveal>
-            <Reveal delay={0.1}>
-              <p className="label-technical mt-5">Tooling study · P20 insert · 0.05mm</p>
-            </Reveal>
           </div>
 
           <div className="lg:col-span-7 lg:pl-8">
