@@ -98,15 +98,10 @@ export function Projects() {
             <div className="divide-y divide-border">
               {projects.map((p, i) => (
                 <Reveal key={p.id} delay={0.05 * i}>
-                  <button
-                    onClick={() => setOpenIndex(i)}
-                    className="group w-full py-8 text-left"
-                  >
+                  <button onClick={() => setOpenIndex(i)} className="group w-full py-8 text-left">
                     <div className="flex items-baseline justify-between gap-6">
                       <div className="flex items-baseline gap-5">
-                        <span
-                          className={`label-technical ${openIndex === i ? "text-accent" : ""}`}
-                        >
+                        <span className={`label-technical ${openIndex === i ? "text-accent" : ""}`}>
                           {p.id}
                         </span>
                         <h3

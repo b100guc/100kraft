@@ -22,10 +22,10 @@ export function About() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-10 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                100KRAFT sits between the drawing board and the production line. We shape
-                products with the discipline of industrial design and the constraints of real
-                manufacturing held in the same hand — geometry, material, tooling and cost
-                resolved together rather than in sequence.
+                100KRAFT sits between the drawing board and the production line. We shape products
+                with the discipline of industrial design and the constraints of real manufacturing
+                held in the same hand — geometry, material, tooling and cost resolved together
+                rather than in sequence.
               </p>
             </Reveal>
             <Reveal delay={0.15}>

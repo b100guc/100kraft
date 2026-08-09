@@ -67,9 +67,25 @@ export function Contact() {
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-10 max-w-sm text-base leading-relaxed text-muted-foreground">
-                Working with clients across Europe and the Middle East. Send a brief, a sketch or
-                a CAD file — we reply within two working days.
+                Working with clients across Europe and the Middle East. Send a brief, a sketch or a
+                CAD file — we reply within two working days.
               </p>
+            </Reveal>
+
+            <Reveal delay={0.2}>
+              <div className="mt-8 w-full overflow-hidden rounded-md border border-border">
+                <iframe
+                  width="100%"
+                  height="250"
+                  frameBorder="0"
+                  scrolling="no"
+                  marginHeight={0}
+                  marginWidth={0}
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=30.6933%2C36.8769%2C30.7333%2C36.9169&amp;layer=mapnik&amp;marker=36.8969%2C30.7133"
+                  className="filter grayscale contrast-125 opacity-80"
+                  title="Map of Antalya, Turkey"
+                ></iframe>
+              </div>
             </Reveal>
           </div>
         </div>
