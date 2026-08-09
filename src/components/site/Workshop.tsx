@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
-import { Reveal, SectionLabel } from "./Reveal";
+import { Reveal } from "./Reveal";
 import workshop from "@/assets/workshop.jpg";
 
 const equipment = [
