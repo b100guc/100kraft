@@ -61,13 +61,18 @@ async function fetchHandler(request: Request, env?: unknown, ctx?: unknown): Pro
 
 const nodeHandler = toNodeHandler(fetchHandler);
 
-function defaultHandler(reqOrRequest: any, resOrEnv: any, ctx: any) {
+function defaultHandler(reqOrRequest: unknown, resOrEnv: unknown, ctx?: unknown) {
   // If invoked in a Node.js serverless / server environment (e.g. Vercel Serverless Functions)
-  if (reqOrRequest && typeof reqOrRequest === "object" && "headers" in reqOrRequest && ("socket" in reqOrRequest || "pipe" in reqOrRequest)) {
-    return nodeHandler(reqOrRequest, resOrEnv);
+  if (
+    reqOrRequest &&
+    typeof reqOrRequest === "object" &&
+    "headers" in reqOrRequest &&
+    ("socket" in reqOrRequest || "pipe" in reqOrRequest)
+  ) {
+    return (nodeHandler as (req: unknown, res: unknown) => unknown)(reqOrRequest, resOrEnv);
   }
   // If invoked in a Fetch API environment (e.g. Cloudflare Workers, Edge)
-  return fetchHandler(reqOrRequest, resOrEnv, ctx);
+  return fetchHandler(reqOrRequest as Request, resOrEnv, ctx);
 }
 
 defaultHandler.fetch = fetchHandler;
