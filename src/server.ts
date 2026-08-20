@@ -2,7 +2,6 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
-import { toNodeHandler } from "srvx/node";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -45,36 +44,18 @@ function isH3SwallowedErrorBody(body: string): boolean {
   }
 }
 
-async function fetchHandler(request: Request, env?: unknown, ctx?: unknown): Promise<Response> {
-  try {
-    const handler = await getServerEntry();
-    const response = await handler.fetch(request, env, ctx);
-    return await normalizeCatastrophicSsrResponse(response);
-  } catch (error) {
-    console.error(error);
-    return new Response(renderErrorPage(), {
-      status: 500,
-      headers: { "content-type": "text/html; charset=utf-8" },
-    });
-  }
-}
-
-const nodeHandler = toNodeHandler(fetchHandler);
-
-function defaultHandler(reqOrRequest: unknown, resOrEnv: unknown, ctx?: unknown) {
-  // If invoked in a Node.js serverless / server environment (e.g. Vercel Serverless Functions)
-  if (
-    reqOrRequest &&
-    typeof reqOrRequest === "object" &&
-    "headers" in reqOrRequest &&
-    ("socket" in reqOrRequest || "pipe" in reqOrRequest)
-  ) {
-    return (nodeHandler as (req: unknown, res: unknown) => unknown)(reqOrRequest, resOrEnv);
-  }
-  // If invoked in a Fetch API environment (e.g. Cloudflare Workers, Edge)
-  return fetchHandler(reqOrRequest as Request, resOrEnv, ctx);
-}
-
-defaultHandler.fetch = fetchHandler;
-
-export default defaultHandler;
+export default {
+  async fetch(request: Request, env: unknown, ctx: unknown) {
+    try {
+      const handler = await getServerEntry();
+      const response = await handler.fetch(request, env, ctx);
+      return await normalizeCatastrophicSsrResponse(response);
+    } catch (error) {
+      console.error(error);
+      return new Response(renderErrorPage(), {
+        status: 500,
+        headers: { "content-type": "text/html; charset=utf-8" },
+      });
+    }
+  },
+};
