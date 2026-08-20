@@ -10,7 +10,13 @@ export default defineConfig({
   ...(process.env["VERCEL"]
     ? {
         nitro: {
-          preset: "vercel",
+          preset: "vercel" as const,
+          vercel: {
+            entryFormat: "node",
+            functions: {
+              runtime: "nodejs22.x",
+            },
+          },
         },
       }
     : {}),
