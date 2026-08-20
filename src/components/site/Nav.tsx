@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Instagram } from "lucide-react";
-import { Link } from "@tanstack/react-router";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const links = [
@@ -81,15 +80,15 @@ export function Nav() {
               </Tooltip>
             </div>
           </TooltipProvider>
-          <Link
-            to="/store"
+          <a
+            href="https://store.100kraft.com"
             className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5 bg-background"
           >
             <span className="absolute inset-0 translate-y-full bg-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
             <span className="label-technical relative text-foreground font-semibold transition-colors duration-500 group-hover:text-primary-foreground">
               STORE
             </span>
-          </Link>
+          </a>
           <a
             href="/#contact"
             className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5"
