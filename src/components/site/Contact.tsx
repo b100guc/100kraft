@@ -1,20 +1,24 @@
 import { Reveal } from "./Reveal";
 import { Instagram } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Contact() {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="relative border-t border-border py-28 md:py-40">
       <div className="blueprint-grid pointer-events-none absolute inset-0 opacity-60" />
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-12">
         <div className="flex items-baseline gap-4">
-          <span className="label-technical text-accent">08</span>
-          <span className="label-technical">Contact</span>
+          <span className="label-technical text-accent">{t.contact.sectionIndex}</span>
+          <span className="label-technical">{t.contact.sectionTitle}</span>
         </div>
 
         <Reveal>
           <h2 className="mt-14 max-w-4xl font-display text-[11vw] leading-[0.9] sm:text-[7vw] lg:text-[5.4rem]">
-            Tell us what you want to <span className="italic text-accent">build.</span>
+            {t.contact.headlinePrefix}
+            <span className="italic text-accent">{t.contact.headlineAccent}</span>
           </h2>
         </Reveal>
 
@@ -26,7 +30,7 @@ export function Contact() {
                   href="mailto:burak@100kraft.com"
                   className="group flex flex-wrap items-baseline justify-between gap-4 py-7"
                 >
-                  <span className="label-technical">Contact</span>
+                  <span className="label-technical">{t.contact.contactLabel}</span>
                   <span className="font-display text-xl transition-colors group-hover:text-accent md:text-2xl">
                     burak@100kraft.com
                   </span>
@@ -41,7 +45,7 @@ export function Contact() {
               >
                 <span className="absolute inset-0 translate-y-full bg-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
                 <span className="label-technical relative text-primary-foreground">
-                  Start a Project
+                  {t.contact.startProject}
                 </span>
                 <span className="relative text-primary-foreground transition-transform duration-500 group-hover:translate-x-1">
                   →
@@ -52,17 +56,16 @@ export function Contact() {
 
           <div className="lg:col-span-5 lg:pl-10">
             <Reveal>
-              <span className="label-technical">Atelier</span>
+              <span className="label-technical">{t.contact.atelierLabel}</span>
               <p className="mt-4 font-display text-2xl leading-snug">
-                Antalya, Turkey
+                {t.contact.city}
                 <br />
                 <span className="text-muted-foreground">36.8969° N, 30.7133° E</span>
               </p>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-10 max-w-sm text-base leading-relaxed text-muted-foreground">
-                Working with clients across Europe and the Middle East. Send a brief, a sketch or a
-                CAD file — we reply within two working days.
+                {t.contact.description}
               </p>
             </Reveal>
 
@@ -89,6 +92,8 @@ export function Contact() {
 }
 
 export function Footer() {
+  const { t } = useLanguage();
+
   return (
     <footer className="border-t border-border py-14">
       <div className="mx-auto flex max-w-[1600px] flex-col gap-10 px-6 md:px-12">
@@ -96,7 +101,7 @@ export function Footer() {
           <div className="flex flex-col gap-4">
             <span className="font-display text-2xl tracking-[-0.04em]">100KRAFT</span>
             <span className="label-technical text-muted-foreground">
-              Product Design · 3D Printing · Mold Design · Manufacturing
+              {t.footer.tagline}
             </span>
           </div>
 
@@ -156,13 +161,13 @@ export function Footer() {
 
         <div className="border-t border-border/50 pt-8 flex justify-between items-center">
           <span className="label-technical text-muted-foreground">
-            © {new Date().getFullYear()} Antalya, Turkey
+            © {new Date().getFullYear()} {t.footer.location}
           </span>
           <a
             href="#top"
             className="label-technical text-muted-foreground hover:text-foreground transition-colors"
           >
-            Back to Top ↑
+            {t.footer.backToTop}
           </a>
         </div>
       </div>

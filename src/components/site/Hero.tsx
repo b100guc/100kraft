@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import heroImage from "@/assets/hero-prototypes.jpg";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -8,6 +9,7 @@ export function Hero() {
   const imgY = useTransform(scrollYProgress, [0, 1], ["0%", "16%"]);
   const textY = useTransform(scrollYProgress, [0, 1], ["0%", "-30%"]);
   const fade = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const { t, language } = useLanguage();
 
   return (
     <section ref={ref} id="top" className="relative min-h-[100svh] overflow-hidden">
@@ -55,7 +57,7 @@ export function Hero() {
         >
           <motion.img
             src={heroImage}
-            alt="3D printed prototype parts and machined components produced by 100KRAFT"
+            alt={t.hero.imageAlt}
             width={1600}
             height={1200}
             className="h-[64vh] w-full object-cover object-center mix-blend-multiply"
@@ -72,28 +74,36 @@ export function Hero() {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            <span>Design &amp; Manufacturing Atelier</span>
+            <span>{t.hero.tag}</span>
           </motion.div>
 
           <h1 className="font-display text-[13vw] leading-[0.86] tracking-[-0.045em] sm:text-[9vw] lg:text-[7.4vw]">
-            {["From Idea", "to Production."].map((line, i) => (
-              <span key={line} className="block overflow-hidden">
-                <motion.span
-                  className="block"
-                  initial={{ y: "110%" }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 1.15, delay: 0.15 + i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-                >
-                  {i === 1 ? (
-                    <>
-                      to <span className="italic text-accent">Production.</span>
-                    </>
-                  ) : (
-                    line
-                  )}
-                </motion.span>
-              </span>
-            ))}
+            <span className="block overflow-hidden">
+              <motion.span
+                className="block"
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1.15, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {t.hero.titleLine1}
+              </motion.span>
+            </span>
+            <span className="block overflow-hidden">
+              <motion.span
+                className="block"
+                initial={{ y: "110%" }}
+                animate={{ y: 0 }}
+                transition={{ duration: 1.15, delay: 0.27, ease: [0.16, 1, 0.3, 1] }}
+              >
+                {language === "en" ? (
+                  <>
+                    to <span className="italic text-accent">{t.hero.titleLine2Accent}</span>
+                  </>
+                ) : (
+                  <span className="italic text-accent">{t.hero.titleLine2}</span>
+                )}
+              </motion.span>
+            </span>
           </h1>
 
           <motion.p
@@ -102,7 +112,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            Product Design, 3D Printing, Mold Design &amp; Manufacturing Consulting.
+            {t.hero.description}
           </motion.p>
 
           <motion.div
@@ -117,14 +127,14 @@ export function Hero() {
             >
               <span className="absolute inset-0 translate-y-full bg-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
               <span className="label-technical relative text-primary-foreground">
-                Start a Project
+                {t.hero.startProject}
               </span>
               <span className="relative text-primary-foreground transition-transform duration-500 group-hover:translate-x-1">
                 →
               </span>
             </a>
             <a href="#projects" className="label-technical underline-offset-8 hover:underline">
-              View selected work
+              {t.hero.viewWork}
             </a>
           </motion.div>
         </motion.div>

@@ -4,53 +4,34 @@ import { Reveal, SectionLabel } from "./Reveal";
 import sketch from "@/assets/case-sketch.jpg";
 import cad from "@/assets/case-cad.jpg";
 import final from "@/assets/case-final.jpg";
+import { useLanguage } from "@/context/LanguageContext";
 
-const stages = [
-  { key: "sketch", label: "Sketch", image: sketch },
-  { key: "cad", label: "CAD", image: cad },
-  { key: "final", label: "Product", image: final },
-] as const;
+type StageKey = "sketch" | "cad" | "final";
 
-const projects = [
-  {
-    id: "01",
-    name: "PX-1 Handheld",
-    sector: "Consumer Appliance",
-    year: "2025",
-    scope: "Product design · Prototyping · Mold design",
-    story:
-      "A cordless handheld built around a single-piece housing. We cut part count from 22 to 11, then engineered the tooling so the transparent chamber could be molded without a secondary operation.",
-  },
-  {
-    id: "02",
-    name: "Aluminium Series",
-    sector: "Professional Tools",
-    year: "2024",
-    scope: "Industrial design · CNC · Surface finishing",
-    story:
-      "A machined instrument body developed from clay study to anodised production part, with the grip geometry validated across nine printed iterations.",
-  },
-  {
-    id: "03",
-    name: "Velora Diffuser",
-    sector: "Home Product",
-    year: "2024",
-    scope: "3D design · Rapid prototyping · Manufacturing consulting",
-    story:
-      "Soft-touch beige housing with a copper control detail. Process selection and supplier qualification brought unit cost down 31% before the first production run.",
-  },
-];
+const stageImages: Record<StageKey, string> = {
+  sketch,
+  cad,
+  final,
+};
 
 export function Projects() {
-  const [stage, setStage] = useState<(typeof stages)[number]["key"]>("sketch");
+  const [stage, setStage] = useState<StageKey>("sketch");
   const [openIndex, setOpenIndex] = useState(0);
+  const { t } = useLanguage();
+
+  const stages: { key: StageKey; label: string; image: string }[] = [
+    { key: "sketch", label: t.projects.stages.sketch, image: stageImages.sketch },
+    { key: "cad", label: t.projects.stages.cad, image: stageImages.cad },
+    { key: "final", label: t.projects.stages.final, image: stageImages.final },
+  ];
+
   const activeStage = stages.find((s) => s.key === stage)!;
-  const project = projects[openIndex]!;
+  const project = t.projects.items[openIndex] || t.projects.items[0]!;
 
   return (
     <section id="projects" className="relative border-t border-border py-28 md:py-40">
       <div className="mx-auto max-w-[1600px] px-6 md:px-12">
-        <SectionLabel index="04" title="Selected Work" />
+        <SectionLabel index={t.projects.sectionIndex} title={t.projects.sectionTitle} />
 
         <div className="mt-16 grid gap-16 lg:grid-cols-12">
           <div className="lg:col-span-6">
@@ -59,7 +40,7 @@ export function Projects() {
                 <motion.img
                   key={`${openIndex}-${stage}`}
                   src={activeStage.image}
-                  alt={`${project.name} — ${activeStage.label} stage`}
+                  alt={`${project.name} — ${activeStage.label}`}
                   loading="lazy"
                   width={1200}
                   height={1504}
@@ -96,7 +77,7 @@ export function Projects() {
 
           <div className="lg:col-span-6 lg:pl-8">
             <div className="divide-y divide-border">
-              {projects.map((p, i) => (
+              {t.projects.items.map((p, i) => (
                 <Reveal key={p.id} delay={0.05 * i}>
                   <button onClick={() => setOpenIndex(i)} className="group w-full py-8 text-left">
                     <div className="flex items-baseline justify-between gap-6">
