@@ -2,12 +2,6 @@ import { Reveal } from "./Reveal";
 import { Instagram } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
-const inquiries = [
-  ["Manufacturing inquiries", "production@100kraft.com"],
-  ["Design collaborations", "studio@100kraft.com"],
-  ["Product development", "projects@100kraft.com"],
-];
-
 export function Contact() {
   return (
     <section id="contact" className="relative border-t border-border py-28 md:py-40">
@@ -26,25 +20,23 @@ export function Contact() {
 
         <div className="mt-20 grid gap-14 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <div className="divide-y divide-border border-y border-border">
-              {inquiries.map(([label, email], i) => (
-                <Reveal key={label} delay={0.05 * i}>
-                  <a
-                    href={`mailto:${email}`}
-                    className="group flex flex-wrap items-baseline justify-between gap-4 py-7"
-                  >
-                    <span className="label-technical">{label}</span>
-                    <span className="font-display text-xl transition-colors group-hover:text-accent md:text-2xl">
-                      {email}
-                    </span>
-                  </a>
-                </Reveal>
-              ))}
+            <div className="border-y border-border">
+              <Reveal>
+                <a
+                  href="mailto:burak@100kraft.com"
+                  className="group flex flex-wrap items-baseline justify-between gap-4 py-7"
+                >
+                  <span className="label-technical">Contact</span>
+                  <span className="font-display text-xl transition-colors group-hover:text-accent md:text-2xl">
+                    burak@100kraft.com
+                  </span>
+                </a>
+              </Reveal>
             </div>
 
-            <Reveal delay={0.15}>
+            <Reveal delay={0.1}>
               <a
-                href="mailto:studio@100kraft.com"
+                href="mailto:burak@100kraft.com"
                 className="group relative mt-12 inline-flex items-center gap-4 overflow-hidden bg-foreground px-8 py-4"
               >
                 <span className="absolute inset-0 translate-y-full bg-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
@@ -156,7 +148,7 @@ export function Footer() {
                 A COMPANY BY
               </span>
               <span className="font-display text-lg tracking-wide transition-colors group-hover:text-accent">
-                GRAINZ STUDIO
+                GRAINZ
               </span>
             </a>
           </div>
