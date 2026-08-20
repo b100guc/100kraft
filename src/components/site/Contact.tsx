@@ -100,9 +100,7 @@ export function Footer() {
         <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
           <div className="flex flex-col gap-4">
             <span className="font-display text-2xl tracking-[-0.04em]">100KRAFT</span>
-            <span className="label-technical text-muted-foreground">
-              {t.footer.tagline}
-            </span>
+            <span className="label-technical text-muted-foreground">{t.footer.tagline}</span>
           </div>
 
           <div className="flex flex-col gap-6 md:items-end">

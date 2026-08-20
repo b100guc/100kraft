@@ -38,42 +38,49 @@ export const translations = {
     services: {
       sectionIndex: "03",
       sectionTitle: "Capabilities",
-      subtitle: "Six disciplines, one continuous workflow. A project can enter at any point and leave as a manufacturable product.",
+      subtitle:
+        "Six disciplines, one continuous workflow. A project can enter at any point and leave as a manufacturable product.",
       items: [
         {
           id: "01",
           title: "Product Design",
-          description: "Concept direction, form language, ergonomics and material strategy — resolved into a product with a point of view.",
+          description:
+            "Concept direction, form language, ergonomics and material strategy — resolved into a product with a point of view.",
           meta: "Concept · CMF · Ergonomics",
         },
         {
           id: "02",
           title: "3D Design",
-          description: "Parametric CAD and surface modelling built to be edited, tolerance-checked and handed to production.",
+          description:
+            "Parametric CAD and surface modelling built to be edited, tolerance-checked and handed to production.",
           meta: "CAD · Surfacing · Assemblies",
         },
         {
           id: "03",
           title: "3D Printing",
-          description: "FDM, SLA and SLS in engineering-grade materials, printed and finished in our own workshop.",
+          description:
+            "FDM, SLA and SLS in engineering-grade materials, printed and finished in our own workshop.",
           meta: "FDM · SLA · SLS",
         },
         {
           id: "04",
           title: "Rapid Prototyping",
-          description: "Fast iteration loops — looks-like, works-like and pre-production samples in days, not quarters.",
+          description:
+            "Fast iteration loops — looks-like, works-like and pre-production samples in days, not quarters.",
           meta: "Iteration · Fit · Function",
         },
         {
           id: "05",
           title: "Mold Design",
-          description: "Injection mold design with draft, gating, cooling and ejection engineered around the part.",
+          description:
+            "Injection mold design with draft, gating, cooling and ejection engineered around the part.",
           meta: "Tooling · DFM · Gating",
         },
         {
           id: "06",
           title: "Manufacturing Consulting",
-          description: "Process selection, supplier evaluation and cost engineering to bring a product to volume.",
+          description:
+            "Process selection, supplier evaluation and cost engineering to bring a product to volume.",
           meta: "Process · Cost · Supply",
         },
       ],
@@ -93,7 +100,8 @@ export const translations = {
           sector: "Consumer Appliance",
           year: "2025",
           scope: "Product design · Prototyping · Mold design",
-          story: "A cordless handheld built around a single-piece housing. We cut part count from 22 to 11, then engineered the tooling so the transparent chamber could be molded without a secondary operation.",
+          story:
+            "A cordless handheld built around a single-piece housing. We cut part count from 22 to 11, then engineered the tooling so the transparent chamber could be molded without a secondary operation.",
         },
         {
           id: "02",
@@ -101,7 +109,8 @@ export const translations = {
           sector: "Professional Tools",
           year: "2024",
           scope: "Industrial design · CNC · Surface finishing",
-          story: "A machined instrument body developed from clay study to anodised production part, with the grip geometry validated across nine printed iterations.",
+          story:
+            "A machined instrument body developed from clay study to anodised production part, with the grip geometry validated across nine printed iterations.",
         },
         {
           id: "03",
@@ -109,7 +118,8 @@ export const translations = {
           sector: "Home Product",
           year: "2024",
           scope: "3D design · Rapid prototyping · Manufacturing consulting",
-          story: "Soft-touch beige housing with a copper control detail. Process selection and supplier qualification brought unit cost down 31% before the first production run.",
+          story:
+            "Soft-touch beige housing with a copper control detail. Process selection and supplier qualification brought unit cost down 31% before the first production run.",
         },
       ],
     },
@@ -191,7 +201,8 @@ export const translations = {
       startProject: "Start a Project",
       atelierLabel: "Atelier",
       city: "Antalya, Turkey",
-      description: "Working with clients across Europe and the Middle East. Send a brief, a sketch or a CAD file — we reply within two working days.",
+      description:
+        "Working with clients across Europe and the Middle East. Send a brief, a sketch or a CAD file — we reply within two working days.",
     },
     footer: {
       tagline: "Product Design · 3D Printing · Mold Design · Manufacturing",
@@ -234,42 +245,49 @@ export const translations = {
     services: {
       sectionIndex: "03",
       sectionTitle: "Yetenekler",
-      subtitle: "Altı uzmanlık alanı, kesintisiz tek bir iş akışı. Bir proje herhangi bir aşamada dahil olup üretilebilir bir ürün olarak çıkabilir.",
+      subtitle:
+        "Altı uzmanlık alanı, kesintisiz tek bir iş akışı. Bir proje herhangi bir aşamada dahil olup üretilebilir bir ürün olarak çıkabilir.",
       items: [
         {
           id: "01",
           title: "Ürün Tasarımı",
-          description: "Konsept yönlendirmesi, form dili, ergonomi ve malzeme stratejisi — net bir vizyona sahip bir ürüne dönüştürülür.",
+          description:
+            "Konsept yönlendirmesi, form dili, ergonomi ve malzeme stratejisi — net bir vizyona sahip bir ürüne dönüştürülür.",
           meta: "Konsept · CMF · Ergonomi",
         },
         {
           id: "02",
           title: "3D Tasarım",
-          description: "Düzenlenebilir, toleransları kontrol edilmiş ve üretime hazır parametrik CAD ve yüzey modelleme.",
+          description:
+            "Düzenlenebilir, toleransları kontrol edilmiş ve üretime hazır parametrik CAD ve yüzey modelleme.",
           meta: "CAD · Yüzey Modelleme · Montaj",
         },
         {
           id: "03",
           title: "3D Baskı",
-          description: "Kendi atölyemizde basılan ve yüzey işlemleri tamamlanan mühendislik sınıfı FDM, SLA ve SLS üretimleri.",
+          description:
+            "Kendi atölyemizde basılan ve yüzey işlemleri tamamlanan mühendislik sınıfı FDM, SLA ve SLS üretimleri.",
           meta: "FDM · SLA · SLS",
         },
         {
           id: "04",
           title: "Hızlı Prototipleme",
-          description: "Hızlı iterasyon döngüleri — aylar yerine günler içinde görsel, fonksiyonel ve seri üretim öncesi numuneler.",
+          description:
+            "Hızlı iterasyon döngüleri — aylar yerine günler içinde görsel, fonksiyonel ve seri üretim öncesi numuneler.",
           meta: "İterasyon · Uyum · Fonksiyon",
         },
         {
           id: "05",
           title: "Kalıp Tasarımı",
-          description: "Açı, yolluk, soğutma ve itici sistemleri parçaya özel olarak mühendisliği yapılmış enjeksiyon kalıp tasarımı.",
+          description:
+            "Açı, yolluk, soğutma ve itici sistemleri parçaya özel olarak mühendisliği yapılmış enjeksiyon kalıp tasarımı.",
           meta: "Kalıplama · DFM · Yolluk",
         },
         {
           id: "06",
           title: "Üretim Danışmanlığı",
-          description: "Ürünü seri üretime taşımak için süreç seçimi, tedarikçi değerlendirmesi ve maliyet mühendisliği.",
+          description:
+            "Ürünü seri üretime taşımak için süreç seçimi, tedarikçi değerlendirmesi ve maliyet mühendisliği.",
           meta: "Süreç · Maliyet · Tedarik",
         },
       ],
@@ -289,7 +307,8 @@ export const translations = {
           sector: "Tüketici Cihazı",
           year: "2025",
           scope: "Ürün tasarımı · Prototipleme · Kalıp tasarımı",
-          story: "Tek parça gövde etrafında inşa edilmiş kablosuz el cihazı. Parça sayısını 22'den 11'e düşürdük ve şeffaf haznenin ikincil bir işleme gerek kalmadan kalıplanabilmesi için kalıp mühendisliğini gerçekleştirdik.",
+          story:
+            "Tek parça gövde etrafında inşa edilmiş kablosuz el cihazı. Parça sayısını 22'den 11'e düşürdük ve şeffaf haznenin ikincil bir işleme gerek kalmadan kalıplanabilmesi için kalıp mühendisliğini gerçekleştirdik.",
         },
         {
           id: "02",
@@ -297,7 +316,8 @@ export const translations = {
           sector: "Profesyonel El Aletleri",
           year: "2024",
           scope: "Endüstriyel tasarım · CNC · Yüzey işlemleri",
-          story: "Kil model çalışmasından eloksallı üretim parçasına kadar geliştirilen, tutuş ergonomisi dokuz farklı 3D baskı iterasyonuyla doğrulanan işlenmiş enstrüman gövdesi.",
+          story:
+            "Kil model çalışmasından eloksallı üretim parçasına kadar geliştirilen, tutuş ergonomisi dokuz farklı 3D baskı iterasyonuyla doğrulanan işlenmiş enstrüman gövdesi.",
         },
         {
           id: "03",
@@ -305,7 +325,8 @@ export const translations = {
           sector: "Ev Ürünleri",
           year: "2024",
           scope: "3D tasarım · Hızlı prototipleme · Üretim danışmanlığı",
-          story: "Bakır kontrol detayına sahip soft-touch bej gövde. Süreç seçimi ve tedarikçi yeterliliği sayesinde ilk seri üretim öncesinde birim maliyet %31 oranında düşürüldü.",
+          story:
+            "Bakır kontrol detayına sahip soft-touch bej gövde. Süreç seçimi ve tedarikçi yeterliliği sayesinde ilk seri üretim öncesinde birim maliyet %31 oranında düşürüldü.",
         },
       ],
     },
@@ -387,7 +408,8 @@ export const translations = {
       startProject: "Proje Başlat",
       atelierLabel: "Atölye",
       city: "Antalya, Türkiye",
-      description: "Avrupa ve Orta Doğu'daki müşterilerle çalışıyoruz. Bir brief, eskiz veya CAD dosyası gönderin — iki iş günü içinde dönüş yapalım.",
+      description:
+        "Avrupa ve Orta Doğu'daki müşterilerle çalışıyoruz. Bir brief, eskiz veya CAD dosyası gönderin — iki iş günü içinde dönüş yapalım.",
     },
     footer: {
       tagline: "Ürün Tasarımı · 3D Baskı · Kalıp Tasarımı · Üretim",

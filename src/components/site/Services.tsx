@@ -12,7 +12,13 @@ const visualMap: Record<string, "form" | "cad" | "print" | "proto" | "mold" | "c
   "06": "consult",
 };
 
-function ProcessVisual({ kind, active }: { kind: "form" | "cad" | "print" | "proto" | "mold" | "consult"; active: boolean }) {
+function ProcessVisual({
+  kind,
+  active,
+}: {
+  kind: "form" | "cad" | "print" | "proto" | "mold" | "consult";
+  active: boolean;
+}) {
   const stroke = {
     fill: "none",
     stroke: "currentColor",
@@ -78,7 +84,13 @@ function ProcessVisual({ kind, active }: { kind: "form" | "cad" | "print" | "pro
   );
 }
 
-function ServiceCard({ s, i }: { s: { id: string; title: string; description: string; meta: string }; i: number }) {
+function ServiceCard({
+  s,
+  i,
+}: {
+  s: { id: string; title: string; description: string; meta: string };
+  i: number;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-20% 0px", once: false });
   const visual = visualMap[s.id] || "form";

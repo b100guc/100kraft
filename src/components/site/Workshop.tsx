@@ -30,9 +30,7 @@ export function Workshop() {
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-10 text-lg leading-relaxed text-background/60">
-                {t.workshop.p1}
-              </p>
+              <p className="mt-10 text-lg leading-relaxed text-background/60">{t.workshop.p1}</p>
             </Reveal>
 
             <div className="mt-12 divide-y divide-background/15 border-y border-background/15">
