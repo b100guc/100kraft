@@ -1,21 +1,50 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { Reveal, SectionLabel } from "./Reveal";
-import { useLanguage } from "@/context/LanguageContext";
+
+const steps = [
+  {
+    id: "01",
+    title: "Discover",
+    body: "Brief, users, constraints, target cost. We define what the product must survive before we draw it.",
+    output: "Design brief · Benchmark · Cost target",
+  },
+  {
+    id: "02",
+    title: "Design",
+    body: "Form exploration in sketch and clay logic, then resolved surfaces and a full CAD assembly.",
+    output: "Concepts · CMF · CAD assembly",
+  },
+  {
+    id: "03",
+    title: "Prototype",
+    body: "Printed in the workshop within days — looks-like and works-like samples in engineering materials.",
+    output: "SLA / FDM / SLS parts",
+  },
+  {
+    id: "04",
+    title: "Validate",
+    body: "Fit, tolerance, drop, thermal and assembly checks. Iterations continue until the part behaves.",
+    output: "Test report · Revision set",
+  },
+  {
+    id: "05",
+    title: "Manufacture",
+    body: "Tooling design, supplier qualification and pilot run supervision through to steady production.",
+    output: "Mold design · DFM · Pilot run",
+  },
+];
 
 export function Process() {
   const [active, setActive] = useState(0);
-  const { t } = useLanguage();
-  const steps = t.process.steps;
-  const currentStep = steps[active] || steps[0]!;
 
   return (
     <section id="process" className="relative border-t border-border py-28 md:py-40">
       <div className="mx-auto max-w-[1600px] px-6 md:px-12">
         <div className="flex flex-wrap items-end justify-between gap-8">
-          <SectionLabel index={t.process.sectionIndex} title={t.process.sectionTitle} />
+          <SectionLabel index="05" title="Process" />
           <Reveal>
-            <span className="label-technical">{t.process.subtitle}</span>
+            <span className="label-technical">Five stages · one continuous line</span>
           </Reveal>
         </div>
 
@@ -62,17 +91,17 @@ export function Process() {
 
         <div className="mt-16 grid gap-10 border-t border-border pt-10 lg:grid-cols-12">
           <motion.p
-            key={currentStep.id}
+            key={steps[active]!.id}
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="font-display text-2xl leading-snug lg:col-span-7 lg:text-[2rem]"
           >
-            {currentStep.body}
+            {steps[active]!.body}
           </motion.p>
           <div className="lg:col-span-5 lg:pl-10">
-            <span className="label-technical">{t.process.deliverablesLabel}</span>
-            <p className="mt-3 text-base text-muted-foreground">{currentStep.output}</p>
+            <span className="label-technical">Deliverables</span>
+            <p className="mt-3 text-base text-muted-foreground">{steps[active]!.output}</p>
           </div>
         </div>
       </div>

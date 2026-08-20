@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 import { Instagram } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { useLanguage } from "@/context/LanguageContext";
+
+const links = [
+  { href: "/#about", label: "Atelier" },
+  { href: "/#services", label: "Services" },
+  { href: "/#projects", label: "Work" },
+];
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
-  const { language, setLanguage, t } = useLanguage();
-
-  const links = [
-    { href: "/#about", label: t.nav.about },
-    { href: "/#services", label: t.nav.services },
-    { href: "/#projects", label: t.nav.projects },
-  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -45,36 +43,7 @@ export function Nav() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 sm:gap-4">
-          {/* Language Switcher */}
-          <div className="flex items-center border border-foreground/20 bg-background overflow-hidden">
-            <button
-              type="button"
-              onClick={() => setLanguage("en")}
-              className={`px-2.5 py-1.5 label-technical text-[10px] sm:text-xs transition-colors cursor-pointer ${
-                language === "en"
-                  ? "bg-foreground text-background font-semibold"
-                  : "text-foreground/70 hover:text-foreground"
-              }`}
-              aria-label="Switch to English"
-            >
-              EN
-            </button>
-            <div className="h-4 w-px bg-foreground/20" />
-            <button
-              type="button"
-              onClick={() => setLanguage("tr")}
-              className={`px-2.5 py-1.5 label-technical text-[10px] sm:text-xs transition-colors cursor-pointer ${
-                language === "tr"
-                  ? "bg-foreground text-background font-semibold"
-                  : "text-foreground/70 hover:text-foreground"
-              }`}
-              aria-label="Türkçe'ye geç"
-            >
-              TR
-            </button>
-          </div>
-
+        <div className="flex items-center gap-4">
           <TooltipProvider delayDuration={100}>
             <div className="hidden sm:flex items-center gap-3 border-r border-foreground/20 pr-4">
               <Tooltip>
@@ -111,23 +80,22 @@ export function Nav() {
               </Tooltip>
             </div>
           </TooltipProvider>
-
           <a
             href="https://store.100kraft.com"
-            className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-4 sm:px-5 py-2.5 bg-background"
+            className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5 bg-background"
           >
             <span className="absolute inset-0 translate-y-full bg-accent transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
             <span className="label-technical relative text-foreground font-semibold transition-colors duration-500 group-hover:text-primary-foreground">
-              {t.nav.store}
+              STORE
             </span>
           </a>
           <a
             href="/#contact"
-            className="hidden sm:inline-flex group relative items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5"
+            className="group relative inline-flex items-center gap-3 overflow-hidden border border-foreground/20 px-5 py-2.5"
           >
             <span className="absolute inset-0 -translate-y-full bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
             <span className="label-technical relative text-foreground transition-colors duration-500 group-hover:text-primary-foreground">
-              {t.nav.contact}
+              Start a Project
             </span>
           </a>
         </div>

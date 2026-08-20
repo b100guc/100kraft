@@ -1,24 +1,67 @@
 import { useRef } from "react";
 import { motion, useInView } from "motion/react";
 import { Reveal, SectionLabel } from "./Reveal";
-import { useLanguage } from "@/context/LanguageContext";
 
-const visualMap: Record<string, "form" | "cad" | "print" | "proto" | "mold" | "consult"> = {
-  "01": "form",
-  "02": "cad",
-  "03": "print",
-  "04": "proto",
-  "05": "mold",
-  "06": "consult",
+type Service = {
+  id: string;
+  title: string;
+  description: string;
+  meta: string;
+  visual: "form" | "cad" | "print" | "proto" | "mold" | "consult";
 };
 
-function ProcessVisual({
-  kind,
-  active,
-}: {
-  kind: "form" | "cad" | "print" | "proto" | "mold" | "consult";
-  active: boolean;
-}) {
+const services: Service[] = [
+  {
+    id: "01",
+    title: "Product Design",
+    description:
+      "Concept direction, form language, ergonomics and material strategy — resolved into a product with a point of view.",
+    meta: "Concept · CMF · Ergonomics",
+    visual: "form",
+  },
+  {
+    id: "02",
+    title: "3D Design",
+    description:
+      "Parametric CAD and surface modelling built to be edited, tolerance-checked and handed to production.",
+    meta: "CAD · Surfacing · Assemblies",
+    visual: "cad",
+  },
+  {
+    id: "03",
+    title: "3D Printing",
+    description:
+      "FDM, SLA and SLS in engineering-grade materials, printed and finished in our own workshop.",
+    meta: "FDM · SLA · SLS",
+    visual: "print",
+  },
+  {
+    id: "04",
+    title: "Rapid Prototyping",
+    description:
+      "Fast iteration loops — looks-like, works-like and pre-production samples in days, not quarters.",
+    meta: "Iteration · Fit · Function",
+    visual: "proto",
+  },
+  {
+    id: "05",
+    title: "Mold Design",
+    description:
+      "Injection mold design with draft, gating, cooling and ejection engineered around the part.",
+    meta: "Tooling · DFM · Gating",
+    visual: "mold",
+  },
+  {
+    id: "06",
+    title: "Manufacturing Consulting",
+    description:
+      "Process selection, supplier evaluation and cost engineering to bring a product to volume.",
+    meta: "Process · Cost · Supply",
+    visual: "consult",
+  },
+];
+
+function ProcessVisual({ kind, active }: { kind: Service["visual"]; active: boolean }) {
   const stroke = {
     fill: "none",
     stroke: "currentColor",
@@ -84,16 +127,9 @@ function ProcessVisual({
   );
 }
 
-function ServiceCard({
-  s,
-  i,
-}: {
-  s: { id: string; title: string; description: string; meta: string };
-  i: number;
-}) {
+function ServiceCard({ s, i }: { s: Service; i: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-20% 0px", once: false });
-  const visual = visualMap[s.id] || "form";
 
   return (
     <Reveal delay={0.04 * i}>
@@ -109,7 +145,7 @@ function ServiceCard({
         </div>
         <div className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-1/2 md:inset-x-10">
           <div className="h-32">
-            <ProcessVisual kind={visual} active={inView} />
+            <ProcessVisual kind={s.visual} active={inView} />
           </div>
         </div>
         <div>
@@ -127,22 +163,21 @@ function ServiceCard({
 }
 
 export function Services() {
-  const { t } = useLanguage();
-
   return (
     <section id="services" className="relative border-t border-border py-28 md:py-40">
       <div className="mx-auto max-w-[1600px] px-6 md:px-12">
         <div className="flex flex-wrap items-end justify-between gap-8">
-          <SectionLabel index={t.services.sectionIndex} title={t.services.sectionTitle} />
+          <SectionLabel index="03" title="Capabilities" />
           <Reveal>
             <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-              {t.services.subtitle}
+              Six disciplines, one continuous workflow. A project can enter at any point and leave
+              as a manufacturable product.
             </p>
           </Reveal>
         </div>
 
         <div className="mt-16 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
-          {t.services.items.map((s, i) => (
+          {services.map((s, i) => (
             <ServiceCard key={s.id} s={s} i={i} />
           ))}
         </div>
