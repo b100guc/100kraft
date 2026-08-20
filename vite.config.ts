@@ -10,14 +10,14 @@ export default defineConfig({
   ...(process.env["VERCEL"]
     ? {
         nitro: {
-          preset: "vercel" as const,
+          preset: "vercel",
           vercel: {
             entryFormat: "node",
             functions: {
               runtime: "nodejs22.x",
             },
           },
-        },
+        } as any,
       }
     : {}),
   tanstackStart: {
