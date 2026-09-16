@@ -10,11 +10,33 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as StartProjectRouteImport } from './routes/start-project'
 import { Route as StoreRouteImport } from './routes/store'
+import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as EnStartProjectRouteImport } from './routes/en/start-project'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
+import { Route as TrIndexRouteImport } from './routes/tr/index'
+import { Route as TrStartProjectRouteImport } from './routes/tr/start-project'
+import { Route as WorkIndexRouteImport } from './routes/work/index'
+import { Route as WorkSlugRouteImport } from './routes/work/$slug'
+import { Route as EnServicesIndexRouteImport } from './routes/en/services/index'
+import { Route as EnServicesSlugRouteImport } from './routes/en/services/$slug'
+import { Route as EnWorkIndexRouteImport } from './routes/en/work/index'
+import { Route as EnWorkSlugRouteImport } from './routes/en/work/$slug'
+import { Route as TrServicesIndexRouteImport } from './routes/tr/services/index'
+import { Route as TrServicesSlugRouteImport } from './routes/tr/services/$slug'
+import { Route as TrWorkIndexRouteImport } from './routes/tr/work/index'
+import { Route as TrWorkSlugRouteImport } from './routes/tr/work/$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StartProjectRoute = StartProjectRouteImport.update({
+  id: '/start-project',
+  path: '/start-project',
   getParentRoute: () => rootRouteImport,
 } as any)
 const StoreRoute = StoreRouteImport.update({
@@ -22,31 +44,237 @@ const StoreRoute = StoreRouteImport.update({
   path: '/store',
   getParentRoute: () => rootRouteImport,
 } as any)
+const EnIndexRoute = EnIndexRouteImport.update({
+  id: '/en/',
+  path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnStartProjectRoute = EnStartProjectRouteImport.update({
+  id: '/en/start-project',
+  path: '/en/start-project',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/services/',
+  path: '/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesSlugRoute = ServicesSlugRouteImport.update({
+  id: '/services/$slug',
+  path: '/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrIndexRoute = TrIndexRouteImport.update({
+  id: '/tr/',
+  path: '/tr/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrStartProjectRoute = TrStartProjectRouteImport.update({
+  id: '/tr/start-project',
+  path: '/tr/start-project',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkIndexRoute = WorkIndexRouteImport.update({
+  id: '/work/',
+  path: '/work/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WorkSlugRoute = WorkSlugRouteImport.update({
+  id: '/work/$slug',
+  path: '/work/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesIndexRoute = EnServicesIndexRouteImport.update({
+  id: '/en/services/',
+  path: '/en/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnServicesSlugRoute = EnServicesSlugRouteImport.update({
+  id: '/en/services/$slug',
+  path: '/en/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnWorkIndexRoute = EnWorkIndexRouteImport.update({
+  id: '/en/work/',
+  path: '/en/work/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnWorkSlugRoute = EnWorkSlugRouteImport.update({
+  id: '/en/work/$slug',
+  path: '/en/work/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrServicesIndexRoute = TrServicesIndexRouteImport.update({
+  id: '/tr/services/',
+  path: '/tr/services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrServicesSlugRoute = TrServicesSlugRouteImport.update({
+  id: '/tr/services/$slug',
+  path: '/tr/services/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrWorkIndexRoute = TrWorkIndexRouteImport.update({
+  id: '/tr/work/',
+  path: '/tr/work/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrWorkSlugRoute = TrWorkSlugRouteImport.update({
+  id: '/tr/work/$slug',
+  path: '/tr/work/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/start-project': typeof StartProjectRoute
   '/store': typeof StoreRoute
+  '/en/start-project': typeof EnStartProjectRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/tr/start-project': typeof TrStartProjectRoute
+  '/work/$slug': typeof WorkSlugRoute
+  '/en/': typeof EnIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/tr/': typeof TrIndexRoute
+  '/work/': typeof WorkIndexRoute
+  '/en/services/$slug': typeof EnServicesSlugRoute
+  '/en/work/$slug': typeof EnWorkSlugRoute
+  '/tr/services/$slug': typeof TrServicesSlugRoute
+  '/tr/work/$slug': typeof TrWorkSlugRoute
+  '/en/services/': typeof EnServicesIndexRoute
+  '/en/work/': typeof EnWorkIndexRoute
+  '/tr/services/': typeof TrServicesIndexRoute
+  '/tr/work/': typeof TrWorkIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/start-project': typeof StartProjectRoute
   '/store': typeof StoreRoute
+  '/en/start-project': typeof EnStartProjectRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/tr/start-project': typeof TrStartProjectRoute
+  '/work/$slug': typeof WorkSlugRoute
+  '/en': typeof EnIndexRoute
+  '/services': typeof ServicesIndexRoute
+  '/tr': typeof TrIndexRoute
+  '/work': typeof WorkIndexRoute
+  '/en/services/$slug': typeof EnServicesSlugRoute
+  '/en/work/$slug': typeof EnWorkSlugRoute
+  '/tr/services/$slug': typeof TrServicesSlugRoute
+  '/tr/work/$slug': typeof TrWorkSlugRoute
+  '/en/services': typeof EnServicesIndexRoute
+  '/en/work': typeof EnWorkIndexRoute
+  '/tr/services': typeof TrServicesIndexRoute
+  '/tr/work': typeof TrWorkIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/start-project': typeof StartProjectRoute
   '/store': typeof StoreRoute
+  '/en/start-project': typeof EnStartProjectRoute
+  '/services/$slug': typeof ServicesSlugRoute
+  '/tr/start-project': typeof TrStartProjectRoute
+  '/work/$slug': typeof WorkSlugRoute
+  '/en/': typeof EnIndexRoute
+  '/services/': typeof ServicesIndexRoute
+  '/tr/': typeof TrIndexRoute
+  '/work/': typeof WorkIndexRoute
+  '/en/services/$slug': typeof EnServicesSlugRoute
+  '/en/work/$slug': typeof EnWorkSlugRoute
+  '/tr/services/$slug': typeof TrServicesSlugRoute
+  '/tr/work/$slug': typeof TrWorkSlugRoute
+  '/en/services/': typeof EnServicesIndexRoute
+  '/en/work/': typeof EnWorkIndexRoute
+  '/tr/services/': typeof TrServicesIndexRoute
+  '/tr/work/': typeof TrWorkIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/store'
+  fullPaths:
+    | '/'
+    | '/start-project'
+    | '/store'
+    | '/en/start-project'
+    | '/services/$slug'
+    | '/tr/start-project'
+    | '/work/$slug'
+    | '/en/'
+    | '/services/'
+    | '/tr/'
+    | '/work/'
+    | '/en/services/$slug'
+    | '/en/work/$slug'
+    | '/tr/services/$slug'
+    | '/tr/work/$slug'
+    | '/en/services/'
+    | '/en/work/'
+    | '/tr/services/'
+    | '/tr/work/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/store'
-  id: '__root__' | '/' | '/store'
+  to:
+    | '/'
+    | '/start-project'
+    | '/store'
+    | '/en/start-project'
+    | '/services/$slug'
+    | '/tr/start-project'
+    | '/work/$slug'
+    | '/en'
+    | '/services'
+    | '/tr'
+    | '/work'
+    | '/en/services/$slug'
+    | '/en/work/$slug'
+    | '/tr/services/$slug'
+    | '/tr/work/$slug'
+    | '/en/services'
+    | '/en/work'
+    | '/tr/services'
+    | '/tr/work'
+  id:
+    | '__root__'
+    | '/'
+    | '/start-project'
+    | '/store'
+    | '/en/start-project'
+    | '/services/$slug'
+    | '/tr/start-project'
+    | '/work/$slug'
+    | '/en/'
+    | '/services/'
+    | '/tr/'
+    | '/work/'
+    | '/en/services/$slug'
+    | '/en/work/$slug'
+    | '/tr/services/$slug'
+    | '/tr/work/$slug'
+    | '/en/services/'
+    | '/en/work/'
+    | '/tr/services/'
+    | '/tr/work/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  StartProjectRoute: typeof StartProjectRoute
   StoreRoute: typeof StoreRoute
+  EnStartProjectRoute: typeof EnStartProjectRoute
+  ServicesSlugRoute: typeof ServicesSlugRoute
+  TrStartProjectRoute: typeof TrStartProjectRoute
+  WorkSlugRoute: typeof WorkSlugRoute
+  EnIndexRoute: typeof EnIndexRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+  TrIndexRoute: typeof TrIndexRoute
+  WorkIndexRoute: typeof WorkIndexRoute
+  EnServicesSlugRoute: typeof EnServicesSlugRoute
+  EnWorkSlugRoute: typeof EnWorkSlugRoute
+  TrServicesSlugRoute: typeof TrServicesSlugRoute
+  TrWorkSlugRoute: typeof TrWorkSlugRoute
+  EnServicesIndexRoute: typeof EnServicesIndexRoute
+  EnWorkIndexRoute: typeof EnWorkIndexRoute
+  TrServicesIndexRoute: typeof TrServicesIndexRoute
+  TrWorkIndexRoute: typeof TrWorkIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +286,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/start-project': {
+      id: '/start-project'
+      path: '/start-project'
+      fullPath: '/start-project'
+      preLoaderRoute: typeof StartProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/store': {
       id: '/store'
       path: '/store'
@@ -65,12 +300,141 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/en/': {
+      id: '/en/'
+      path: '/en'
+      fullPath: '/en/'
+      preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/start-project': {
+      id: '/en/start-project'
+      path: '/en/start-project'
+      fullPath: '/en/start-project'
+      preLoaderRoute: typeof EnStartProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/services'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services/$slug': {
+      id: '/services/$slug'
+      path: '/services/$slug'
+      fullPath: '/services/$slug'
+      preLoaderRoute: typeof ServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tr/': {
+      id: '/tr/'
+      path: '/tr'
+      fullPath: '/tr/'
+      preLoaderRoute: typeof TrIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tr/start-project': {
+      id: '/tr/start-project'
+      path: '/tr/start-project'
+      fullPath: '/tr/start-project'
+      preLoaderRoute: typeof TrStartProjectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/': {
+      id: '/work/'
+      path: '/work'
+      fullPath: '/work/'
+      preLoaderRoute: typeof WorkIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/work/$slug': {
+      id: '/work/$slug'
+      path: '/work/$slug'
+      fullPath: '/work/$slug'
+      preLoaderRoute: typeof WorkSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services/': {
+      id: '/en/services/'
+      path: '/en/services'
+      fullPath: '/en/services/'
+      preLoaderRoute: typeof EnServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/services/$slug': {
+      id: '/en/services/$slug'
+      path: '/en/services/$slug'
+      fullPath: '/en/services/$slug'
+      preLoaderRoute: typeof EnServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/work/': {
+      id: '/en/work/'
+      path: '/en/work'
+      fullPath: '/en/work/'
+      preLoaderRoute: typeof EnWorkIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/work/$slug': {
+      id: '/en/work/$slug'
+      path: '/en/work/$slug'
+      fullPath: '/en/work/$slug'
+      preLoaderRoute: typeof EnWorkSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tr/services/': {
+      id: '/tr/services/'
+      path: '/tr/services'
+      fullPath: '/tr/services/'
+      preLoaderRoute: typeof TrServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tr/services/$slug': {
+      id: '/tr/services/$slug'
+      path: '/tr/services/$slug'
+      fullPath: '/tr/services/$slug'
+      preLoaderRoute: typeof TrServicesSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tr/work/': {
+      id: '/tr/work/'
+      path: '/tr/work'
+      fullPath: '/tr/work/'
+      preLoaderRoute: typeof TrWorkIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tr/work/$slug': {
+      id: '/tr/work/$slug'
+      path: '/tr/work/$slug'
+      fullPath: '/tr/work/$slug'
+      preLoaderRoute: typeof TrWorkSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  StartProjectRoute: StartProjectRoute,
   StoreRoute: StoreRoute,
+  EnStartProjectRoute: EnStartProjectRoute,
+  ServicesSlugRoute: ServicesSlugRoute,
+  TrStartProjectRoute: TrStartProjectRoute,
+  WorkSlugRoute: WorkSlugRoute,
+  EnIndexRoute: EnIndexRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+  TrIndexRoute: TrIndexRoute,
+  WorkIndexRoute: WorkIndexRoute,
+  EnServicesSlugRoute: EnServicesSlugRoute,
+  EnWorkSlugRoute: EnWorkSlugRoute,
+  TrServicesSlugRoute: TrServicesSlugRoute,
+  TrWorkSlugRoute: TrWorkSlugRoute,
+  EnServicesIndexRoute: EnServicesIndexRoute,
+  EnWorkIndexRoute: EnWorkIndexRoute,
+  TrServicesIndexRoute: TrServicesIndexRoute,
+  TrWorkIndexRoute: TrWorkIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

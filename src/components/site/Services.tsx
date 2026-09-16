@@ -1,67 +1,30 @@
 import { useRef } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion, useInView } from "motion/react";
 import { Reveal, SectionLabel } from "./Reveal";
+import { services, type ServiceItem } from "@/data/services";
+import { trackEvent } from "@/lib/analytics";
 
-type Service = {
-  id: string;
-  title: string;
-  description: string;
-  meta: string;
-  visual: "form" | "cad" | "print" | "proto" | "mold" | "consult";
+interface ServicesProps {
+  lang?: "en" | "tr";
+}
+
+const visualMap: Record<string, "form" | "cad" | "print" | "proto" | "mold" | "consult"> = {
+  "product-design": "form",
+  "3d-design-cad": "cad",
+  "3d-printing": "print",
+  "rapid-prototyping": "proto",
+  "mold-design": "mold",
+  "manufacturing-consulting": "consult",
 };
 
-const services: Service[] = [
-  {
-    id: "01",
-    title: "Product Design",
-    description:
-      "Concept direction, form language, ergonomics and material strategy — resolved into a product with a point of view.",
-    meta: "Concept · CMF · Ergonomics",
-    visual: "form",
-  },
-  {
-    id: "02",
-    title: "3D Design",
-    description:
-      "Parametric CAD and surface modelling built to be edited, tolerance-checked and handed to production.",
-    meta: "CAD · Surfacing · Assemblies",
-    visual: "cad",
-  },
-  {
-    id: "03",
-    title: "3D Printing",
-    description:
-      "FDM, SLA and SLS in engineering-grade materials, printed and finished in our own workshop.",
-    meta: "FDM · SLA · SLS",
-    visual: "print",
-  },
-  {
-    id: "04",
-    title: "Rapid Prototyping",
-    description:
-      "Fast iteration loops — looks-like, works-like and pre-production samples in days, not quarters.",
-    meta: "Iteration · Fit · Function",
-    visual: "proto",
-  },
-  {
-    id: "05",
-    title: "Mold Design",
-    description:
-      "Injection mold design with draft, gating, cooling and ejection engineered around the part.",
-    meta: "Tooling · DFM · Gating",
-    visual: "mold",
-  },
-  {
-    id: "06",
-    title: "Manufacturing Consulting",
-    description:
-      "Process selection, supplier evaluation and cost engineering to bring a product to volume.",
-    meta: "Process · Cost · Supply",
-    visual: "consult",
-  },
-];
-
-function ProcessVisual({ kind, active }: { kind: Service["visual"]; active: boolean }) {
+function ProcessVisual({
+  kind,
+  active,
+}: {
+  kind: "form" | "cad" | "print" | "proto" | "mold" | "consult";
+  active: boolean;
+}) {
   const stroke = {
     fill: "none",
     stroke: "currentColor",
@@ -75,7 +38,7 @@ function ProcessVisual({ kind, active }: { kind: Service["visual"]; active: bool
   });
 
   return (
-    <svg viewBox="0 0 100 60" className="h-full w-full text-accent">
+    <svg viewBox="0 0 100 60" className="h-full w-full text-accent" aria-hidden="true">
       {kind === "form" && (
         <>
           <motion.path
@@ -127,58 +90,86 @@ function ProcessVisual({ kind, active }: { kind: Service["visual"]; active: bool
   );
 }
 
-function ServiceCard({ s, i }: { s: Service; i: number }) {
+function ServiceCard({ s, i, isTr }: { s: ServiceItem; i: number; isTr: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { margin: "-20% 0px", once: false });
+  const visualKind = visualMap[s.slug] ?? "form";
+  const serviceUrl = isTr ? `/services/${s.slug}` : `/en/services/${s.slug}`;
 
   return (
     <Reveal delay={0.04 * i}>
-      <div
-        ref={ref}
-        className="group relative flex h-full min-h-[22rem] flex-col justify-between bg-background p-8 transition-colors duration-500 hover:bg-secondary/60 md:p-10"
+      <Link
+        to={serviceUrl}
+        onClick={() => trackEvent({ name: "service_view", slug: s.slug, title: s.title })}
+        className="block h-full group"
       >
-        <div className="flex items-start justify-between">
-          <span className="label-technical">{s.id}</span>
-          <span className="label-technical opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-            {s.meta}
-          </span>
-        </div>
-        <div className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-1/2 md:inset-x-10">
-          <div className="h-32">
-            <ProcessVisual kind={s.visual} active={inView} />
+        <div
+          ref={ref}
+          className="relative flex h-full min-h-[22rem] flex-col justify-between bg-background p-8 transition-colors duration-500 hover:bg-secondary/60 md:p-10"
+        >
+          <div className="flex items-start justify-between">
+            <span className="label-technical">{s.number}</span>
+            <span className="label-technical opacity-0 transition-opacity duration-500 group-hover:opacity-100 text-accent">
+              {isTr ? s.metaTr : s.meta}
+            </span>
           </div>
+
+          <div className="pointer-events-none absolute inset-x-8 top-1/2 -translate-y-1/2 md:inset-x-10">
+            <div className="h-32">
+              <ProcessVisual kind={visualKind} active={inView} />
+            </div>
+          </div>
+
+          <div>
+            <div className="flex items-baseline justify-between">
+              <h3 className="font-display text-2xl transition-transform duration-500 group-hover:-translate-y-1 md:text-[1.75rem]">
+                {isTr ? s.titleTr : s.title}
+              </h3>
+              <span className="text-accent opacity-0 transition-opacity duration-300 group-hover:opacity-100 text-lg">
+                →
+              </span>
+            </div>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground transition-opacity duration-500 group-hover:opacity-60">
+              {isTr ? s.shortDescTr : s.shortDesc}
+            </p>
+          </div>
+
+          <span className="absolute bottom-0 left-0 h-px w-0 bg-accent transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
         </div>
-        <div>
-          <h3 className="font-display text-2xl transition-transform duration-500 group-hover:-translate-y-1 md:text-[1.75rem]">
-            {s.title}
-          </h3>
-          <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground transition-opacity duration-500 group-hover:opacity-40">
-            {s.description}
-          </p>
-        </div>
-        <span className="absolute bottom-0 left-0 h-px w-0 bg-accent transition-[width] duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
-      </div>
+      </Link>
     </Reveal>
   );
 }
 
-export function Services() {
+export function Services({ lang = "tr" }: ServicesProps) {
+  const isTr = lang === "tr";
+  const servicesIndexUrl = isTr ? "/services" : "/en/services";
+
   return (
     <section id="services" className="relative border-t border-border py-28 md:py-40">
       <div className="mx-auto max-w-[1600px] px-6 md:px-12">
         <div className="flex flex-wrap items-end justify-between gap-8">
-          <SectionLabel index="03" title="Capabilities" />
-          <Reveal>
-            <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
-              Six disciplines, one continuous workflow. A project can enter at any point and leave
-              as a manufacturable product.
-            </p>
-          </Reveal>
+          <SectionLabel index="03" title={isTr ? "Yetkinlikler" : "Capabilities"} />
+          <div className="flex flex-col sm:flex-row sm:items-baseline gap-4 sm:gap-8">
+            <Reveal>
+              <p className="max-w-md text-sm leading-relaxed text-muted-foreground">
+                {isTr
+                  ? "Altı disiplin, kesintisiz tek bir iş akışı. Bir proje herhangi bir noktada dahil olabilir ve üretilebilir bir ürün olarak tamamlanır."
+                  : "Six disciplines, one continuous workflow. A project can enter at any point and leave as a manufacturable product."}
+              </p>
+            </Reveal>
+            <Link
+              to={servicesIndexUrl}
+              className="label-technical underline-offset-8 hover:underline text-accent shrink-0 transition-colors"
+            >
+              {isTr ? "Tüm Hizmetler →" : "All Capabilities →"}
+            </Link>
+          </div>
         </div>
 
         <div className="mt-16 grid gap-px bg-border md:grid-cols-2 lg:grid-cols-3">
           {services.map((s, i) => (
-            <ServiceCard key={s.id} s={s} i={i} />
+            <ServiceCard key={s.id} s={s} i={i} isTr={isTr} />
           ))}
         </div>
       </div>

@@ -2,6 +2,11 @@ import { useEffect } from "react";
 
 export function SmoothScroll() {
   useEffect(() => {
+    // Respect user's accessibility motion preference
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     let raf = 0;
     let lenis: { raf: (t: number) => void; destroy: () => void } | null = null;
 

@@ -1,58 +1,134 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { ArrowDown, Eye } from "lucide-react";
+import { ArrowDown, Eye, ExternalLink } from "lucide-react";
 import { animate, stagger } from "animejs";
-import { Link } from "@tanstack/react-router";
 
-// 1. Mock Products Data
-const MOCK_PRODUCTS = [
+// Store Product Images
+import wallDecor1Img from "@/assets/store/wall-decor-1-1.jpg";
+import dragonsKeeperImg from "@/assets/store/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru-1.jpg";
+import kampAtesiImg from "@/assets/store/kamp-atesi-1.jpg";
+import grainztagImg from "@/assets/store/grainztag-pet-1.jpg";
+import wallDecorUcluImg from "@/assets/store/wall-decor-2-uclu-1.jpg";
+
+export interface StoreProduct {
+  id: string;
+  title: string;
+  titleEn: string;
+  handle: string;
+  thumbnail: string;
+  description: string;
+  descriptionEn: string;
+  collection: {
+    title: string;
+    titleEn: string;
+  };
+  price: string;
+  storeUrl: string;
+  colors: string[];
+  sizes: string[];
+}
+
+const STORE_PRODUCTS: StoreProduct[] = [
   {
-    id: "prod_1",
-    title: "Precision Aluminum Chassis",
-    handle: "precision-aluminum-chassis",
-    thumbnail: "/store-image-1.png",
+    id: "prod_wall_decor_1",
+    title: "Wall Decor #1",
+    titleEn: "Wall Decor #1",
+    handle: "wall-decor-1",
+    thumbnail: wallDecor1Img,
     description:
-      "CNC machined from aerospace-grade aluminum, designed for optimal thermal dissipation and structural integrity.",
+      "Parametrik dalga rölyefi, hassas döküm yüzey ve siyah metal montaj çerçevesiyle üretilmiş modüler duvar objesi.",
+    descriptionEn:
+      "Modular architectural wall relief with parametric wave geometry, precision cast surface, and black metal frame.",
     collection: {
-      title: "CNC Prototyping",
+      title: "Modüler Rölyef",
+      titleEn: "Modular Relief",
     },
-    price: "$450.00",
-    colors: ["#8B8C89", "#1E1E1E", "#D4D4D4"],
-    sizes: ["Proto 1", "Proto 2", "Final"],
+    price: "₺ 499.00",
+    storeUrl: "https://store.100kraft.com/wall-decor-1",
+    colors: ["#B83B26", "#1E1E1E", "#D4D4D4"],
+    sizes: ["10x10cm", "Tekli"],
   },
   {
-    id: "prod_2",
-    title: "Modular Sensor Housing",
-    handle: "modular-sensor-housing",
-    thumbnail: "/store-image-2.png",
+    id: "prod_dragons_keeper",
+    title: "The Dragon’s Keeper",
+    titleEn: "The Dragon’s Keeper",
+    handle: "the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru",
+    thumbnail: dragonsKeeperImg,
     description:
-      "High-resolution 3D printed housing using industrial resins, featuring an interlocking mechanism for easy assembly.",
+      "Organik form dili ve yüksek mukavemetli kompozit döküm gövdeyle tasarlanan heykelsi takı ve anahtar askısı.",
+    descriptionEn:
+      "Sculptural jewelry and key organizer engineered with organic form language and high-strength composite casting.",
     collection: {
-      title: "3D Printing",
+      title: "Fonksiyonel Heykel",
+      titleEn: "Functional Sculpture",
     },
-    price: "$120.00",
-    colors: ["#1E1E1E", "#E6E6E6"],
-    sizes: ["V1.0", "V1.1", "V2.0"],
+    price: "₺ 499.00",
+    storeUrl: "https://store.100kraft.com/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru",
+    colors: ["#1E1E1E", "#D4D4D4", "#8B8C89"],
+    sizes: ["Standart"],
   },
   {
-    id: "prod_3",
-    title: "Ergonomic Handheld Controller",
-    handle: "ergonomic-handheld-controller",
-    thumbnail: "/store-image-3.png",
+    id: "prod_kamp_atesi",
+    title: "Kamp Ateşi Bioethanol",
+    titleEn: "Bioethanol Tabletop Fire Pit",
+    handle: "kamp-atesi",
+    thumbnail: kampAtesiImg,
     description:
-      "Iterative prototype exploring organic forms and ergonomics for industrial handheld equipment control.",
+      "Isıya dayanıklı özel refrakter beton gövde ve paslanmaz çelik yanma odası içeren masaüstü ateş çukuru.",
+    descriptionEn:
+      "Smokeless tabletop fire pit with thermal-shock resistant refractory cast concrete and stainless steel burner.",
     collection: {
-      title: "Industrial Design",
+      title: "Refrakter Döküm",
+      titleEn: "Refractory Casting",
     },
-    price: "$280.00",
-    colors: ["#D4D4D4", "#C65A2C", "#1E1E1E"],
-    sizes: ["Alpha", "Beta"],
+    price: "₺ 400.00",
+    storeUrl: "https://store.100kraft.com/kamp-atesi",
+    colors: ["#4A4A4A", "#1E1E1E"],
+    sizes: ["Kompakt"],
+  },
+  {
+    id: "prod_grainztag",
+    title: "GrainzTag #Pet",
+    titleEn: "GrainzTag #Pet",
+    handle: "grainztag-pet",
+    thumbnail: grainztagImg,
+    description:
+      "NFC ve QR teknolojili, IP68 su geçirmez reçine kapsülleme ve lazer markalamayla üretilmiş akıllı künye.",
+    descriptionEn:
+      "Smart pet companion tag with NFC & QR integration, IP68 waterproof resin encapsulation, and precision laser engraving.",
+    collection: {
+      title: "Akıllı Aksesuar",
+      titleEn: "Smart Accessories",
+    },
+    price: "₺ 399.00",
+    storeUrl: "https://store.100kraft.com/grainztag-pet",
+    colors: ["#1E1E1E", "#C65A2C", "#E6E6E6"],
+    sizes: ["Pet Mini", "Standard"],
+  },
+  {
+    id: "prod_wall_decor_uclu",
+    title: "Wall Decor #2 Üçlü Kompozisyon",
+    titleEn: "Wall Decor #2 Triptych",
+    handle: "wall-decor-2-uclu",
+    thumbnail: wallDecorUcluImg,
+    description:
+      "Üç parçalı kesintisiz akışkan rölyef kompozisyonu. Mimari mekanlar ve iç tasarım projeleri için özel seriler.",
+    descriptionEn:
+      "Three-piece continuous fluid relief composition engineered for architectural spaces and interior design installations.",
+    collection: {
+      title: "Triptych Seri",
+      titleEn: "Triptych Series",
+    },
+    price: "₺ 999.00",
+    storeUrl: "https://store.100kraft.com/wall-decor-2-uclu",
+    colors: ["#1E1E1E", "#B83B26"],
+    sizes: ["10x28cm", "3'lü Set"],
   },
 ];
 
-// 2. Minimal Product Card Component
-function MinimalProductCard({ product }: { product: (typeof MOCK_PRODUCTS)[0] }) {
+// Minimal Product Card Component for horizontal overview
+function MinimalProductCard({ product, isTr = true }: { product: StoreProduct; isTr?: boolean }) {
   const fullImageUrl = product.thumbnail ?? "";
   const cardRef = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
@@ -62,6 +138,7 @@ function MinimalProductCard({ product }: { product: (typeof MOCK_PRODUCTS)[0] })
     if (!card) return;
 
     const touch = e.touches[0];
+    if (!touch) return;
     const rect = card.getBoundingClientRect();
     const x = ((touch.clientX - rect.left) / rect.width) * 100;
     const y = ((touch.clientY - rect.top) / rect.height) * 100;
@@ -85,283 +162,243 @@ function MinimalProductCard({ product }: { product: (typeof MOCK_PRODUCTS)[0] })
   };
 
   return (
-    <div
-      ref={cardRef}
-      onMouseEnter={handleMouseEnter}
-      onTouchStart={handleTouchStart}
-      onMouseLeave={() => setActive(false)}
-      className="group relative block w-full h-full bg-transparent overflow-hidden border border-border/30 hover:border-primary/50 transition-colors duration-700"
+    <a
+      href={product.storeUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block text-foreground group"
     >
-      {/* Image Section */}
-      <div className="relative aspect-[3/4] w-full overflow-hidden bg-muted">
-        {/* Background: Grayscale Image */}
-        {fullImageUrl && (
-          <img
-            src={fullImageUrl}
-            alt={product.title}
-            className="absolute inset-0 w-full h-full object-cover grayscale opacity-90 transition-all duration-1000 ease-out"
-          />
-        )}
+      <div
+        ref={cardRef}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={() => setActive(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={() => setActive(false)}
+        className={`relative w-full aspect-[4/5] bg-secondary border border-border/80 overflow-hidden cursor-pointer transition-colors duration-300 ${
+          active ? "border-foreground/40" : ""
+        }`}
+        style={
+          {
+            "--reveal-x": "50%",
+            "--reveal-y": "50%",
+          } as React.CSSProperties
+        }
+      >
+        {/* Background product photography */}
+        <img
+          src={fullImageUrl}
+          alt={product.title}
+          loading="lazy"
+          className="w-full h-full object-cover grayscale contrast-125 transition-transform duration-700 group-hover:scale-105 group-hover:grayscale-0"
+        />
 
-        {/* Foreground: Color Image (Clipped by circle) */}
-        {fullImageUrl && (
-          <div
-            className="absolute inset-0 w-full h-full transition-all duration-1000 ease-out"
-            style={{
-              clipPath: `circle(${
-                active ? "150%" : "0%"
-              } at var(--reveal-x, 50%) var(--reveal-y, 50%))`,
-              transition: "clip-path 2.8s cubic-bezier(0.15, 0.85, 0.35, 1)",
-            }}
-          >
-            <img
-              src={fullImageUrl}
-              alt={product.title}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-        )}
+        {/* Hover overlay with badge */}
+        <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity" />
 
-        {/* Subtle dark gradient overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
-
-        {/* Custom Hover Action */}
-        <div
-          className={`absolute bottom-6 left-1/2 -translate-x-1/2 transition-all duration-700 z-30 w-fit ${
-            active
-              ? "translate-y-0 opacity-100"
-              : "translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100"
-          }`}
-          style={{ transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)" }}
-        >
-          <Link
-            to="/store"
-            className="block bg-background/80 backdrop-blur-md text-foreground text-[8px] sm:text-[10px] uppercase tracking-normal font-medium py-1.5 px-3 sm:py-3 sm:px-8 rounded-full border border-border whitespace-nowrap shadow-xl hover:bg-primary hover:text-primary-foreground transition-colors duration-300 cursor-pointer"
-          >
-            View Details
-          </Link>
-        </div>
-      </div>
-
-      {/* Typography Section */}
-      <div className="flex flex-col items-center justify-center text-center p-3 sm:p-6 md:p-8 bg-transparent relative z-20">
-        <span className="text-[8px] sm:text-[9px] text-muted-foreground uppercase tracking-[0.4em] mb-1 sm:mb-3 font-light">
-          {product.collection?.title ?? "CLOSET STUDIO"}
-        </span>
-
-        <h4 className="text-xs sm:text-sm md:text-base uppercase font-normal text-foreground mb-2 sm:mb-4 w-full line-clamp-2 transition-colors duration-500 tracking-widest">
-          {product.title}
-        </h4>
-
-        <div className="flex items-center justify-center">
-          <span className="text-[10px] sm:text-xs font-light tracking-[0.15em] text-foreground/80 group-hover:text-foreground transition-colors duration-500">
-            {product.price}
+        <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity">
+          <span className="p-1.5 bg-background/90 border border-border inline-flex items-center justify-center">
+            <ExternalLink className="w-3.5 h-3.5 text-foreground" />
           </span>
         </div>
-      </div>
 
-      {/* Decorative Architectural Corners */}
-      <div className="absolute top-0 left-0 w-8 h-[1px] bg-foreground/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100"></div>
-      <div className="absolute top-0 left-0 w-[1px] h-8 bg-foreground/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100"></div>
-      <div className="absolute top-0 right-0 w-8 h-[1px] bg-foreground/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100"></div>
-      <div className="absolute top-0 right-0 w-[1px] h-8 bg-foreground/30 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100"></div>
-    </div>
+        {/* Bottom details */}
+        <div className="absolute bottom-0 inset-x-0 p-4">
+          <span className="label-technical text-[10px] text-accent block uppercase">
+            {isTr ? product.collection.title : product.collection.titleEn}
+          </span>
+          <p className="font-display text-sm tracking-tight text-foreground truncate mt-0.5">
+            {isTr ? product.title : product.titleEn}
+          </p>
+          <p className="label-technical text-xs text-foreground/80 font-semibold mt-1">
+            {product.price}
+          </p>
+        </div>
+      </div>
+    </a>
   );
 }
 
-// 3. Product Hero Component
+// Product Hero Component for vertical cinematic scroll
 function ProductHero({
   product,
   reversed = false,
+  isTr = true,
 }: {
-  product: (typeof MOCK_PRODUCTS)[0];
+  product: StoreProduct;
   reversed?: boolean;
+  isTr?: boolean;
 }) {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const fullImageUrl = product.thumbnail ?? "";
+  const [activeColor, setActiveColor] = useState(0);
+  const [activeSize, setActiveSize] = useState(0);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const imageRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
     const handleScroll = () => {
-      const rect = section.getBoundingClientRect();
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
       const windowHeight = window.innerHeight;
-      const mask = section.querySelector<HTMLElement>(".color-mask");
 
-      let progress = 0;
-
-      if (window.innerWidth < 768) {
-        const elementTop = rect.top;
-        const startReveal = windowHeight;
-        const endReveal = windowHeight * 0.25;
-
-        const totalDistance = startReveal - endReveal;
-        const currentDistance = startReveal - elementTop;
-
-        progress = currentDistance / totalDistance;
-      } else {
-        if (rect.top <= 0) {
-          const totalScrollableDistance = rect.height - windowHeight;
-          if (totalScrollableDistance > 0) {
-            progress = Math.abs(rect.top) / totalScrollableDistance;
-          }
-        }
+      // Parallax effect on main image
+      if (imageRef.current) {
+        const progress = (windowHeight - rect.top) / (windowHeight + rect.height);
+        const yOffset = (progress - 0.5) * 60;
+        imageRef.current.style.transform = `translateY(${yOffset}px) scale(1.04)`;
       }
 
-      progress = Math.min(Math.max(progress, 0), 1);
-
-      if (mask) {
-        if (window.innerWidth < 768) {
-          mask.style.clipPath = `inset(0 ${100 - progress * 100}% 0 0)`;
-        } else {
-          mask.style.clipPath = `inset(0 0 ${100 - progress * 100}% 0)`;
-        }
-      }
-
-      const revealSteps = section.querySelectorAll(".reveal-step");
-      revealSteps.forEach((step) => {
-        const startProgress = parseFloat(step.getAttribute("data-progress") || "0");
-        if (progress > startProgress) {
+      // Staggered reveal for details
+      const steps = containerRef.current.querySelectorAll(".reveal-step");
+      steps.forEach((step) => {
+        const threshold = Number((step as HTMLElement).dataset["progress"]) || 0.3;
+        const elementProgress = (windowHeight - rect.top) / windowHeight;
+        if (elementProgress > threshold) {
           step.classList.add("active");
-        } else {
-          step.classList.remove("active");
         }
       });
     };
 
-    handleScroll();
-
-    window.addEventListener("resize", handleScroll);
     window.addEventListener("scroll", handleScroll, { passive: true });
-
-    return () => {
-      window.removeEventListener("resize", handleScroll);
-      window.removeEventListener("scroll", handleScroll);
-    };
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div ref={sectionRef} className="scroll-section relative h-auto md:h-[250vh] w-full group">
-      <div className="relative md:sticky md:top-0 md:left-0 w-full h-auto md:h-screen overflow-hidden bg-transparent">
-        <div className="w-full h-auto md:h-full grid grid-cols-1 md:grid-cols-2">
-          {/* Images Side */}
+    <div
+      ref={containerRef}
+      className="relative min-h-screen w-full flex items-center justify-center py-20 px-6 md:px-12 border-b border-border"
+    >
+      <div className="w-full max-w-7xl mx-auto">
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center ${
+            reversed ? "lg:grid-flow-dense" : ""
+          }`}
+        >
+          {/* Visual Column */}
           <div
-            className={`relative w-full flex items-center justify-center p-3 sm:p-8 md:p-0 max-w-[400px] sm:max-w-[480px] md:max-w-none mx-auto ${
-              reversed ? "md:order-2" : ""
+            className={`lg:col-span-7 relative overflow-hidden bg-secondary border border-border/80 aspect-[4/5] sm:aspect-[16/11] lg:aspect-[4/5] ${
+              reversed ? "lg:col-start-6" : ""
             }`}
           >
-            <div className="relative w-full aspect-[4/5] md:aspect-auto md:h-full overflow-hidden rounded-2xl md:rounded-none">
-              {/* Background: Grayscale Image */}
-              <div className="absolute inset-0 w-full h-full flex justify-center bg-transparent">
-                {fullImageUrl && (
-                  <img
-                    src={fullImageUrl}
-                    alt={product.title}
-                    className="absolute inset-0 w-full h-full object-contain grayscale brightness-110"
-                  />
-                )}
-              </div>
+            <img
+              ref={imageRef}
+              src={product.thumbnail}
+              alt={product.title}
+              loading="lazy"
+              className="w-full h-full object-cover transition-transform ease-out will-change-transform"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent pointer-events-none" />
 
-              {/* Foreground: Color Image (Clipped by clipPath) */}
-              <div
-                className="color-mask absolute inset-0 w-full h-full flex justify-center will-change-[clip-path]"
-                style={{ clipPath: "inset(0 0 100% 0)" }}
-              >
-                {fullImageUrl && (
-                  <img
-                    src={fullImageUrl}
-                    alt={product.title}
-                    className="absolute inset-0 w-full h-full object-contain"
-                  />
-                )}
-              </div>
+            <div className="absolute top-4 left-4">
+              <span className="label-technical text-xs bg-background/80 border border-border px-3 py-1 text-accent backdrop-blur-sm">
+                {isTr ? product.collection.title : product.collection.titleEn}
+              </span>
             </div>
           </div>
 
-          {/* Content Side */}
-          <div
-            className={`flex items-center justify-center py-5 px-6 md:p-12 relative z-20 ${
-              reversed ? "md:order-1" : ""
-            }`}
-          >
-            <div className="max-w-sm md:max-w-md w-full flex flex-col gap-6 md:gap-10">
-              {/* Step 1: Title & Price */}
+          {/* Details Column */}
+          <div className={`lg:col-span-5 ${reversed ? "lg:col-start-1" : ""}`}>
+            <div className="space-y-6">
+              {/* Step 1: Category & Title */}
               <div
-                className="reveal-step transition-all duration-1000 ease-out opacity-0 translate-y-12 [&.active]:opacity-100 [&.active]:translate-y-0"
+                className="reveal-step transition-all duration-700 ease-out opacity-0 translate-y-8 [&.active]:opacity-100 [&.active]:translate-y-0"
                 data-progress="0.2"
               >
-                <h2 className="text-lg sm:text-xl md:text-4xl font-semibold tracking-tight text-foreground mb-3 font-display">
-                  {product.title}
-                </h2>
-                <div className="flex items-center gap-3">
-                  <span className="text-base sm:text-xl font-medium text-foreground">
+                <span className="label-technical text-xs text-muted-foreground tracking-widest block uppercase">
+                  100KRAFT ATELIER COLLECTION
+                </span>
+                <h3 className="font-display text-3xl sm:text-4xl lg:text-5xl tracking-tight text-foreground mt-2">
+                  {isTr ? product.title : product.titleEn}
+                </h3>
+                <div className="mt-3 flex items-baseline gap-4">
+                  <span className="font-display text-2xl text-accent font-medium">
                     {product.price}
+                  </span>
+                  <span className="label-technical text-xs text-muted-foreground">
+                    {isTr ? "Doğrudan Atölye Üretimi" : "Direct Atelier Manufacturing"}
                   </span>
                 </div>
               </div>
 
               {/* Step 2: Description */}
               <div
-                className="reveal-step transition-all duration-1000 ease-out opacity-0 translate-y-12 [&.active]:opacity-100 [&.active]:translate-y-0"
-                data-progress="0.4"
+                className="reveal-step transition-all duration-700 ease-out opacity-0 translate-y-8 [&.active]:opacity-100 [&.active]:translate-y-0"
+                data-progress="0.35"
               >
-                <p className="text-sm md:text-base leading-relaxed text-muted-foreground font-light text-justify pt-6 border-t border-border/50">
-                  {product.description}
+                <p className="text-sm sm:text-base leading-relaxed text-muted-foreground border-l border-border pl-4">
+                  {isTr ? product.description : product.descriptionEn}
                 </p>
               </div>
 
-              {/* Step 3: Options (Colors & Sizes) */}
-              {(product.colors.length > 0 || product.sizes.length > 0) && (
-                <div
-                  className="reveal-step grid grid-cols-2 gap-4 sm:gap-8 transition-all duration-1000 ease-out opacity-0 translate-y-12 [&.active]:opacity-100 [&.active]:translate-y-0"
-                  data-progress="0.6"
-                >
-                  {product.colors.length > 0 && (
-                    <div>
-                      <span className="block text-[10px] text-muted-foreground uppercase mb-3 tracking-widest label-technical">
-                        MATERIAL
-                      </span>
-                      <div className="flex gap-2.5 flex-wrap">
-                        {product.colors.map((color: string, i: number) => (
-                          <div
-                            key={i}
-                            className="w-6 h-6 rounded-full border border-border shadow-inner cursor-pointer hover:scale-110 transition-transform"
-                            style={{ backgroundColor: color }}
-                          />
-                        ))}
-                      </div>
+              {/* Step 3: Attributes (Colors & Sizes) */}
+              <div
+                className="reveal-step space-y-4 pt-2 transition-all duration-700 ease-out opacity-0 translate-y-8 [&.active]:opacity-100 [&.active]:translate-y-0"
+                data-progress="0.5"
+              >
+                {product.sizes.length > 0 && (
+                  <div>
+                    <span className="label-technical text-xs text-muted-foreground block mb-2">
+                      {isTr ? "VARYASYON" : "VARIATION"}
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {product.sizes.map((sz, idx) => (
+                        <button
+                          key={sz}
+                          type="button"
+                          onClick={() => setActiveSize(idx)}
+                          className={`px-3 py-1.5 label-technical text-xs border transition-colors cursor-pointer ${
+                            activeSize === idx
+                              ? "bg-foreground text-background border-foreground font-semibold"
+                              : "border-border hover:border-foreground/50 text-foreground/80"
+                          }`}
+                        >
+                          {sz}
+                        </button>
+                      ))}
                     </div>
-                  )}
+                  </div>
+                )}
 
-                  {product.sizes.length > 0 && (
-                    <div>
-                      <span className="block text-[10px] text-muted-foreground uppercase mb-3 tracking-widest label-technical">
-                        VERSION
-                      </span>
-                      <div className="flex gap-4 text-xs font-medium text-foreground">
-                        {product.sizes.map((size: string, i: number) => (
-                          <span key={i} className="cursor-default label-technical">
-                            {size}
-                          </span>
-                        ))}
-                      </div>
+                {product.colors.length > 0 && (
+                  <div>
+                    <span className="label-technical text-xs text-muted-foreground block mb-2">
+                      {isTr ? "MATERYAL / RENK TONU" : "MATERIAL / COLOR"}
+                    </span>
+                    <div className="flex items-center gap-2">
+                      {product.colors.map((c, idx) => (
+                        <button
+                          key={c}
+                          type="button"
+                          onClick={() => setActiveColor(idx)}
+                          className={`w-6 h-6 border transition-all cursor-pointer ${
+                            activeColor === idx ? "scale-110 border-accent" : "border-border/60"
+                          }`}
+                          style={{ backgroundColor: c }}
+                          aria-label={`Color ${c}`}
+                        />
+                      ))}
                     </div>
-                  )}
-                </div>
-              )}
+                  </div>
+                )}
+              </div>
 
               {/* Step 4: Action Button */}
               <div
-                className="reveal-step pt-8 transition-all duration-1000 ease-out opacity-0 translate-y-12 [&.active]:opacity-100 [&.active]:translate-y-0"
-                data-progress="0.8"
+                className="reveal-step pt-4 transition-all duration-700 ease-out opacity-0 translate-y-8 [&.active]:opacity-100 [&.active]:translate-y-0"
+                data-progress="0.65"
               >
-                <Link to="/store" className="w-full block group">
-                  <button className="w-full h-14 bg-foreground text-background hover:bg-foreground/90 text-xs font-medium uppercase flex items-center justify-center gap-3 rounded-none transition-colors duration-300">
-                    <span className="tracking-widest label-technical">QUICK VIEW</span>
+                <a
+                  href={product.storeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full block group"
+                >
+                  <button className="w-full h-14 bg-foreground text-background hover:bg-accent hover:text-foreground text-xs font-medium uppercase flex items-center justify-center gap-3 rounded-none transition-colors duration-300 cursor-pointer">
+                    <span className="tracking-widest label-technical font-semibold">
+                      {isTr ? "MAĞAZADA İNCELE ↗" : "VIEW ON STORE ↗"}
+                    </span>
                     <Eye width={16} />
                   </button>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -371,13 +408,15 @@ function ProductHero({
   );
 }
 
-// 4. Main Unified Mock Component
-export function CinematicProductScrollSection() {
-  const finalTitle = "100KRAFT STORE";
-  const finalSubtitle = "EST. 2024";
-  const finalDescription =
-    "We design a timeless lifestyle beyond objects. Where minimalism meets manufacturing.";
-  const finalButtonText = "View Collection";
+interface CinematicProductScrollSectionProps {
+  lang?: "en" | "tr";
+}
+
+// Main Unified Cinematic Product Section
+export function CinematicProductScrollSection({ lang = "tr" }: CinematicProductScrollSectionProps) {
+  const isTr = lang === "tr";
+  const finalTitle = isTr ? "100KRAFT MAĞAZA" : "100KRAFT STORE";
+  const finalButtonText = isTr ? "Tüm Ürünleri İncele ↗" : "View All Products ↗";
 
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -390,20 +429,20 @@ export function CinematicProductScrollSection() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !animeTriggered.current) {
+        if (entries[0]?.isIntersecting && !animeTriggered.current) {
           if (!finalCollectionRef.current) return;
           animeTriggered.current = true;
 
           animate(finalCollectionRef.current.querySelectorAll(".anime-card"), {
-            translateY: [-200, 0],
+            translateY: [-60, 0],
             opacity: [0, 1],
-            delay: stagger(150),
-            duration: 1000,
-            easing: "easeOutElastic(1, .6)",
+            delay: stagger(100),
+            duration: 800,
+            easing: "easeOutCubic",
           });
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.15 },
     );
 
     observer.observe(finalCollectionRef.current);
@@ -435,7 +474,6 @@ export function CinematicProductScrollSection() {
       passive: true,
     });
     const timeoutId = setTimeout(handleContainerScroll, 100);
-
     window.addEventListener("resize", handleContainerScroll);
 
     return () => {
@@ -445,131 +483,78 @@ export function CinematicProductScrollSection() {
     };
   }, []);
 
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const gridItems = containerRef.current.querySelectorAll(".grid-item, .reveal");
-
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px",
-    };
-
-    const gridObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("show", "active");
-        }
-      });
-    }, observerOptions);
-
-    gridItems.forEach((item) => {
-      gridObserver.observe(item);
-    });
-
-    return () => {
-      gridObserver.disconnect();
-    };
-  }, []);
-
-  const mainTitleParts = finalTitle.split(" ");
-  const mainTitleFirst = mainTitleParts[0];
-  const mainTitleRest = mainTitleParts.slice(1).join(" ");
-
   return (
     <div
       ref={containerRef}
-      className="bg-transparent text-foreground antialiased selection:bg-accent selection:text-accent-foreground w-full animate-in fade-in duration-1000"
+      id="store-showcase"
+      className="relative bg-background text-foreground overflow-hidden border-t border-border"
     >
-      {/* Intro Section - Cinematic Version */}
-      <section className="relative h-[100dvh] w-full flex flex-col justify-center items-center overflow-hidden bg-transparent">
-        {/* Light Effects */}
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-accent/5 blur-[120px] rounded-full animate-pulse"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-muted-foreground/10 blur-[150px] rounded-full"></div>
-
-        {/* Content */}
-        <div className="relative z-10 text-center px-6 -mt-16 md:-mt-32 w-full flex flex-col items-center justify-center">
-          <div className="overflow-hidden mb-4 md:mb-6 w-full flex justify-center">
-            <span
-              className="block font-black text-muted-foreground uppercase reveal text-center label-technical"
-              style={{ animationDelay: "0.2s" }}
-            >
-              {finalSubtitle}
+      {/* Section Header */}
+      <div className="pt-24 pb-8 px-6 md:px-12 max-w-7xl mx-auto">
+        <div className="flex flex-wrap items-end justify-between gap-6 border-b border-border pb-6">
+          <div>
+            <span className="label-technical text-xs text-accent uppercase">
+              {isTr ? "05 · Atölye Üretimleri" : "05 · Atelier Collection"}
             </span>
-          </div>
-
-          <h1 className="text-4xl sm:text-6xl md:text-[8rem] lg:text-[10rem] font-display font-medium leading-[0.85] text-foreground w-full flex flex-col items-center justify-center text-center tracking-tighter">
-            <div className="overflow-hidden w-full flex justify-center">
-              <span className="block reveal text-center" style={{ animationDelay: "0.4s" }}>
-                {mainTitleFirst}
-              </span>
-            </div>
-            <div className="overflow-hidden mt-2 w-full flex justify-center">
-              <span
-                className="block font-light text-muted-foreground reveal text-center"
-                style={{ animationDelay: "0.6s" }}
-              >
-                {mainTitleRest}
-              </span>
-            </div>
-          </h1>
-
-          <div className="mt-6 md:mt-12 overflow-hidden w-full flex justify-center">
-            <p
-              className="text-muted-foreground text-center text-sm md:text-base max-w-lg font-light leading-relaxed tracking-wide reveal"
-              style={{ animationDelay: "0.8s" }}
-            >
-              {finalDescription}
+            <h2 className="font-display text-3xl sm:text-5xl tracking-tight mt-2 text-foreground">
+              {finalTitle}
+            </h2>
+            <p className="mt-2 text-sm sm:text-base text-muted-foreground max-w-xl">
+              {isTr
+                ? "Antalya atölyemizde geliştirilen, kalıplanan ve seri üretimi yapılan fiziksel ürünler."
+                : "Physical objects engineered, molded, and crafted in our Antalya atelier."}
             </p>
           </div>
+          <a
+            href="https://store.100kraft.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 label-technical text-xs font-semibold bg-foreground text-background px-5 py-3 hover:bg-accent hover:text-foreground transition-colors"
+          >
+            <span>{finalButtonText}</span>
+            <ArrowDown className="-rotate-90 w-3.5 h-3.5" />
+          </a>
         </div>
+      </div>
 
-        {/* Scroll Indicator */}
-        <div
-          className="absolute bottom-8 md:bottom-12 flex flex-col items-center gap-4 reveal"
-          style={{ animationDelay: "1.2s" }}
-        >
-          <div className="w-[1px] h-12 md:h-20 bg-foreground/10 relative overflow-hidden">
-            <div className="absolute inset-x-0 top-0 h-12 bg-gradient-to-b from-transparent via-foreground/50 to-transparent animate-in slide-in-from-top-full duration-1000 repeat-infinite"></div>
-          </div>
-          <span className="label-technical text-[9px] text-foreground/40">SCROLL DOWN</span>
-        </div>
-      </section>
-
-      {/* Products - Render ProductHero for each item */}
-      {MOCK_PRODUCTS.map((product, index) => (
-        <ProductHero key={product.id} product={product} reversed={index % 2 !== 0} />
+      {/* Featured Products - Render ProductHero for top 3 items */}
+      {STORE_PRODUCTS.slice(0, 3).map((product, index) => (
+        <ProductHero key={product.id} product={product} reversed={index % 2 !== 0} isTr={isTr} />
       ))}
 
-      {/* Summary Horizontal Collection - Using the same items */}
+      {/* Horizontal Carousel Overview - All products */}
       <div
         ref={finalCollectionRef}
         id="final-collection"
-        className="bg-transparent w-full pt-12 pb-4 md:pt-16 md:pb-6 border-t border-border"
+        className="w-full pt-16 pb-20 border-t border-border bg-secondary/20"
       >
-        <div className="w-full max-w-7xl mx-auto px-2">
+        <div className="w-full max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex items-end justify-between border-b border-border pb-4 mb-8">
-            <span className="label-technical text-muted-foreground block">OVERVIEW</span>
-            <Link
-              to="/store"
-              className="group inline-flex items-center gap-1.5 label-technical font-bold text-foreground hover:text-muted-foreground transition-colors"
+            <span className="label-technical text-muted-foreground text-xs block">
+              {isTr ? "TÜM ÜRÜN VİTRİNİ" : "FULL PRODUCT SHOWCASE"}
+            </span>
+            <a
+              href="https://store.100kraft.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex items-center gap-1.5 label-technical font-semibold text-xs text-accent hover:underline"
             >
-              <span className="tracking-[0.2em]">{finalButtonText}</span>
-              <ArrowDown className="w-3.5 h-3.5 transition-transform -rotate-90 group-hover:translate-x-0.5" />
-            </Link>
+              <span>{isTr ? "store.100kraft.com'a Git" : "Visit store.100kraft.com"}</span>
+              <ExternalLink className="w-3 h-3" />
+            </a>
           </div>
 
           {/* Horizontal Scroll Container */}
           <div
             ref={scrollContainerRef}
-            className="flex overflow-x-auto gap-4 md:gap-8 pb-8 scrollbar-hide snap-x snap-mandatory justify-start md:justify-center"
+            className="flex overflow-x-auto gap-4 md:gap-6 pb-6 scrollbar-hide snap-x snap-mandatory justify-start"
           >
-            {MOCK_PRODUCTS.map((product) => (
+            {STORE_PRODUCTS.map((product) => (
               <div
                 key={product.id}
-                className="anime-card grid-item group cursor-pointer w-[calc(50%-8px)] min-w-[calc(50%-8px)] max-w-[calc(50%-8px)] sm:w-[calc(33.333%-11px)] sm:min-w-[calc(33.333%-11px)] sm:max-w-[calc(33.333%-11px)] md:w-[300px] md:min-w-[300px] md:max-w-[320px] snap-center flex-shrink-0 opacity-0"
+                className="anime-card group cursor-pointer w-[240px] sm:w-[280px] md:w-[300px] snap-center flex-shrink-0 opacity-0"
               >
-                <MinimalProductCard product={product} />
+                <MinimalProductCard product={product} isTr={isTr} />
               </div>
             ))}
           </div>
@@ -578,7 +563,7 @@ export function CinematicProductScrollSection() {
           <div className="w-24 h-[2px] bg-foreground/10 mx-auto mt-2 rounded-full overflow-hidden relative">
             <div
               ref={scrollIndicatorRef}
-              className="h-full bg-foreground w-8 rounded-full absolute left-0 transition-all duration-75"
+              className="h-full bg-accent w-8 rounded-full absolute left-0 transition-all duration-75"
               style={{ left: "0%" }}
             />
           </div>
