@@ -8,10 +8,18 @@ import { InstagramIcon } from "./Instagram";
 import { Nav } from "./Nav";
 import { Reveal } from "./Reveal";
 
-export function SiteLayout({ lang, children }: { lang: Language; children: ReactNode }) {
+export function SiteLayout({
+  lang,
+  children,
+  navOverlay = false,
+}: {
+  lang: Language;
+  children: ReactNode;
+  navOverlay?: boolean;
+}) {
   return (
     <>
-      <Nav lang={lang} />
+      <Nav lang={lang} overlay={navOverlay} />
       <main>{children}</main>
       <Footer lang={lang} />
     </>

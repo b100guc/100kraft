@@ -18,7 +18,7 @@ function alternatePath(pathname: string, isEn: boolean): string {
   return pathname === "/" ? "/en" : `/en${pathname}`;
 }
 
-export function Nav({ lang }: { lang: Language }) {
+export function Nav({ lang, overlay = false }: { lang: Language; overlay?: boolean }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
@@ -41,6 +41,12 @@ export function Nav({ lang }: { lang: Language }) {
     };
   }, [open]);
 
+  // Over a dark hero video, until the user scrolls.
+  const light = overlay && !scrolled && !open;
+  const linkTone = light
+    ? "text-background/80 hover:text-background"
+    : "text-foreground/70 hover:text-foreground";
+
   const links: { href: string; hash?: string; label: string }[] = [
     { href: localePath(lang, "/work"), label: t.work },
     { href: localePath(lang, "/services"), label: t.services },
@@ -57,7 +63,11 @@ export function Nav({ lang }: { lang: Language }) {
       }`}
     >
       <div className="wrap flex h-16 items-center justify-between">
-        <Link to={localePath(lang, "/")} aria-label="100KRAFT">
+        <Link
+          to={localePath(lang, "/")}
+          aria-label="100KRAFT"
+          className={light ? "text-background" : "text-foreground"}
+        >
           <Logo />
         </Link>
 
@@ -67,7 +77,7 @@ export function Nav({ lang }: { lang: Language }) {
               key={l.label}
               to={l.href}
               {...(l.hash ? { hash: l.hash } : { activeProps: { className: "!text-foreground" } })}
-              className="text-[0.9375rem] text-foreground/70 transition-colors hover:text-foreground"
+              className={`text-[0.9375rem] transition-colors ${linkTone}`}
             >
               {l.label}
             </Link>
@@ -79,7 +89,7 @@ export function Nav({ lang }: { lang: Language }) {
             onClick={() =>
               trackEvent({ name: "store_click", destination: contact.store, location: "nav" })
             }
-            className="inline-flex items-center gap-1 text-[0.9375rem] text-foreground/70 transition-colors hover:text-foreground"
+            className={`inline-flex items-center gap-1 text-[0.9375rem] transition-colors ${linkTone}`}
           >
             {t.store}
             <ArrowUpRight />
@@ -87,13 +97,10 @@ export function Nav({ lang }: { lang: Language }) {
         </nav>
 
         <div className="flex items-center gap-1 sm:gap-2">
-          <InstagramLink
-            label="Instagram @100kraft"
-            className="h-10 w-10 text-foreground/70 hover:text-foreground"
-          />
+          <InstagramLink label="Instagram @100kraft" className={`h-10 w-10 ${linkTone}`} />
           <Link
             to={altHref}
-            className="px-2 py-2 text-[0.8125rem] font-medium tracking-wide text-foreground/60 transition-colors hover:text-foreground"
+            className={`px-2 py-2 text-[0.8125rem] font-medium tracking-wide transition-colors ${linkTone}`}
             hrefLang={isEn ? "tr" : "en"}
             title={isEn ? "Türkçe" : "English"}
           >
@@ -102,14 +109,18 @@ export function Nav({ lang }: { lang: Language }) {
           <Link
             to={startHref}
             onClick={() => trackEvent({ name: "start_project_click", location: "nav" })}
-            className="hidden h-10 items-center bg-foreground px-4 text-[0.875rem] font-medium text-background transition-colors hover:bg-accent sm:inline-flex"
+            className={`hidden h-10 items-center px-4 text-[0.875rem] font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:inline-flex ${
+              light ? "bg-background text-foreground" : "bg-foreground text-background"
+            }`}
           >
             {t.startProject}
           </Link>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="-mr-2 flex h-10 items-center px-2 text-[0.875rem] font-medium md:hidden"
+            className={`-mr-2 flex h-10 items-center px-2 text-[0.875rem] font-medium md:hidden ${
+              light ? "text-background" : ""
+            }`}
             aria-expanded={open}
             aria-controls="mobile-menu"
           >

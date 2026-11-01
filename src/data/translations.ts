@@ -28,8 +28,8 @@ export const siteContent = {
     },
     hero: {
       eyebrow: "Tasarım · 3D baskı · Kalıp & döküm · Antalya",
-      title: "Elle tutulur fikirler.",
-      lead: "100KRAFT, Antalya’da bir tasarım ve üretim atölyesi. Fikri çiziyor, 3D baskı ve dökümle üretiyor, elde bitiriyoruz.",
+      title: "Yüzde yüz zanaat.",
+      lead: "Tasarımdan döküme, her parça Antalya’daki atölyemizde elde biter.",
       cta: "Proje başlat",
       secondary: "Mağazaya git",
     },
@@ -108,8 +108,8 @@ export const siteContent = {
     },
     hero: {
       eyebrow: "Design · 3D printing · Moulds & casting · Antalya",
-      title: "Ideas you can hold.",
-      lead: "100KRAFT is a design and fabrication workshop in Antalya. We draw the idea, make it with 3D printing and casting, and finish it by hand.",
+      title: "One hundred percent craft.",
+      lead: "From design to casting, every piece is finished by hand in our Antalya workshop.",
       cta: "Start a project",
       secondary: "Visit the store",
     },
