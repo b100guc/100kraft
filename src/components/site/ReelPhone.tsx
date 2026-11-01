@@ -62,7 +62,7 @@ export function ReelPhone({ lang }: { lang: Language }) {
     <div className="flex flex-col items-center">
       <div
         ref={frame}
-        className="relative aspect-[9/19.5] w-[260px] rounded-[44px] bg-ink p-[10px] shadow-[0_40px_80px_-30px_rgba(20,19,18,0.55)] ring-1 ring-black/40 sm:w-[300px]"
+        className="relative h-[540px] w-[250px] shrink-0 rounded-[44px] bg-ink p-[10px] shadow-[0_40px_80px_-30px_rgba(20,19,18,0.55)] ring-1 ring-black/40 sm:h-[600px] sm:w-[277px]"
       >
         <span
           aria-hidden
@@ -70,7 +70,7 @@ export function ReelPhone({ lang }: { lang: Language }) {
         />
         <div className="relative h-full w-full overflow-hidden rounded-[34px] bg-ink">
           <div
-            className="h-full w-full transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)]"
+            className="flex h-full w-full flex-col transition-transform duration-700 ease-[cubic-bezier(0.65,0,0.35,1)]"
             style={{ transform: `translateY(-${active * 100}%)` }}
           >
             {reels.map((reel, i) => (
@@ -79,7 +79,7 @@ export function ReelPhone({ lang }: { lang: Language }) {
                 ref={(el) => {
                   videos.current[i] = el;
                 }}
-                className="h-full w-full object-cover"
+                className="h-full min-h-0 w-full shrink-0 object-cover"
                 src={visible || i === 0 ? `/reels/${reel.code}.mp4` : undefined}
                 poster={`/reels/${reel.code}.webp`}
                 muted
