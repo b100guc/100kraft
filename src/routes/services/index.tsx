@@ -1,15 +1,13 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicesIndexPage } from "@/components/pages/ServicePages";
-import { pageHead } from "@/lib/seo";
+import { servicesIndexHead } from "@/lib/heads";
 
 export const Route = createFileRoute("/services/")({
   head: () =>
-    pageHead({
-      lang: "tr",
-      path: "/services",
-      title: "Hizmetler — 100KRAFT",
-      description:
-        "Ürün tasarımı, 3D modelleme, 3D baskı, prototipleme, kalıp ve döküm, üretim danışmanlığı.",
-    }),
+    servicesIndexHead(
+      "tr",
+      "Hizmetler — 100KRAFT",
+      "Ürün tasarımı, 3D modelleme, 3D baskı, prototipleme, kalıp ve döküm, üretim danışmanlığı.",
+    ),
   component: () => <ServicesIndexPage lang="tr" />,
 });

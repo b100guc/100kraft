@@ -1,27 +1,21 @@
-import { heroPanels, projects, storeProducts } from "@/data/projects";
+import { heroPanels } from "@/data/projects";
 import { contact, localePath, siteContent, type Language } from "@/data/translations";
 import { trackEvent } from "@/lib/analytics";
-import { Arrow, ArrowUpRight, ButtonLink } from "@/components/site/Button";
+import { Arrow, ButtonLink } from "@/components/site/Button";
 import { CollectionGrid } from "@/components/site/Catalogue";
-import { InstagramSection } from "@/components/site/Instagram";
-import { PostCard } from "@/components/pages/BlogPages";
-import { posts } from "@/data/blog";
+import { InstagramIcon } from "@/components/site/Instagram";
 import { ContactBlock, SiteLayout } from "@/components/site/Layout";
 import { Picture } from "@/components/site/Picture";
-import { Reveal } from "@/components/site/Reveal";
-import { FaqSection, ProcessSection, SectionHead, ServiceList } from "@/components/site/Sections";
+import { ReelPhone } from "@/components/site/ReelPhone";
+import { SectionHead, ServiceList } from "@/components/site/Sections";
 
 export function HomePage({ lang }: { lang: Language }) {
   return (
     <SiteLayout lang={lang}>
       <Hero lang={lang} />
       <Work lang={lang} />
+      <Workshop lang={lang} />
       <Services lang={lang} />
-      <ProcessSection lang={lang} />
-      <Atelier lang={lang} />
-      <InstagramSection lang={lang} />
-      <Journal lang={lang} />
-      <FaqSection lang={lang} />
       <ContactBlock lang={lang} />
     </SiteLayout>
   );
@@ -33,12 +27,8 @@ function Hero({ lang }: { lang: Language }) {
   return (
     <section className="wrap pt-24 pb-16 md:pt-28 md:pb-24">
       <p className="eyebrow">{t.eyebrow}</p>
-      <h1 className="display mt-5 text-[19vw] leading-[0.98] sm:text-[12vw] md:text-[7.6vw] 2xl:text-[7rem]">
-        {t.title.split(" ").map((word) => (
-          <span key={word} className="block md:inline md:after:content-['_']">
-            {word}
-          </span>
-        ))}
+      <h1 className="display mt-5 text-[19vw] leading-[0.95] sm:text-[13vw] md:text-[10vw] 2xl:text-[9.5rem]">
+        {t.title}
       </h1>
       <div
         className="rise mt-8 grid gap-6 md:mt-10 md:grid-cols-12 md:items-end"
@@ -85,7 +75,6 @@ function Hero({ lang }: { lang: Language }) {
           </div>
         ))}
       </div>
-      <p className="eyebrow mt-3">{t.caption}</p>
     </section>
   );
 }
@@ -105,6 +94,33 @@ function Work({ lang }: { lang: Language }) {
   );
 }
 
+function Workshop({ lang }: { lang: Language }) {
+  const t = siteContent[lang].workshop;
+  return (
+    <section className="overflow-hidden bg-tile">
+      <div className="wrap grid items-center gap-14 py-20 md:grid-cols-12 md:py-28">
+        <div className="md:col-span-6 lg:col-span-5">
+          <h2 className="display text-[13vw] md:text-7xl">{t.title}</h2>
+          <p className="mt-6 max-w-md text-lg text-muted-foreground">{t.lead}</p>
+          <div className="mt-8 flex flex-wrap gap-3">
+            <ButtonLink href={contact.instagram}>
+              <InstagramIcon className="h-[18px] w-[18px]" />
+              @100kraft
+            </ButtonLink>
+            <ButtonLink href={localePath(lang, "/atelier")} variant="outline">
+              {t.about}
+              <Arrow />
+            </ButtonLink>
+          </div>
+        </div>
+        <div className="md:col-span-6 lg:col-start-7">
+          <ReelPhone lang={lang} />
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Services({ lang }: { lang: Language }) {
   const t = siteContent[lang].services;
   return (
@@ -115,79 +131,6 @@ function Services({ lang }: { lang: Language }) {
         </div>
         <div className="md:col-span-8">
           <ServiceList lang={lang} />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Atelier({ lang }: { lang: Language }) {
-  const t = siteContent[lang].atelier;
-  const photo = projects.find((p) => p.slug === "flexi-dragons")!.gallery[1]!;
-  const facts = [
-    [t.facts.place, t.facts.placeValue],
-    [t.facts.store, `${storeProducts.length} ${t.facts.storeValue}`],
-    [t.facts.custom, t.facts.customValue],
-  ];
-
-  return (
-    <section id="atelier" className="border-t border-border">
-      <div className="wrap grid gap-10 py-20 md:grid-cols-12 md:py-28">
-        <div className="md:col-span-5">
-          <Reveal>
-            <Picture
-              image={photo}
-              alt={photo.alt[lang]}
-              sizes="(min-width: 768px) 40vw, 100vw"
-              className="aspect-[4/5] overflow-hidden bg-tile"
-            />
-          </Reveal>
-        </div>
-        <div className="md:col-span-6 md:col-start-7 md:self-center">
-          <SectionHead title={t.title} />
-          <p className="mt-8 text-2xl leading-snug md:text-3xl">{t.lead}</p>
-          <p className="mt-6 max-w-xl text-[1.0625rem] text-muted-foreground">{t.body}</p>
-          <dl className="mt-10 border-t border-border">
-            {facts.map(([label, value]) => (
-              <div
-                key={label}
-                className="grid grid-cols-[8rem_1fr] gap-4 border-b border-border py-3 text-[0.9375rem]"
-              >
-                <dt className="text-muted-foreground">{label}</dt>
-                <dd>{value}</dd>
-              </div>
-            ))}
-          </dl>
-          <ButtonLink href={localePath(lang, "/atelier")} variant="outline" className="mt-8">
-            {lang === "tr" ? "Atölyeyi tanıyın" : "Meet the atelier"}
-            <Arrow />
-          </ButtonLink>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function Journal({ lang }: { lang: Language }) {
-  if (posts.length === 0) return null;
-  const title = lang === "tr" ? "Blog" : "Journal";
-  const lead =
-    lang === "tr"
-      ? "Malzemeler, baskı teknikleri ve kalıplar üzerine atölyeden notlar."
-      : "Workshop notes on materials, printing and moulds (in Turkish).";
-  return (
-    <section className="border-t border-border">
-      <div className="wrap py-20 md:py-28">
-        <SectionHead
-          title={title}
-          href="/blog"
-          linkLabel={lang === "tr" ? "Tüm yazılar" : "All posts"}
-        />
-        <p className="mt-4 max-w-md text-lg text-muted-foreground">{lead}</p>
-        <div className="mt-10 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3 md:mt-14">
-          {posts.slice(0, 3).map((p) => (
-            <PostCard key={p.slug} post={p} />
-          ))}
         </div>
       </div>
     </section>

@@ -7,7 +7,13 @@ import { PostCard } from "@/components/pages/BlogPages";
 import { Arrow, ButtonLink } from "@/components/site/Button";
 import { ContactBlock, SiteLayout } from "@/components/site/Layout";
 import { ProjectCard } from "@/components/site/ProjectCard";
-import { PageHeader, ProcessSection, SectionHead, ServiceList } from "@/components/site/Sections";
+import {
+  FaqSection,
+  PageHeader,
+  ProcessSection,
+  SectionHead,
+  ServiceList,
+} from "@/components/site/Sections";
 
 const copy = {
   tr: {
@@ -115,6 +121,7 @@ export function ServicesIndexPage({ lang }: { lang: Language }) {
         </div>
       </section>
       <ProcessSection lang={lang} />
+      <FaqSection lang={lang} />
       <ContactBlock lang={lang} />
     </SiteLayout>
   );

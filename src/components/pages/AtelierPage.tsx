@@ -2,7 +2,7 @@ import ig from "@/data/instagram.json";
 import { storeProducts } from "@/data/projects";
 import { siteContent, type Language } from "@/data/translations";
 import { ArrowUpRight } from "@/components/site/Button";
-import { InstagramSection } from "@/components/site/Instagram";
+import { InstagramIcon, InstagramSection } from "@/components/site/Instagram";
 import { ContactBlock, SiteLayout } from "@/components/site/Layout";
 import { Reveal } from "@/components/site/Reveal";
 import { PageHeader, ProcessSection, SectionHead } from "@/components/site/Sections";
@@ -11,7 +11,7 @@ const copy = {
   tr: {
     storyTitle: "Burada çizilen, burada üretilir.",
     story: [
-      "100KRAFT, Burak Yüzgüç’ün Antalya’da kurduğu bir tasarım ve üretim atölyesi. Masada bir bilgisayar, yanında yazıcılar, rafta silikon kalıplar ve dökümü bekleyen beton. Bir parçanın ilk çizgisinden kutuya girdiği ana kadar her adım aynı odada atılıyor.",
+      "100KRAFT, Antalya’da bir tasarım ve üretim atölyesi. Masada bir bilgisayar, yanında yazıcılar, rafta silikon kalıplar ve dökümü bekleyen beton. Bir parçanın ilk çizgisinden kutuya girdiği ana kadar her adım aynı odada atılıyor.",
       "Kendi koleksiyonumuz bu tezgâhın en iyi kanıtı: duvar panelleri, ejderha figürleri, lambalar ve NFC künyeler. Aynı titizliği, aklında bir parça olan herkesin projesine taşıyoruz.",
     ],
     benchTitle: "Tezgâhta neler var",
@@ -50,16 +50,20 @@ const copy = {
     ],
     facts: [
       ["Konum", "Antalya, Türkiye"],
-      ["Kurucu", "Burak Yüzgüç"],
+      ["Ekip", "Burak Yüzgüç, Selin Minta"],
       ["Mağaza", `${storeProducts.length} ürün · store.100kraft.com`],
       ["Özel üretim", "Ölçü, renk ve kişiye özel model"],
     ],
     moments: "Atölyeden anlar",
+    teamTitle: "Ekip",
+    teamLead:
+      "100KRAFT’ı iki endüstriyel tasarımcı yürütüyor. Çizimden kalıba, her işin başında onlar var.",
+    role: "Endüstriyel tasarımcı",
   },
   en: {
     storyTitle: "Drawn here, made here.",
     story: [
-      "100KRAFT is a design and fabrication workshop Burak Yüzgüç set up in Antalya. A computer on the desk, printers beside it, silicone moulds on the shelf and concrete waiting to be cast. Every step, from a part’s first line to the moment it goes in a box, happens in the same room.",
+      "100KRAFT is a design and fabrication workshop in Antalya. A computer on the desk, printers beside it, silicone moulds on the shelf and concrete waiting to be cast. Every step, from a part’s first line to the moment it goes in a box, happens in the same room.",
       "Our own collection is the best proof of this bench: wall panels, dragon figures, lamps and NFC tags. We bring the same care to anyone with a part in mind.",
     ],
     benchTitle: "On the bench",
@@ -98,15 +102,40 @@ const copy = {
     ],
     facts: [
       ["Location", "Antalya, Turkey"],
-      ["Founder", "Burak Yüzgüç"],
+      ["Team", "Burak Yüzgüç, Selin Minta"],
       ["Store", `${storeProducts.length} products · store.100kraft.com`],
       ["Made to order", "Size, colour and personalised models"],
     ],
     moments: "Moments from the workshop",
+    teamTitle: "The team",
+    teamLead:
+      "100KRAFT is run by two industrial designers. From the first sketch to the mould, they’re on every job.",
+    role: "Industrial designer",
   },
 };
 
-const MOMENTS = ["DcTYxeiopWN", "DekBC8YjAkh", "DfDFTbMIM3D"];
+const TEAM = [
+  {
+    name: "Burak Yüzgüç",
+    photo: "burak",
+    instagram: "burakyuzguc",
+    school: {
+      tr: "Yeditepe Üniversitesi, Endüstriyel Tasarım",
+      en: "Yeditepe University, Industrial Design",
+    },
+  },
+  {
+    name: "Selin Minta",
+    photo: "selin",
+    instagram: "selinminta",
+    school: {
+      tr: "Selçuk Üniversitesi, Endüstriyel Tasarım",
+      en: "Selçuk University, Industrial Design",
+    },
+  },
+];
+
+const MOMENTS = ["DfNiB_0ovnT", "DekBC8YjAkh", "DfDFTbMIM3D"];
 
 export function AtelierPage({ lang }: { lang: Language }) {
   const t = siteContent[lang].atelier;
@@ -172,6 +201,43 @@ export function AtelierPage({ lang }: { lang: Language }) {
               ))}
             </dl>
           </div>
+        </div>
+      </section>
+
+      <section className="border-t border-border">
+        <div className="wrap grid gap-10 py-20 md:grid-cols-12 md:py-28">
+          <div className="md:col-span-4">
+            <SectionHead title={c.teamTitle} />
+            <p className="mt-6 max-w-sm text-lg text-muted-foreground">{c.teamLead}</p>
+          </div>
+          <ul className="grid gap-px bg-border sm:grid-cols-2 md:col-span-8">
+            {TEAM.map((m) => (
+              <li key={m.name} className="flex flex-col bg-background p-6 md:p-8">
+                <picture>
+                  <source type="image/avif" srcSet={`/team/${m.photo}.avif`} />
+                  <img
+                    src={`/team/${m.photo}.webp`}
+                    alt={m.name}
+                    width={150}
+                    height={150}
+                    loading="lazy"
+                    className="h-24 w-24 rounded-full object-cover"
+                  />
+                </picture>
+                <h3 className="display mt-8 text-4xl md:text-5xl">{m.name}</h3>
+                <p className="mt-3 text-[1.0625rem]">{c.role}</p>
+                <p className="mt-1 text-[0.9375rem] text-muted-foreground">{m.school[lang]}</p>
+                <a
+                  href={`https://www.instagram.com/${m.instagram}/`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-6 inline-flex items-center gap-2 self-start text-[0.9375rem] font-medium underline decoration-foreground/20 underline-offset-4 hover:decoration-accent"
+                >
+                  <InstagramIcon className="h-4 w-4" />@{m.instagram}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

@@ -19,7 +19,7 @@ export const siteContent = {
     nav: {
       work: "İşler",
       services: "Hizmetler",
-      atelier: "Atölye",
+      atelier: "Hakkımızda",
       blog: "Blog",
       store: "Mağaza",
       startProject: "Proje başlat",
@@ -27,12 +27,11 @@ export const siteContent = {
       close: "Kapat",
     },
     hero: {
-      eyebrow: "100KRAFT · Antalya’da bir tasarım ve üretim atölyesi",
-      title: "Çizeriz. Basarız. Bitiririz.",
-      lead: "Bir fikri, elde tutulan bir parçaya dönüştürüyoruz. Kendi koleksiyonumuz da sizin projeniz de aynı tezgâhtan çıkıyor.",
+      eyebrow: "Tasarım · 3D baskı · Kalıp & döküm · Antalya",
+      title: "Elle tutulur fikirler.",
+      lead: "100KRAFT, Antalya’da bir tasarım ve üretim atölyesi. Fikri çiziyor, 3D baskı ve dökümle üretiyor, elde bitiriyoruz.",
       cta: "Proje başlat",
       secondary: "Mağazaya git",
-      caption: "Wall Decor #2 · tek desen, dört renk, aynı tezgâh",
     },
     services: {
       title: "Hizmetler",
@@ -45,9 +44,14 @@ export const siteContent = {
       view: "İncele",
       buy: "Mağazada gör",
     },
+    workshop: {
+      title: "Atölyeden",
+      lead: "Kalıptan çıkan ilk parça, baskıdan yeni gelen renkler. En son ne yaptığımızı Instagram’da paylaşıyoruz.",
+      about: "Biz kimiz",
+    },
     atelier: {
-      title: "Atölye",
-      lead: "Yazıcıların, kalıpların ve zımpara tozunun arasında: Burak Yüzgüç’ün Antalya’daki atölyesi.",
+      title: "Hakkımızda",
+      lead: "Yazıcıların, kalıpların ve zımpara tozunun arasında: iki endüstriyel tasarımcının Antalya’daki atölyesi.",
       body: "Burada çizilen her şey burada üretilir. Kendi ürünlerimizi tasarlayıp satıyoruz; aynı tezgâhı markaların, tasarımcıların ve aklında bir parça olan herkesin projesi için açıyoruz.",
       facts: {
         place: "Konum",
@@ -63,19 +67,19 @@ export const siteContent = {
       title: "Bir parça nasıl doğar",
       steps: [
         {
-          title: "Dinleriz",
+          title: "Dinleme",
           body: "Ne işe yarayacak, nerede duracak, kaç tane lazım? İlk konuşma sonraki her kararı belirler.",
         },
         {
-          title: "Çizeriz",
+          title: "Tasarım",
           body: "Eskizden 3D modele. Ölçüyü, geçmeyi ve baskı yönünü baştan düşünürüz.",
         },
         {
-          title: "Basarız",
+          title: "Numune",
           body: "İlk numune atölyede çıkar. Elde tutar, dener, gerekirse yeniden basarız.",
         },
         {
-          title: "Bitiririz",
+          title: "Üretim",
           body: "Zımpara, boya, montaj ya da kalıp ve döküm. Teslim edilen parça, onayladığınız numunedir.",
         },
       ],
@@ -95,7 +99,7 @@ export const siteContent = {
     nav: {
       work: "Work",
       services: "Services",
-      atelier: "Atelier",
+      atelier: "About",
       blog: "Journal",
       store: "Store",
       startProject: "Start a project",
@@ -103,12 +107,11 @@ export const siteContent = {
       close: "Close",
     },
     hero: {
-      eyebrow: "100KRAFT · A design and fabrication workshop in Antalya",
-      title: "Draw. Print. Finish.",
-      lead: "We turn an idea into a part you can hold. Our own collection and your project come off the same bench.",
+      eyebrow: "Design · 3D printing · Moulds & casting · Antalya",
+      title: "Ideas you can hold.",
+      lead: "100KRAFT is a design and fabrication workshop in Antalya. We draw the idea, make it with 3D printing and casting, and finish it by hand.",
       cta: "Start a project",
       secondary: "Visit the store",
-      caption: "Wall Decor #2 · one pattern, four colours, one bench",
     },
     services: {
       title: "Services",
@@ -121,9 +124,14 @@ export const siteContent = {
       view: "View",
       buy: "View in store",
     },
+    workshop: {
+      title: "From the workshop",
+      lead: "First pulls from the mould, fresh colours off the printer. We share what we’re making on Instagram.",
+      about: "Who we are",
+    },
     atelier: {
-      title: "Atelier",
-      lead: "Among the printers, moulds and sanding dust: Burak Yüzgüç’s workshop in Antalya.",
+      title: "About",
+      lead: "Among the printers, moulds and sanding dust: a workshop run by two industrial designers in Antalya.",
       body: "Everything drawn here is made here. We design and sell our own products, and open the same bench to brands, designers and anyone with a part in mind.",
       facts: {
         place: "Location",
@@ -143,15 +151,15 @@ export const siteContent = {
           body: "What does it do, where will it live, how many do you need? The first talk shapes every later decision.",
         },
         {
-          title: "Draw",
+          title: "Design",
           body: "From sketch to 3D model, with size, fit and print orientation thought through early.",
         },
         {
-          title: "Print",
+          title: "Sample",
           body: "The first sample comes off our printers. We hold it, test it and reprint if needed.",
         },
         {
-          title: "Finish",
+          title: "Make",
           body: "Sanding, paint, assembly, or moulds and casting. What you receive is the sample you approved.",
         },
       ],

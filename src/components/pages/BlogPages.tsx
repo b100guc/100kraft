@@ -43,8 +43,39 @@ export function PostCard({ post, large = false }: { post: BlogPost; large?: bool
   );
 }
 
+function PostRow({ post }: { post: BlogPost }) {
+  return (
+    <li className="border-t border-border last:border-b">
+      <Link
+        to={`/blog/${post.slug}` as string}
+        className="group grid gap-5 py-8 sm:grid-cols-[16rem_1fr] sm:gap-8 md:grid-cols-[20rem_1fr_auto] md:items-center"
+      >
+        <Picture
+          image={post.cover}
+          alt={post.coverAlt}
+          sizes="(min-width: 768px) 20rem, (min-width: 640px) 16rem, 100vw"
+          className="aspect-[16/9] overflow-hidden bg-tile"
+          imgClassName="transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03]"
+        />
+        <div className="min-w-0">
+          <p className="eyebrow">
+            {post.category} · {post.minutes} dk
+          </p>
+          <h3 className="mt-2 text-xl font-medium leading-snug transition-colors group-hover:text-accent md:text-2xl">
+            {post.title}
+          </h3>
+          <p className="mt-2 line-clamp-2 max-w-2xl text-[0.9375rem] text-muted-foreground">
+            {post.description}
+          </p>
+        </div>
+        <Arrow className="hidden text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-foreground md:block" />
+      </Link>
+    </li>
+  );
+}
+
 export function BlogIndexPage() {
-  const [first, ...rest] = posts;
+  const categories = [...new Set(posts.map((p) => p.category))];
   return (
     <SiteLayout lang="tr">
       <PageHeader
@@ -53,18 +84,14 @@ export function BlogIndexPage() {
       />
       <section className="wrap pb-20 md:pb-28">
         <h2 className="sr-only">Yazılar</h2>
-        {first && (
-          <div className="border-b border-border pb-14">
-            <PostCard post={first} large />
-          </div>
-        )}
-        <div className="mt-14 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
-          {rest.map((p, i) => (
-            <Reveal key={p.slug} delay={(i % 3) * 0.05}>
-              <PostCard post={p} />
-            </Reveal>
+        <p className="eyebrow mb-6">
+          {posts.length} yazı · {categories.join(" · ")}
+        </p>
+        <ol>
+          {posts.map((p) => (
+            <PostRow key={p.slug} post={p} />
           ))}
-        </div>
+        </ol>
       </section>
       <ContactBlock lang="tr" />
     </SiteLayout>

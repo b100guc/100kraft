@@ -38,21 +38,17 @@ export function Price({ product, className }: { product: StoreProduct; className
 /** Collections laid out with the first one featured at double size. */
 export function CollectionGrid({ lang }: { lang: Language }) {
   return (
-    <div className="grid gap-x-3 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid grid-cols-2 gap-x-2 gap-y-8 sm:gap-x-3 sm:gap-y-10 lg:grid-cols-4">
       {projects.map((p, i) => (
         <Reveal
           key={p.slug}
           delay={(i % 4) * 0.05}
-          className={i === 0 ? "sm:col-span-2 lg:row-span-2" : ""}
+          className={i === 0 ? "col-span-2 lg:row-span-2" : ""}
         >
           <ProjectCard
             project={p}
             lang={lang}
-            sizes={
-              i === 0
-                ? "(min-width: 640px) 50vw, 100vw"
-                : "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            }
+            sizes={i === 0 ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
           />
         </Reveal>
       ))}

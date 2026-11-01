@@ -55,7 +55,7 @@ export function ProjectCard({
           />
         )}
       </div>
-      <div className="mt-4 flex items-baseline justify-between gap-4">
+      <div className="mt-3 flex flex-col gap-1 sm:mt-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
         <div>
           <h3 className="text-lg font-medium leading-tight transition-colors group-hover:text-accent">
             {project.name}

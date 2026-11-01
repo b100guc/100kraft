@@ -2,6 +2,7 @@
 //   src/data/store.generated.json  – names, prices, variants, image metadata
 //   public/store/<slug>/<n>-<w>.(avif|webp) – responsive images
 // Usage: npm run sync:store   (add --force to re-encode existing images)
+// Retouched photos: content/store-overrides/<slug>-<index>.png replace the store original.
 
 import { existsSync } from "node:fs";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -68,7 +69,9 @@ async function processImage(slug, index, imageId) {
     await writeFile(raw, Buffer.from(await res.arrayBuffer()));
   }
 
-  const input = await readFile(raw);
+  // A retouched version in content/store-overrides/<slug>-<index>.png wins over the store photo.
+  const override = path.join(root, "content/store-overrides", `${slug}-${index}.png`);
+  const input = await readFile(existsSync(override) ? override : raw);
   const meta = await sharp(input).rotate().metadata();
   const outDir = path.join(publicDir, slug);
   await mkdir(outDir, { recursive: true });

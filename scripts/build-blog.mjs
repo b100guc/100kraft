@@ -103,6 +103,30 @@ async function cover(slug) {
   };
 }
 
+/**
+ * Optional in-article illustration (content/blog/inline/<slug>.png, made with Gemini in
+ * Antigravity). Encoded to public/blog/<slug>-figure-<w>.(avif|webp) and placed after the
+ * first section, captioned as AI-generated.
+ */
+async function figure(slug, title) {
+  const src = path.join(dir, "inline", `${slug}.png`);
+  if (!existsSync(src)) return null;
+  const outDir = path.join(root, "public/blog");
+  await mkdir(outDir, { recursive: true });
+  const input = await sharp(src).resize({ width: 1600, height: 900, fit: "cover" }).toBuffer();
+  const widths = [640, 1024, 1600];
+  for (const w of widths) {
+    const base = path.join(outDir, `${slug}-figure-${w}`);
+    if (existsSync(`${base}.avif`)) continue;
+    const img = sharp(input).resize(w);
+    await img.clone().avif({ quality: 52, effort: 5 }).toFile(`${base}.avif`);
+    await img.clone().webp({ quality: 78 }).toFile(`${base}.webp`);
+  }
+  const set = (ext) => widths.map((w) => `/blog/${slug}-figure-${w}.${ext} ${w}w`).join(", ");
+  const sizes = "(min-width: 1024px) 58vw, 100vw";
+  return `<figure><picture><source type="image/avif" srcset="${set("avif")}" sizes="${sizes}"><img src="/blog/${slug}-figure-1600.webp" srcset="${set("webp")}" sizes="${sizes}" width="1600" height="900" loading="lazy" decoding="async" alt="${title.replace(/"/g, "&quot;")} — illüstrasyon"></picture><figcaption>İllüstrasyon: Gemini ile üretildi.</figcaption></figure>`;
+}
+
 const files = (await readdir(dir)).filter((f) => f.endsWith(".json"));
 const posts = [];
 for (const f of files) {
@@ -114,6 +138,14 @@ for (const f of files) {
     toc.push({ id, title: text(inner) });
     return `<h2 id="${id}">${inner}</h2>`;
   });
+
+  const fig = await figure(raw.slug, raw.title);
+  if (fig) {
+    // After the first section: just before the second h2.
+    const h2s = [...html.matchAll(/<h2 id=/g)];
+    const at = h2s[1]?.index ?? h2s[0]?.index ?? html.length;
+    html = `${html.slice(0, at)}${fig}\n${html.slice(at)}`;
+  }
 
   // FAQ: h3 + following paragraph(s) after the "Sık sorulanlar" heading.
   const faq = [];

@@ -10,7 +10,11 @@ const largest = (image: Img) => `${image.src}-${image.widths[image.widths.length
 const prefix = (lang: Language) => (lang === "tr" ? "" : "/en");
 
 export function homeHead(lang: Language, title: string, description: string) {
-  return pageHead({ lang, path: "/", title, description, jsonLd: [faqLd(faq[lang])] });
+  return pageHead({ lang, path: "/", title, description });
+}
+
+export function servicesIndexHead(lang: Language, title: string, description: string) {
+  return pageHead({ lang, path: "/services", title, description, jsonLd: [faqLd(faq[lang])] });
 }
 
 export function workDetailHead(project: ProjectItem, lang: Language) {

@@ -90,7 +90,7 @@
   --secondary-foreground: var(--foreground);
 
   --muted: #e6e2de;
-  --muted-foreground: #6b6661;
+  --muted-foreground: #625d58;
 
   /* terracotta, from Wall Decor */
   --accent: #b55a49;
@@ -251,6 +251,19 @@
   & th {
     font-weight: 600;
     border-bottom-color: var(--foreground);
+  }
+  & figure {
+    margin-block: 2em;
+  }
+  & figure img {
+    width: 100%;
+    height: auto;
+    background: var(--tile);
+  }
+  & figcaption {
+    margin-top: 0.6em;
+    font-size: 0.8125rem;
+    color: var(--muted-foreground);
   }
   & blockquote {
     border-left: 2px solid var(--accent);

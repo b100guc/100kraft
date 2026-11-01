@@ -64,7 +64,25 @@ export const businessLd = {
     "Product design, 3D printing, prototyping and mould-making studio in Antalya, Turkey.",
   email: "burak@100kraft.com",
   telephone: "+905455902506",
-  founder: { "@type": "Person", name: "Burak Yüzgüç" },
+  founder: {
+    "@type": "Person",
+    name: "Burak Yüzgüç",
+    sameAs: "https://www.instagram.com/burakyuzguc/",
+  },
+  employee: [
+    {
+      "@type": "Person",
+      name: "Burak Yüzgüç",
+      jobTitle: "Industrial Designer",
+      alumniOf: "Yeditepe University",
+    },
+    {
+      "@type": "Person",
+      name: "Selin Minta",
+      jobTitle: "Industrial Designer",
+      alumniOf: "Selçuk University",
+    },
+  ],
   address: { "@type": "PostalAddress", addressLocality: "Antalya", addressCountry: "TR" },
   areaServed: "TR",
   sameAs: ["https://www.instagram.com/100kraft/", "https://store.100kraft.com"],

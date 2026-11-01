@@ -1,5 +1,5 @@
 {
-  "syncedAt": "2026-11-01T19:24:17.021Z",
+  "syncedAt": "2026-11-01T21:02:17.047Z",
   "products": [
     {
       "slug": "kamp-atesi",
@@ -15,11 +15,11 @@
       "images": [
         {
           "src": "/store/kamp-atesi/0",
-          "widths": [480],
-          "width": 814,
-          "height": 790,
-          "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoQABAAA4BaJbACdFQAA5W5euy2WaMAAP738J8DEflwdyKmCmg5po/IIZaOTMfm8dt8JlQn9AaJeSo6ZMzO9ag/GaToXLECk26wLQPW7F9dFkaMpIuv7SFoS4IB+SM97FEAAAAA",
-          "color": "#f8f8f8"
+          "widths": [480, 960, 1600],
+          "width": 1600,
+          "height": 1600,
+          "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAgCdASoQABAAA4BaJagCdH8IIBtgLszBSkCpzyPIAP70zgk7A5Y14i6L9WAwvo9XduA0YhsT1o+ArqbPQ86nY4utolTWvG7ujnMAAAA=",
+          "color": "#e8d8d8"
         }
       ]
     },

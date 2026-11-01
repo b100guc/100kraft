@@ -7,9 +7,9 @@ export const Route = createFileRoute("/atelier")({
     pageHead({
       lang: "tr",
       path: "/atelier",
-      title: "Atölye — Antalya’da tasarım ve üretim atölyesi | 100KRAFT",
+      title: "Hakkımızda — Burak Yüzgüç & Selin Minta | 100KRAFT",
       description:
-        "Burak Yüzgüç’ün Antalya’daki atölyesi: 3D modelleme, 3D baskı, silikon kalıp, beton ve reçine döküm, elde son işlem. Çizdiğimizi burada üretiyoruz.",
+        "100KRAFT’ı iki endüstriyel tasarımcı yürütüyor: Burak Yüzgüç ve Selin Minta. Antalya’daki atölyemizde 3D modelleme, 3D baskı, silikon kalıp ve döküm.",
     }),
   component: () => <AtelierPage lang="tr" />,
 });
