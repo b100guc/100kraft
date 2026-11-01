@@ -10,9 +10,14 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AtelierRouteImport } from './routes/atelier'
 import { Route as StartProjectRouteImport } from './routes/start-project'
 import { Route as StoreRouteImport } from './routes/store'
+import { Route as ApiContactRouteImport } from './routes/api/contact'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogSlugRouteImport } from './routes/blog/$slug'
 import { Route as EnIndexRouteImport } from './routes/en/index'
+import { Route as EnAtelierRouteImport } from './routes/en/atelier'
 import { Route as EnStartProjectRouteImport } from './routes/en/start-project'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as ServicesSlugRouteImport } from './routes/services/$slug'
@@ -34,6 +39,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AtelierRoute = AtelierRouteImport.update({
+  id: '/atelier',
+  path: '/atelier',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StartProjectRoute = StartProjectRouteImport.update({
   id: '/start-project',
   path: '/start-project',
@@ -44,9 +54,29 @@ const StoreRoute = StoreRouteImport.update({
   path: '/store',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiContactRoute = ApiContactRouteImport.update({
+  id: '/api/contact',
+  path: '/api/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EnIndexRoute = EnIndexRouteImport.update({
   id: '/en/',
   path: '/en/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EnAtelierRoute = EnAtelierRouteImport.update({
+  id: '/en/atelier',
+  path: '/en/atelier',
   getParentRoute: () => rootRouteImport,
 } as any)
 const EnStartProjectRoute = EnStartProjectRouteImport.update({
@@ -127,12 +157,17 @@ const TrWorkSlugRoute = TrWorkSlugRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/atelier': typeof AtelierRoute
   '/start-project': typeof StartProjectRoute
   '/store': typeof StoreRoute
+  '/api/contact': typeof ApiContactRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/en/atelier': typeof EnAtelierRoute
   '/en/start-project': typeof EnStartProjectRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tr/start-project': typeof TrStartProjectRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/en/': typeof EnIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/tr/': typeof TrIndexRoute
@@ -148,12 +183,17 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/atelier': typeof AtelierRoute
   '/start-project': typeof StartProjectRoute
   '/store': typeof StoreRoute
+  '/api/contact': typeof ApiContactRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/en/atelier': typeof EnAtelierRoute
   '/en/start-project': typeof EnStartProjectRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tr/start-project': typeof TrStartProjectRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/blog': typeof BlogIndexRoute
   '/en': typeof EnIndexRoute
   '/services': typeof ServicesIndexRoute
   '/tr': typeof TrIndexRoute
@@ -170,12 +210,17 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/atelier': typeof AtelierRoute
   '/start-project': typeof StartProjectRoute
   '/store': typeof StoreRoute
+  '/api/contact': typeof ApiContactRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/en/atelier': typeof EnAtelierRoute
   '/en/start-project': typeof EnStartProjectRoute
   '/services/$slug': typeof ServicesSlugRoute
   '/tr/start-project': typeof TrStartProjectRoute
   '/work/$slug': typeof WorkSlugRoute
+  '/blog/': typeof BlogIndexRoute
   '/en/': typeof EnIndexRoute
   '/services/': typeof ServicesIndexRoute
   '/tr/': typeof TrIndexRoute
@@ -193,12 +238,17 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/atelier'
     | '/start-project'
     | '/store'
+    | '/api/contact'
+    | '/blog/$slug'
+    | '/en/atelier'
     | '/en/start-project'
     | '/services/$slug'
     | '/tr/start-project'
     | '/work/$slug'
+    | '/blog/'
     | '/en/'
     | '/services/'
     | '/tr/'
@@ -214,12 +264,17 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/atelier'
     | '/start-project'
     | '/store'
+    | '/api/contact'
+    | '/blog/$slug'
+    | '/en/atelier'
     | '/en/start-project'
     | '/services/$slug'
     | '/tr/start-project'
     | '/work/$slug'
+    | '/blog'
     | '/en'
     | '/services'
     | '/tr'
@@ -235,12 +290,17 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/atelier'
     | '/start-project'
     | '/store'
+    | '/api/contact'
+    | '/blog/$slug'
+    | '/en/atelier'
     | '/en/start-project'
     | '/services/$slug'
     | '/tr/start-project'
     | '/work/$slug'
+    | '/blog/'
     | '/en/'
     | '/services/'
     | '/tr/'
@@ -257,12 +317,17 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AtelierRoute: typeof AtelierRoute
   StartProjectRoute: typeof StartProjectRoute
   StoreRoute: typeof StoreRoute
+  ApiContactRoute: typeof ApiContactRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  EnAtelierRoute: typeof EnAtelierRoute
   EnStartProjectRoute: typeof EnStartProjectRoute
   ServicesSlugRoute: typeof ServicesSlugRoute
   TrStartProjectRoute: typeof TrStartProjectRoute
   WorkSlugRoute: typeof WorkSlugRoute
+  BlogIndexRoute: typeof BlogIndexRoute
   EnIndexRoute: typeof EnIndexRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
   TrIndexRoute: typeof TrIndexRoute
@@ -286,6 +351,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/atelier': {
+      id: '/atelier'
+      path: '/atelier'
+      fullPath: '/atelier'
+      preLoaderRoute: typeof AtelierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/start-project': {
       id: '/start-project'
       path: '/start-project'
@@ -300,11 +372,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StoreRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/contact': {
+      id: '/api/contact'
+      path: '/api/contact'
+      fullPath: '/api/contact'
+      preLoaderRoute: typeof ApiContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/en/': {
       id: '/en/'
       path: '/en'
       fullPath: '/en/'
       preLoaderRoute: typeof EnIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/en/atelier': {
+      id: '/en/atelier'
+      path: '/en/atelier'
+      fullPath: '/en/atelier'
+      preLoaderRoute: typeof EnAtelierRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/en/start-project': {
@@ -417,12 +517,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AtelierRoute: AtelierRoute,
   StartProjectRoute: StartProjectRoute,
   StoreRoute: StoreRoute,
+  ApiContactRoute: ApiContactRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  EnAtelierRoute: EnAtelierRoute,
   EnStartProjectRoute: EnStartProjectRoute,
   ServicesSlugRoute: ServicesSlugRoute,
   TrStartProjectRoute: TrStartProjectRoute,
   WorkSlugRoute: WorkSlugRoute,
+  BlogIndexRoute: BlogIndexRoute,
   EnIndexRoute: EnIndexRoute,
   ServicesIndexRoute: ServicesIndexRoute,
   TrIndexRoute: TrIndexRoute,
