@@ -1,0 +1,521 @@
+{
+  "syncedAt": "2026-11-01T19:24:17.021Z",
+  "products": [
+    {
+      "slug": "kamp-atesi",
+      "name": "Kamp Ateşi",
+      "url": "https://store.100kraft.com/kamp-atesi",
+      "category": "Aydınlatma",
+      "categoryPath": ["Ev & Dekorasyon"],
+      "price": 399,
+      "listPrice": 499,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [],
+      "images": [
+        {
+          "src": "/store/kamp-atesi/0",
+          "widths": [480],
+          "width": 814,
+          "height": 790,
+          "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAABwAgCdASoQABAAA4BaJbACdFQAA5W5euy2WaMAAP738J8DEflwdyKmCmg5po/IIZaOTMfm8dt8JlQn9AaJeSo6ZMzO9ag/GaToXLECk26wLQPW7F9dFkaMpIuv7SFoS4IB+SM97FEAAAAA",
+          "color": "#f8f8f8"
+        }
+      ]
+    },
+    {
+      "slug": "wall-decor-1",
+      "name": "Wall Decor #1 Tekli 10x10cm",
+      "url": "https://store.100kraft.com/wall-decor-1",
+      "category": "Duvar Dekoru & Paneller",
+      "categoryPath": ["Ev & Dekorasyon"],
+      "price": 499,
+      "listPrice": null,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [
+        {
+          "name": "Renk",
+          "values": ["Kırmızı", "Gri", "Yeşil", "Mavi"]
+        },
+        {
+          "name": "Çerçeve",
+          "values": ["Siyah", "Ahşap", "Beyaz"]
+        }
+      ],
+      "images": [
+        {
+          "src": "/store/wall-decor-1/0",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQABAAA4BaJQBOgCG64m3wm8AA/vZGHgBKf0mEIMVizBmSbJAUXnn3U+4LdMXLN8WSkmOIlMW0tPVMSO434WH1npFlcxQG8DmJxolK6bA6H2q/E41wCAAA",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-1/1",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABQAgCdASoQABAAA4BaJZwAD5LQXjpYuxVmOgAA/vUeOowfqIbgYOdYeq6uXsbcTOLI1IurVcZK2qup0H8Tq9PudpE86yVO+UKn0H+tG3TNjdXAsRTN0rkO8S8AAA==",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-1/2",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQABAAA4BaJZQAAvc6rbVdc/gA/vc+FpAvjnQhDcNwi/QPJGNxFaIehB0DQXX3GiXGCOF/ziMI2ChS0MCQbNFPU4uuSsnxmrTwmKdhXvFwAA==",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-1/3",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAACwAgCdASoQABAAA4BaJYwCdH8IIBtgAMszFjs7mPgA/vcRauwcIBsQ+seQhPfvCzTr0hXEDP96ehjik66VRI9m9PU11OETuSwG7VMqQgjyabebk5MAAA==",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-1/4",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAgCdASoQABAAA4BaJYgCdH8IIABgaqHT3QAA/vcIAP/Z6ilnkRQjHzLpnjf9H9f07SeosS/vDoYMPZd2nDYQOCwgocLAAAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-1/5",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQABAAA4BaJZwAAudcZ7NokoAA/vcHxT7EsZ3y64RfK3RVCPnE709BeRF4lKO8XAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-1/6",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQABAAA4BaJZQAAudcZz2mnQAA/vcHxT7EsZ3y64RfK3RVCPnE61cfK9kgNx9LMAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-1/7",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAwAgCdASoQABAAA4BaJZQCsH8AGBrclFWPAAD+9wfFP0bLIIzIpqbAU54xzM5uhs8IINEMC8u1+1M2KSRYFgAA",
+          "color": "#e8e8e8"
+        }
+      ]
+    },
+    {
+      "slug": "wall-decor-2",
+      "name": "Wall Decor #2 Tekli 10x10cm",
+      "url": "https://store.100kraft.com/wall-decor-2",
+      "category": "Duvar Dekoru & Paneller",
+      "categoryPath": ["Ev & Dekorasyon"],
+      "price": 499,
+      "listPrice": null,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [
+        {
+          "name": "Renk",
+          "values": ["Kırmızı", "Gri", "Yeşil", "Mavi"]
+        },
+        {
+          "name": "Çerçeve",
+          "values": ["Siyah", "Ahşap", "Beyaz"]
+        }
+      ],
+      "images": [
+        {
+          "src": "/store/wall-decor-2/0",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQABAAA4BaJQBOgB4FtIh5IAD+9xFq7BwgG1Fb0yQTyFqlSg8PEBIkzSnfzuqNvXy5wWtnNrsYU+5NpmhjU9KZR9UtxNgAAAA=",
+          "color": "#f8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-2/1",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQABAAA4BaJZwAAuQAkiAhAAD+9z6djAr+FYdZuoXZaRKawIYbHpQLDESvXzMJvy/el594VS+BGD0YE2e+qal+IZ1EXkF0Dr0broOAAAA=",
+          "color": "#f8f8f8"
+        },
+        {
+          "src": "/store/wall-decor-2/2",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAAAQAgCdASoQABAAA4BaJZQAAuiuwDYWEH0AAP72alR+OT2qRiDnbR54+0kak42yAgDe5ARVCqEvrAeukFhGONVp8tyz7WkQPX+7qMoK/Y42Tqh3i4AAAA==",
+          "color": "#f8f8f8"
+        },
+        {
+          "src": "/store/wall-decor-2/3",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQABAAA4BaJZQCsAEN1xCktAAAAP73PhciM77o7i2Nwi/QPHf0VmXrDYK5oM9joWFr5tc9piky0KG6taWD+14TSIMWmRhrN5yTm7FK1sfVgAAA",
+          "color": "#f8f8f8"
+        },
+        {
+          "src": "/store/wall-decor-2/4",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAgCdASoQABAAA4BaJYgCdH8IIABgaqHT3QAA/vcIAP/Z6ilnkRQjHzLpnjf9H9f07SeosS/vDoYMPZd2nDYQOCwgocLAAAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-2/5",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQABAAA4BaJZwAAudcZ7NokoAA/vcHxT7EsZ3y64RfK3RVCPnE709BeRF4lKO8XAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-2/6",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQABAAA4BaJZQAAudcZz2mnQAA/vcHxT7EsZ3y64RfK3RVCPnE61cfK9kgNx9LMAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-2/7",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAwAgCdASoQABAAA4BaJZQCsH8AGBrclFWPAAD+9wfFP0bLIIzIpqbAU54xzM5uhs8IINEMC8u1+1M2KSRYFgAA",
+          "color": "#e8e8e8"
+        }
+      ]
+    },
+    {
+      "slug": "wall-decor-1-uclu",
+      "name": "Wall Decor #1 Üçlü 10x28cm",
+      "url": "https://store.100kraft.com/wall-decor-1-uclu",
+      "category": "Duvar Dekoru & Paneller",
+      "categoryPath": ["Ev & Dekorasyon"],
+      "price": 1499,
+      "listPrice": null,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [
+        {
+          "name": "Çerçeve",
+          "values": ["Siyah", "Ahşap", "Beyaz"]
+        }
+      ],
+      "images": []
+    },
+    {
+      "slug": "wall-decor-2-uclu",
+      "name": "Wall Decor #2 Üçlü 10x28cm",
+      "url": "https://store.100kraft.com/wall-decor-2-uclu",
+      "category": "Duvar Dekoru & Paneller",
+      "categoryPath": ["Ev & Dekorasyon"],
+      "price": 1499,
+      "listPrice": null,
+      "priceFrom": false,
+      "inStock": false,
+      "options": [
+        {
+          "name": "Renk",
+          "values": ["Kırmızı", "Gri", "Yeşil", "Mavi"]
+        },
+        {
+          "name": "Renk",
+          "values": ["Kırmızı", "Gri", "Yeşil", "Mavi"]
+        },
+        {
+          "name": "Renk",
+          "values": ["Kırmızı", "Gri", "Yeşil", "Mavi"]
+        }
+      ],
+      "images": [
+        {
+          "src": "/store/wall-decor-2-uclu/0",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABQAgCdASoQABAAA4BaJYgCdH8IIABgaqHT3QAA/vcIAP/Z6ilnkRQjHzLpnjf9H9f07SeosS/vDoYMPZd2nDYQOCwgocLAAAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-2-uclu/1",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQABAAA4BaJZwAAudcZ7NokoAA/vcHxT7EsZ3y64RfK3RVCPnE709BeRF4lKO8XAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-2-uclu/2",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQABAAA4BaJZQAAudcZz2mnQAA/vcHxT7EsZ3y64RfK3RVCPnE61cfK9kgNx9LMAA=",
+          "color": "#e8e8e8"
+        },
+        {
+          "src": "/store/wall-decor-2-uclu/3",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAwAgCdASoQABAAA4BaJZQCsH8AGBrclFWPAAD+9wfFP0bLIIzIpqbAU54xzM5uhs8IINEMC8u1+1M2KSRYFgAA",
+          "color": "#e8e8e8"
+        }
+      ]
+    },
+    {
+      "slug": "grainztag-pet",
+      "name": "GrainzTag #Pet",
+      "url": "https://store.100kraft.com/grainztag-pet",
+      "category": "GrainzTag",
+      "categoryPath": [],
+      "price": 399,
+      "listPrice": null,
+      "priceFrom": true,
+      "inStock": true,
+      "options": [
+        {
+          "name": "Miktar",
+          "values": ["Tek", "10'lu", "100'lü"]
+        }
+      ],
+      "images": [
+        {
+          "src": "/store/grainztag-pet/0",
+          "widths": [480, 960],
+          "width": 1000,
+          "height": 749,
+          "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwAgCdASoQAAwAA4BaJbACdAYuRScyActwAAD+6zJwt5EyirM8YYtAGbhmBRJzVsFS16wnx4i+s7gQiXHoOvWVVE7TQYnUMeJG0baUKWXl6x6N4ehpR2XFs98yXMX9sYutHC73Y2iEEJpuGj1dxK7vt+Arx3LoAAA=",
+          "color": "#e8d8d8"
+        },
+        {
+          "src": "/store/grainztag-pet/1",
+          "widths": [480, 960],
+          "width": 1254,
+          "height": 940,
+          "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwAgCdASoQAAwAA4BaJbACdAYuRScyActwAAD+6zJwt5EyirM8YYtAGbhmBRJzVsFS16wnx4i+s7gQiXHoOvWVVE7TQYnUMeJG0baUKWXl6x6N4ehpR2XFs98yXMX9sYutHC73Y2iEEJpuGj1eP/LOHY7sXjuXQAA=",
+          "color": "#e8d8d8"
+        }
+      ]
+    },
+    {
+      "slug": "the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru",
+      "name": "The Dragon’s Keeper - Ejderha Takı Askısı ve Duvar Dekoru (25cm)",
+      "url": "https://store.100kraft.com/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru",
+      "category": "Duvar Büstleri & Heykeller",
+      "categoryPath": ["Figür & Koleksiyon"],
+      "price": 499,
+      "listPrice": 699,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [
+        {
+          "name": "Ejderha Renk",
+          "values": ["Rainbow", "Siyah", "Bronz", "Kırmızı", "Beyaz"]
+        }
+      ],
+      "images": [
+        {
+          "src": "/store/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru/0",
+          "widths": [480, 960, 1600],
+          "width": 2560,
+          "height": 2561,
+          "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAABwAgCdASoQABAAA4BaJZQAFEB7SIJs4Sh+JcAAAP738HupThmXGJsYFEMxfKuLJvChNBfbycut+Ps5y1ZOTAcrLA1dYeKtEkh1U4u2ZGYt6oaMI49e78Y/ppKxiAEaAB1NmUxfYdkAAA==",
+          "color": "#f8f8f8"
+        },
+        {
+          "src": "/store/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru/1",
+          "widths": [480, 960, 1600],
+          "width": 2250,
+          "height": 2251,
+          "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAACQAgCdASoQABAAA4BaJaQARABLgezaCLbiEWfgAAD+9/EO6AKoqXAQ7WGh3BchUXgSeV1f8u+ZMX43ydeVc4dBeIV6L2jjJj0hzQzYd6rqLZuq3u+x+GPfXmjijSvAgAA=",
+          "color": "#f8f8f8"
+        },
+        {
+          "src": "/store/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru/2",
+          "widths": [480, 960, 1600],
+          "width": 2250,
+          "height": 2251,
+          "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABQAgCdASoQABAAA4BaJaQAD4TwXKG8pbbr4AAA/vfwe6lQplJRf77nKvmPXootbEv2bVNWyZ5fjsRGIKTk+Tk+b1XhOJN/CMuEwm7ykSUhKcXfvVm4Wf7DcKGTQuc4AAA=",
+          "color": "#f8f8f8"
+        },
+        {
+          "src": "/store/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru/3",
+          "widths": [480, 960, 1600],
+          "width": 2250,
+          "height": 2251,
+          "lqip": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQAgCdASoQABAAA4BaJQBOgO4Fu+7sHJfqVYgA/vfwe6lMxH45TniXVw3VNHuXj2gvt5OVHjzBkgpHqc37gXOweiCnYcptes92XYqujg0TwK1zl3LKnHsIsqEeMiQ72y48wAAA",
+          "color": "#f8f8f8"
+        },
+        {
+          "src": "/store/the-dragons-keeper-ejderha-taki-askisi-ve-duvar-dekoru/4",
+          "widths": [480, 960, 1600],
+          "width": 2250,
+          "height": 2251,
+          "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQABAAA4BaJaQAAuR8kW2kp6cAAP737uiWWA0QVTRmmOQXWqfoE8ZpjvjuTJAglmOWPUTt1zcH8Xq0atdX0AAA",
+          "color": "#f8f8f8"
+        }
+      ]
+    },
+    {
+      "slug": "grainztag-pet2",
+      "name": "GrainzTag #Pet2",
+      "url": "https://store.100kraft.com/grainztag-pet2",
+      "category": "GrainzTag",
+      "categoryPath": [],
+      "price": 399,
+      "listPrice": null,
+      "priceFrom": true,
+      "inStock": true,
+      "options": [
+        {
+          "name": "Miktar",
+          "values": ["Tek", "10'lu", "100'lü"]
+        }
+      ],
+      "images": [
+        {
+          "src": "/store/grainztag-pet2/0",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABwAgCdASoQABAAA4BaJQBOj+AQSRf5/4UPCj4AAP7zcnkxrih2pO+8DpIC7Ospea6FbGoj1xUjTXppXcMuqKXHoXSAwnpizlmihQ39O9Kts+/FAe9koJ7/rvxewAAA",
+          "color": "#d8d8d8"
+        }
+      ]
+    },
+    {
+      "slug": "dissiz-toothless-hareketli-eklemli-ejderha-figuru-20-cm",
+      "name": "Dişsiz (Toothless) – Hareketli / Eklemli Ejderha Figürü (20 cm)",
+      "url": "https://store.100kraft.com/dissiz-toothless-hareketli-eklemli-ejderha-figuru-20-cm",
+      "category": "Masaüstü Figürler",
+      "categoryPath": ["Figür & Koleksiyon"],
+      "price": 799,
+      "listPrice": 999,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [],
+      "images": [
+        {
+          "src": "/store/dissiz-toothless-hareketli-eklemli-ejderha-figuru-20-cm/0",
+          "widths": [480, 960, 1600],
+          "width": 3024,
+          "height": 4032,
+          "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JYwCdAB476e9B7EsdwADc47+zI1gdxygxl+mVz5TiJOQ2vunf2hmzxN6UzTamHFYr5FmyjFGCLasTK/bq3bmqF6J7P2Tocd9aeaIZSSBB76eRAAA=",
+          "color": "#988878"
+        },
+        {
+          "src": "/store/dissiz-toothless-hareketli-eklemli-ejderha-figuru-20-cm/1",
+          "widths": [480, 960, 1600],
+          "width": 2560,
+          "height": 3413,
+          "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAwCdASoQABUAPu1iqU2ppaOiMAgBMB2JQBOmUABFILIyPr6gQRUMAPiFldFjJLd0f3K/71K428fZvtrr7KAm0EoUE7pyp8pgusuTlXGFYiqv2/N9LXn8r6jYo8Vb1zcEl0sLejO8PgAA",
+          "color": "#080808"
+        }
+      ]
+    },
+    {
+      "slug": "light-fury-hareketli-eklemli-ejderha-figuru-20-cm",
+      "name": "Light Fury – Hareketli / Eklemli Ejderha Figürü (20 cm)",
+      "url": "https://store.100kraft.com/light-fury-hareketli-eklemli-ejderha-figuru-20-cm",
+      "category": "Masaüstü Figürler",
+      "categoryPath": ["Figür & Koleksiyon"],
+      "price": 799,
+      "listPrice": 999,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [],
+      "images": [
+        {
+          "src": "/store/light-fury-hareketli-eklemli-ejderha-figuru-20-cm/0",
+          "widths": [480, 960, 1600],
+          "width": 2560,
+          "height": 3413,
+          "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoQABUAPu1iqU2ppaQiMAgBMB2JQBYdhH/YdOzUcDV6kAD+dGVqGiy7fLE9ok+t6/wNNZTtSXLNlvJIYyNPto5eF8kZVNjJtdpB8Xnrum1A3SZ3mz9v/DdN0fQKsSzbf4XYvPSAAAA=",
+          "color": "#c8a888"
+        },
+        {
+          "src": "/store/light-fury-hareketli-eklemli-ejderha-figuru-20-cm/1",
+          "widths": [480, 960, 1600],
+          "width": 3024,
+          "height": 4032,
+          "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAAAwBACdASoQABUAPu1iqU2ppaOiMAgBMB2JYwCdMoMsdB4qzrp0gqZiMdAA+ehtLjiVmytIboeHEZpwN/5+lyKRpnrBxQaXA8b1jRT3vMDxoBYbDJoRcaG04SxJIIeMF82YNeOdBmNMUAAA",
+          "color": "#786858"
+        }
+      ]
+    },
+    {
+      "slug": "toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set",
+      "name": "Toothless & Light Fury İkili Sevgili / Koleksiyon Paketi (Avantajlı Set)",
+      "url": "https://store.100kraft.com/toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set",
+      "category": "Masaüstü Figürler",
+      "categoryPath": ["Figür & Koleksiyon"],
+      "price": 1499,
+      "listPrice": 1999,
+      "priceFrom": false,
+      "inStock": true,
+      "options": [],
+      "images": [
+        {
+          "src": "/store/toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set/0",
+          "widths": [480, 960, 1600],
+          "width": 2048,
+          "height": 2048,
+          "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQABAAA4BaJaQAAueLY4wMzwAA/u1NuM2sIyZF4Cwy/X0vX5/HcSRn8flIdKPkiVn6FBAhKL4Fvd6RpyIAAA==",
+          "color": "#d8d8d8"
+        },
+        {
+          "src": "/store/toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set/1",
+          "widths": [480, 960, 1600],
+          "width": 2560,
+          "height": 1920,
+          "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAABwAQCdASoQAAwAA4BaJQBOgArrwAD+mFAyqwIjy/fd0v95CdF4G13JkHJuWAXyMeLg7jZyPVjN8H6AH+aVfwRu78ncd2VqyKaQxAowgAcrrcObIZCAAA==",
+          "color": "#786858"
+        },
+        {
+          "src": "/store/toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set/2",
+          "widths": [480, 960, 1600],
+          "width": 2560,
+          "height": 1920,
+          "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADQAQCdASoQAAwAA4BaJQBOgBmhQ+csAAD+yeNbm1kb883dgPrgHsju8pe8JIPjL9ARpw25BkVXyeSinXlWKb/1pkE7SE5fr4QjhHLi+eC91I5y+j/1zBAAAAA=",
+          "color": "#887868"
+        },
+        {
+          "src": "/store/toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set/3",
+          "widths": [480, 960, 1600],
+          "width": 2560,
+          "height": 1920,
+          "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAwAA4BaJYwCdAYuupvkI0gAzj5/RHy/bx/WbQyGAs8KMvNwd1C7XcJVLS7z5gvIp1x1Tqvg3FWzL/QFv6FM7JdpuxpoDgEgBI/bLlkAAA==",
+          "color": "#988878"
+        },
+        {
+          "src": "/store/toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set/4",
+          "widths": [480, 960],
+          "width": 1536,
+          "height": 2752,
+          "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAACwAwCdASoQAB0APu1iqk2ppaQiMAgBMB2JZQC/OBqs/Px889WFgAD+ozPuEAYoGeLptl9oUhEgThIrE8dPQYh6ll2+ReEF79Dw0mhSceSMnD6mJb6LRshMDOCsfVJNOYjc/TxatvHjqsXEMgqiZSP4+RKqinPOHh/MRuvzDiXnNNTSaXHhm6xfLFxkSiTXnpoD6zpmuiAAAA==",
+          "color": "#b8a898"
+        },
+        {
+          "src": "/store/toothless-light-fury-ikili-sevgili-koleksiyon-paketi-avantajli-set/5",
+          "widths": [480, 960],
+          "width": 1536,
+          "height": 2752,
+          "lqip": "data:image/webp;base64,UklGRsYAAABXRUJQVlA4ILoAAABwBACdASoQAB0APu1kqk4ppaQiMAgBMB2JQBOl65swASFjlkcW2c1bPGqWgADJYMlCJN7PtOT9lL+P4/EDVWPnerUpFOG6DfolcHewKrag76TRXF9RNygwOvBhN4Yi4r+p/p+nzLEVd8b341LxPdvwQzAQ3OORnREJSrVNxR95L0lUDj/rW5mo5NSB3pODigFkG8eMzxBdP0+773vn9ZYen2UtFkddZrpOomx3ip26UV1Cf9rJc+KkAAA=",
+          "color": "#180808"
+        }
+      ]
+    }
+  ]
+}

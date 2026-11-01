@@ -1,486 +1,544 @@
+import type { Language } from "@/data/translations";
+
+type Localized = Record<Language, string>;
+type LocalizedList = Record<Language, string[]>;
+
 export interface ServiceItem {
-  id: string;
   slug: string;
   number: string;
-  title: string;
-  titleTr: string;
-  shortDesc: string;
-  shortDescTr: string;
-  tagline: string;
-  taglineTr: string;
-  meta: string;
-  metaTr: string;
-  overview: string;
-  overviewTr: string;
-  problemsSolved: string[];
-  problemsSolvedTr: string[];
-  workflow: { step: string; stepTr: string; desc: string; descTr: string }[];
-  capabilities: string[];
-  capabilitiesTr: string[];
-  materials?: string[];
-  relatedProjects: string[];
+  title: Localized;
+  short: Localized;
+  intro: Localized;
+  includes: LocalizedList;
+  forWhom: LocalizedList;
+  steps: { title: Localized; body: Localized }[];
+  deliverables: LocalizedList;
+  faq: { q: Localized; a: Localized }[];
+  /** Blog posts that go deeper on this service. */
+  posts: string[];
 }
 
 export const services: ServiceItem[] = [
   {
-    id: "01",
     slug: "product-design",
     number: "01",
-    title: "Product Design",
-    titleTr: "Ürün Tasarımı",
-    shortDesc:
-      "Concept direction, form language, ergonomics and material strategy — resolved into a physical product with a point of view.",
-    shortDescTr:
-      "Konsept yönü, form dili, ergonomi ve malzeme stratejisi — duruşu olan bir ürüne dönüştürülür.",
-    tagline: "Concept · CMF · Ergonomics · Manufacturability",
-    taglineTr: "Konsept · CMF · Ergonomi · Üretilebilirlik",
-    meta: "Concept · CMF · Ergonomics",
-    metaTr: "Konsept · CMF · Ergonomi",
-    overview:
-      "At 100KRAFT, product design does not stop at surface sketches. We design products from the core mechanical packaging outwards. Geometry, user interaction, ergonomics, parting lines, and material constraints are balanced simultaneously so the concept that gets approved is the exact product that enters production.",
-    overviewTr:
-      "100KRAFT'ta ürün tasarımı sadece yüzey eskizleriyle sınırlı kalmaz. Ürünleri mekanik yerleşimden dış kabuğa doğru tasarlarız. Geometri, kullanıcı etkileşimi, ergonomi, kalıp ayırma çizgileri ve malzeme kısıtlamaları eşzamanlı çözülür; böylece onaylanan konsept, üretime giren ürünle birebir örtüşür.",
-    problemsSolved: [
-      "Translating ambiguous product ideas into production-ready physical form",
-      "Ergonomic fit, hand-feel, and user interface ergonomics",
-      "CMF (Color, Material, Finish) specification matching real-world durability requirements",
-      "Consolidating assemblies to minimize component count before tooling",
-    ],
-    problemsSolvedTr: [
-      "Fikir aşamasındaki ürünleri üretime hazır fiziksel forma dönüştürme",
-      "Ergonomik tutuş, kullanıcı hissi ve arayüz ergonomisi",
-      "Gerçek kullanım koşullarına uygun CMF (Renk, Malzeme, Doku) spesifikasyonu",
-      "Kalıp öncesinde parça sayısını düşürmek için montaj optimizasyonu",
-    ],
-    workflow: [
+    title: { tr: "Ürün Tasarımı", en: "Product Design" },
+    short: {
+      tr: "Bir fikri, raflara çıkabilecek bir ürüne çeviririz.",
+      en: "We turn an idea into something that can go on a shelf.",
+    },
+    intro: {
+      tr: "Form, kullanım ve üretim aynı masada konuşulur. Nasıl görüneceğini düşünürken nasıl basılacağını, nasıl paketleneceğini ve ne kadara mal olacağını da düşünürüz. Onaylanan tasarım, üretilen üründür.",
+      en: "Form, use and manufacture are discussed at the same table. While we think about how it looks, we also think about how it prints, packs and what it costs. The approved design is the product that gets made.",
+    },
+    includes: {
+      tr: [
+        "Konsept ve form çalışması",
+        "Ergonomi ve kullanım",
+        "Malzeme, renk ve yüzey",
+        "Üretime uygunluk kontrolü",
+      ],
+      en: [
+        "Concept and form studies",
+        "Ergonomics and use",
+        "Material, colour and finish",
+        "Design for manufacture",
+      ],
+    },
+    forWhom: {
+      tr: [
+        "Kendi ürününü çıkarmak isteyen girişimciler",
+        "Koleksiyonuna yeni parça ekleyen markalar",
+        "Fikri olan ama nereden başlayacağını bilmeyenler",
+      ],
+      en: [
+        "Founders launching their own product",
+        "Brands adding a piece to their range",
+        "Anyone with an idea and no starting point",
+      ],
+    },
+    steps: [
       {
-        step: "Design Research & Brief",
-        stepTr: "Tasarım Araştırması ve Brief",
-        desc: "Define user constraints, internal electronics envelope, target unit cost, and mechanical boundaries.",
-        descTr:
-          "Kullanıcı kısıtları, dahili elektronik hacim, hedef birim maliyet ve mekanik sınırlar belirlenir.",
+        title: { tr: "Brief", en: "Brief" },
+        body: {
+          tr: "Ürün ne yapacak, kime satılacak, kaç adet, hangi bütçe.",
+          en: "What it does, who buys it, how many, what budget.",
+        },
       },
       {
-        step: "Form Exploration & Ideation",
-        stepTr: "Form Keşfi ve İdeasyon",
-        desc: "Rapid sketching, proportion studies, and volumetric foam/print mockups for ergonomic validation.",
-        descTr:
-          "Hızlı eskizler, oran çalışmaları ve ergonomi doğrulaması için hacimsel prototipler.",
+        title: { tr: "Konsept", en: "Concept" },
+        body: {
+          tr: "Eskizler ve hızlı modellerle iki üç yön; birini birlikte seçeriz.",
+          en: "Two or three directions in sketches and quick models; we pick one together.",
+        },
       },
       {
-        step: "CMF & Detail Resolution",
-        stepTr: "CMF ve Detay Çözümü",
-        desc: "Textures, draft considerations, parting lines, display integration, and fastener planning.",
-        descTr:
-          "Doku, kalıp açısı, ayrım çizgileri, ekran entegrasyonu ve bağlantı detayları netleştirilir.",
+        title: { tr: "Numune", en: "Sample" },
+        body: {
+          tr: "Seçilen yön baskıyla numuneye dönüşür; elde test edip netleştiririz.",
+          en: "The chosen direction becomes a printed sample, tested in hand and refined.",
+        },
+      },
+    ],
+    deliverables: {
+      tr: ["Onaylı numune", "3D model ve teknik resim", "Malzeme ve renk listesi"],
+      en: ["Approved sample", "3D model and drawings", "Material and colour spec"],
+    },
+    faq: [
+      {
+        q: {
+          tr: "Elimde sadece bir fikir var, yeterli mi?",
+          en: "I only have an idea. Is that enough?",
+        },
+        a: {
+          tr: "Evet. İlk görüşmede fikri birlikte netleştirir, ilk eskizleri biz çıkarırız.",
+          en: "Yes. We shape the idea together in the first call and make the first sketches ourselves.",
+        },
       },
       {
-        step: "Engineering Hand-off",
-        stepTr: "Mühendislik Teslimi",
-        desc: "Surfaces exported directly into parametric CAD for mechanical detail design and tooling.",
-        descTr:
-          "Yüzeyler, mekanik detay tasarımı ve kalıplama için doğrudan parametrik CAD ortamına aktarılır.",
+        q: { tr: "Tasarımın hakları kime ait olur?", en: "Who owns the design?" },
+        a: {
+          tr: "Sizin için yaptığımız tasarımın hakları teslimle size geçer; bunu teklifte yazılı olarak belirtiriz.",
+          en: "Rights to a design we make for you pass to you on delivery; we state this in writing in the quote.",
+        },
       },
     ],
-    capabilities: [
-      "Industrial Design Ideation",
-      "Class-A Surfacing",
-      "CMF Specifications",
-      "Ergonomic Mockups & Testing",
-      "Packaging & Mechanical Enveloping",
-    ],
-    capabilitiesTr: [
-      "Endüstriyel Tasarım İdeasyonu",
-      "Class-A Yüzey Modelleme",
-      "CMF Spesifikasyonları",
-      "Ergonomik Mockup ve Testler",
-      "Paketleme ve Mekanik Hacim Yerleşimi",
-    ],
-    materials: ["Engineering Polymers", "Anodized Aluminum", "Silicone & TPU", "Sheet Metal"],
-    relatedProjects: ["px-1-handheld", "aluminium-series"],
+    posts: ["fikirden-prototipe-urun-gelistirme-sureci", "moduler-duvar-dekoru-wall-decor"],
   },
   {
-    id: "02",
     slug: "3d-design-cad",
     number: "02",
-    title: "3D Design & CAD",
-    titleTr: "3D Tasarım & CAD",
-    shortDesc:
-      "Parametric CAD and surface modelling built to be edited, tolerance-checked, and handed directly to production.",
-    shortDescTr:
-      "Düzenlenebilir, toleransları kontrol edilmiş ve doğrudan üretime aktarılmaya hazır parametrik CAD ve yüzey modelleme.",
-    tagline: "Parametric CAD · Surfacing · GD&T · Assemblies",
-    taglineTr: "Parametrik CAD · Yüzey Modelleme · GD&T · Montajlar",
-    meta: "CAD · Surfacing · Assemblies",
-    metaTr: "CAD · Yüzey Modelleme · Montaj",
-    overview:
-      "Robust digital engineering is the backbone of physical manufacturing. We build master parametric CAD assemblies where parts fit with calculated clearances, thermal expansion is accounted for, and tooling draft angles are engineered into the solid body from day one.",
-    overviewTr:
-      "Güçlü dijital mühendislik, fiziksel üretimin omurgasıdır. Parçaların hesaplanmış toleranslarla birleştiği, termal genleşmenin hesaba katıldığı ve kalıp açılarının ilk günden gövdeye işlendiği ana parametrik CAD montajları inşa ediyoruz.",
-    problemsSolved: [
-      "Rigid, un-editable CAD files converted to clean parametric feature trees",
-      "Draft angle analysis, undercut elimination, and wall-thickness uniformity",
-      "Complex mechanical linkages, snap-fits, and hinge mechanisms",
-      "GD&T (Geometric Dimensioning & Tolerancing) for CNC and molding inspection",
-    ],
-    problemsSolvedTr: [
-      "Düzenlenemeyen CAD modellerinin temiz parametrik ağaçlara dönüştürülmesi",
-      "Kalıp açısı analizi, ters açıların giderilmesi ve et kalınlığı homojenliği",
-      "Karmaşık mekanik mafsallar, tırnaklı kilitler ve menteşe mekanizmaları",
-      "CNC ve kalıp kontrolü için GD&T geometrik boyutlandırma ve toleranslandırma",
-    ],
-    workflow: [
+    title: { tr: "3D Modelleme", en: "3D Modelling" },
+    short: {
+      tr: "Eskizden, fotoğraftan ya da kırık parçadan baskıya hazır dosya.",
+      en: "Print-ready files from a sketch, a photo or a broken part.",
+    },
+    intro: {
+      tr: "Elinizdeki eskiz, fotoğraf, ölçü ya da kırık parça bizim için yeterli bir başlangıç. Parçayı ölçer, modeller ve baskıya, CNC'ye ya da kalıpçıya gidecek dosyayı hazırlarız. Organik figürler de mekanik parçalar da bu masada çizilir.",
+      en: "A sketch, a photo, a set of measurements or a broken part is enough to start. We measure, model and prepare files ready for printing, CNC or the toolmaker. Organic figures and mechanical parts are both drawn at this desk.",
+    },
+    includes: {
+      tr: [
+        "Parametrik parça ve montaj modeli",
+        "Organik ve heykelsi formlar",
+        "Tersine mühendislik",
+        "STEP, STL, OBJ ve teknik resim",
+      ],
+      en: [
+        "Parametric parts and assemblies",
+        "Organic and sculptural forms",
+        "Reverse engineering",
+        "STEP, STL, OBJ and drawings",
+      ],
+    },
+    forWhom: {
+      tr: [
+        "Bulunmayan yedek parçası olanlar",
+        "Baskıya dosya hazırlatmak isteyen tasarımcılar",
+        "Figür ve obje üreten sanatçılar",
+      ],
+      en: [
+        "People with a spare part nobody sells",
+        "Designers who need print-ready files",
+        "Artists making figures and objects",
+      ],
+    },
+    steps: [
       {
-        step: "Internal Architecture",
-        stepTr: "İç Mimari & Paketleme",
-        desc: "Arrange PCB, batteries, actuators, and structural ribs inside coordinate space.",
-        descTr: "PCB, batarya, motor ve yapısal federler koordinat sisteminde yerleştirilir.",
+        title: { tr: "Ölçü", en: "Measure" },
+        body: {
+          tr: "Kumpas, fotoğraf ve referans ölçülerle başlarız.",
+          en: "We start from callipers, photos and reference dimensions.",
+        },
       },
       {
-        step: "Parametric Solid Modeling",
-        stepTr: "Parametrik Katı Modelleme",
-        desc: "Feature-based modeling allowing immediate parametric adjustments during prototyping.",
-        descTr: "Prototipleme sırasında anlık değişikliklere olanak tanıyan parametrik modelleme.",
+        title: { tr: "Model", en: "Model" },
+        body: {
+          tr: "Baskı yönü, et kalınlığı ve toleranslar düşünülerek modellenir.",
+          en: "Modelled with print orientation, wall thickness and tolerances in mind.",
+        },
       },
       {
-        step: "Tolerance Stack-up Analysis",
-        stepTr: "Tolerans Birikim Analizi",
-        desc: "Worst-case and statistical clearance verification across multi-part assemblies.",
-        descTr: "Çok parçalı montajlarda en kötü senaryo ve istatistiksel boşluk doğrulaması.",
+        title: { tr: "Deneme", en: "Test" },
+        body: {
+          tr: "Kritik ölçüler için deneme baskısı alır, gerekirse düzeltiriz.",
+          en: "A test print checks the critical fits before final files.",
+        },
+      },
+    ],
+    deliverables: {
+      tr: ["Kaynak model (STEP)", "Baskı dosyası (STL/3MF)", "İsteğe bağlı teknik resim"],
+      en: ["Source model (STEP)", "Print file (STL/3MF)", "Drawings on request"],
+    },
+    faq: [
+      {
+        q: { tr: "Kırık parçayı nasıl göndermeliyim?", en: "How do I send a broken part?" },
+        a: {
+          tr: "Önce fotoğraf ve birkaç ölçü yeterli. Gerekirse parçayı kargoyla isteriz.",
+          en: "Photos and a few measurements are enough to start. If needed, we ask for the part by post.",
+        },
       },
       {
-        step: "Production 2D Drawings",
-        stepTr: "Üretim Teknik Resimleri",
-        desc: "Dimensioned drawings with datum references, surface finish symbols, and fit tolerances.",
-        descTr:
-          "Referans düzlemleri, yüzey pürüzlülük sembolleri ve geçme toleransları içeren teknik resimler.",
+        q: {
+          tr: "Sadece dosya alıp başka yerde bastırabilir miyim?",
+          en: "Can I just get the files and print elsewhere?",
+        },
+        a: { tr: "Elbette. Dosyalar size teslim edilir.", en: "Of course. The files are yours." },
       },
     ],
-    capabilities: [
-      "Parametric Solid & Surface CAD",
-      "Snap-fit & Threaded Boss Design",
-      "Tolerance Stack-Up Calculations",
-      "STEP / IGES Production Packages",
-      "Assembly Drawings with GD&T",
+    posts: [
+      "3d-baski-icin-dosya-hazirlama-stl-step",
+      "tersine-muhendislik-kirik-parcayi-yeniden-uretmek",
     ],
-    capabilitiesTr: [
-      "Parametrik Katı ve Yüzey CAD",
-      "Tırnaklı Geçme ve Vidalı Kovan Tasarımı",
-      "Tolerans Birikim Hesaplamaları",
-      "STEP / IGES Üretim Paketleri",
-      "GD&T İçeren Montaj Teknik Resimleri",
-    ],
-    materials: ["Polymers (ABS, PC, POM)", "Metals (6061/7075-T6, Stainless)", "Die-cast Alloys"],
-    relatedProjects: ["px-1-handheld", "aluminium-series", "velora-diffuser"],
   },
   {
-    id: "03",
     slug: "3d-printing",
     number: "03",
-    title: "3D Printing & Additive",
-    titleTr: "3D Baskı & Katmanlı İmalat",
-    shortDesc:
-      "FDM, SLA, and SLS in engineering-grade materials, printed, cured, and finished in our own Antalya atelier.",
-    shortDescTr:
-      "Kendi Antalya atölyemizde basılan, fırınlanan ve yüzey işlemleri tamamlanan mühendislik sınıfı FDM, SLA ve SLS üretimleri.",
-    tagline: "FDM · SLA · SLS · Engineering Resins & Filaments",
-    taglineTr: "FDM · SLA · SLS · Mühendislik Reçineleri & Filamentler",
-    meta: "FDM · SLA · SLS",
-    metaTr: "FDM · SLA · SLS",
-    overview:
-      "We operate an in-house fabrication workshop three meters from our design desks. From high-detail SLA for clear optical chambers and snap-fits, to carbon-reinforced PA12 for functional test rigs, our additive capabilities eliminate the delay of outsourcing.",
-    overviewTr:
-      "Tasarım masalarımızdan üç metre mesafede kendi üretim atölyemizi işletiyoruz. Optik parçalar ve tırnaklı montajlar için yüksek detaylı SLA'dan, fonksiyonel test aparatları için karbon takviyeli PA12'ye kadar eklemeli imalat kapasitemiz dışa bağımlılığı ve gecikmeleri ortadan kaldırır.",
-    problemsSolved: [
-      "Fast functional validation without investing in hard tooling",
-      "Direct testing of mechanical engagement, click feel, and thread engagement",
-      "Low-volume end-use functional enclosures and production brackets",
-      "Overnight turnaround of design modifications in physical hand",
-    ],
-    problemsSolvedTr: [
-      "Kalıp yatırımı yapmadan hızlı fonksiyonel doğrulama",
-      "Mekanik geçmelerin, klik hissiyatının ve vida adımlarının doğrudan testi",
-      "Düşük adetli nihai kullanım muhafazaları ve montaj braketleri",
-      "Tasarım revizyonlarının ertesi gün fiziksel olarak elde incelenmesi",
-    ],
-    workflow: [
+    title: { tr: "3D Baskı", en: "3D Printing" },
+    short: {
+      tr: "Tek parçadan küçük seriye; basılır, temizlenir, elde bitirilir.",
+      en: "One part to a small batch; printed, cleaned and hand-finished.",
+    },
+    intro: {
+      tr: "Parçaları kendi atölyemizde basıyor, destekleri temizliyor ve gerekiyorsa zımparalayıp boyuyoruz. Malzemeyi ve baskı yönünü parçanın nerede ve nasıl kullanılacağına göre seçiyoruz; en hızlı yol değil, doğru yol.",
+      en: "We print parts in our own workshop, clean off supports and, where needed, sand and paint them. Material and orientation are chosen for how and where the part will be used: the right way, not the fastest.",
+    },
+    includes: {
+      tr: [
+        "Fonksiyonel ve dekoratif parçalar",
+        "PLA, PETG, TPU gibi malzemeler",
+        "Zımpara, astar, boya",
+        "Küçük seri üretim ve paketleme",
+      ],
+      en: [
+        "Functional and decorative parts",
+        "PLA, PETG, TPU and more",
+        "Sanding, priming, painting",
+        "Small batches and packing",
+      ],
+    },
+    forWhom: {
+      tr: [
+        "STL dosyası hazır olanlar",
+        "Etkinlik, vitrin ve hediye için obje arayan markalar",
+        "Az adetli ürün satan küçük işletmeler",
+      ],
+      en: [
+        "Anyone with an STL ready",
+        "Brands needing objects for events, windows or gifts",
+        "Small businesses selling short runs",
+      ],
+    },
+    steps: [
       {
-        step: "DFAM Optimization",
-        stepTr: "Katmanlı İmalat Uyarlaması (DFAM)",
-        desc: "Orient parts to align layer strength with mechanical stress vectors and eliminate support scars on critical faces.",
-        descTr:
-          "Katman mukavemetini mekanik gerilme yönleriyle hizalamak ve kritik yüzeylerde destek izlerini önlemek için parça yönlendirmesi.",
+        title: { tr: "Dosya kontrolü", en: "File check" },
+        body: {
+          tr: "Dosyayı baskıya uygunluk için kontrol eder, gerekirse düzeltiriz.",
+          en: "We check the file for printability and fix it if needed.",
+        },
       },
       {
-        step: "Additive Execution",
-        stepTr: "Üretim",
-        desc: "Printed using calibrated industrial parameters in controlled temperature and humidity environments.",
-        descTr:
-          "Sıcaklık ve nem kontrollü ortamda, kalibre edilmiş endüstriyel parametrelerle baskı.",
+        title: { tr: "Baskı", en: "Print" },
+        body: {
+          tr: "Doğru malzeme, katman ve yönle basarız.",
+          en: "Printed with the right material, layers and orientation.",
+        },
       },
       {
-        step: "Post-Processing & Curing",
-        stepTr: "Yüzey İşlemi & Kürleme",
-        desc: "Solvent washing, UV post-cure, support de-burring, and thread insert heat-staking.",
-        descTr:
-          "Solvent yıkama, UV kürleme, destek temizliği ve pirinç insertlerin ısıyla çakılması.",
+        title: { tr: "Son işlem", en: "Finish" },
+        body: {
+          tr: "Destek temizliği, zımpara ve istenirse boya.",
+          en: "Support removal, sanding and paint on request.",
+        },
+      },
+    ],
+    deliverables: {
+      tr: ["Bitmiş parçalar", "Kargo ya da atölyeden teslim"],
+      en: ["Finished parts", "Shipping or workshop pickup"],
+    },
+    faq: [
+      {
+        q: { tr: "Hangi malzemeyi seçmeliyim?", en: "Which material should I choose?" },
+        a: {
+          tr: "Parçanın ısıya, darbeye ya da esnemeye maruz kalıp kalmadığını söyleyin; malzemeyi birlikte seçelim.",
+          en: "Tell us whether it faces heat, impact or flexing, and we’ll choose together.",
+        },
       },
       {
-        step: "Metrology & Verification",
-        stepTr: "Metroloji ve Kontrol",
-        desc: "Calipers, bore gauges, and optical verification to verify critical tolerances against CAD.",
-        descTr:
-          "Kritik toleransların CAD modeliyle karşılaştırılması için kumpas ve optik kontroller.",
+        q: { tr: "Tek parça bastırabilir miyim?", en: "Can I print just one part?" },
+        a: { tr: "Evet, tek parça da basıyoruz.", en: "Yes, single parts are welcome." },
       },
     ],
-    capabilities: [
-      "High-Resolution SLA (Rigid, Tough, High-Temp, Clear)",
-      "Industrial FDM (ASA, PC, PETG, TPU, PA-CF)",
-      "SLS Nylon (PA12)",
-      "Heat-set Thread Inserts",
-      "Vapor Smoothing & Sanding",
+    posts: [
+      "3d-baski-fiyatlari-nasil-belirlenir",
+      "3d-baski-malzeme-secimi-pla-petg-abs-tpu",
+      "fdm-sla-sls-hangi-3d-baski-teknolojisi",
+      "3d-baski-yuzey-islemleri-zimpara-astar-boya",
     ],
-    capabilitiesTr: [
-      "Yüksek Çözünürlüklü SLA (Rigid, Tough, Yüksek Isı, Şeffaf)",
-      "Endüstriyel FDM (ASA, PC, PETG, TPU, Karbon PA)",
-      "SLS Naylon (PA12)",
-      "Isıl Çakma Pirinç Somunlar (Inserts)",
-      "Buharla Pürüzsüzleştirme ve Zımpara",
-    ],
-    materials: ["PA12-CF", "Polycarbonate (PC)", "ASA / ABS", "Engineering Resins", "TPU 95A"],
-    relatedProjects: ["px-1-handheld", "velora-diffuser"],
   },
   {
-    id: "04",
     slug: "rapid-prototyping",
     number: "04",
-    title: "Rapid Prototyping",
-    titleTr: "Hızlı Prototipleme",
-    shortDesc:
-      "Fast iteration loops — looks-like, works-like, and pre-production samples in days, not quarters.",
-    shortDescTr:
-      "Hızlı iterasyon döngüleri — aylar yerine günler içinde görsel, fonksiyonel ve seri üretim öncesi numuneler.",
-    tagline: "Looks-Like · Works-Like · Pre-Production Validation",
-    taglineTr: "Görsel Numune · Fonksiyonel Numune · Seri Öncesi Doğrulama",
-    meta: "Iteration · Fit · Function",
-    metaTr: "İterasyon · Uyum · Fonksiyon",
-    overview:
-      "Prototyping is not a validation checkpoint at the end of a project; it is our primary design method. We build physical artifacts continuously to reveal mechanical clashes, ergonomic discomfort, and acoustic resonance before commitments are cast in steel.",
-    overviewTr:
-      "Prototipleme projenin sonundaki bir kontrol noktası değil, temel tasarım yöntemimizdir. Mekanik çakışmaları, ergonomik rahatsızlıkları ve akustik rezonansları kalıp çeliği işlenmeden önce açığa çıkarmak için sürekli fiziksel modeller üretiriz.",
-    problemsSolved: [
-      "Catching assembly interference before tooling commits",
-      "Validating weight balance, grip contours, and tactile switches in real hands",
-      "Pre-compliance drop, fit, and thermal testing",
-      "Realistic visual models for investor presentations and user testing",
-    ],
-    problemsSolvedTr: [
-      "Kalıp yatırımı öncesi montaj çakışmalarının yakalanması",
-      "Ağırlık dengesi, tutuş konturları ve buton hissiyatının gerçek elle doğrulanması",
-      "Düşme, geçme ve termal ön testlerin yapılması",
-      "Yatırımcı sunumları ve kullanıcı testleri için gerçekçi görsel modeller",
-    ],
-    workflow: [
+    title: { tr: "Prototipleme", en: "Prototyping" },
+    short: {
+      tr: "Kalıba para harcamadan önce elde tutulan, test edilen modeller.",
+      en: "Models you can hold and test before spending on tooling.",
+    },
+    intro: {
+      tr: "Ekranda doğru görünen bir tasarımın elde de doğru olduğundan emin oluruz. Ölçü, geçme ve kullanım hissi prototiple görülür; hata kalıba girmeden, ucuzken düzeltilir.",
+      en: "We make sure a design that looks right on screen is right in the hand too. Size, fit and feel show up on a prototype, so mistakes get fixed while they’re still cheap, before any tooling.",
+    },
+    includes: {
+      tr: [
+        "Görsel ve fonksiyonel prototip",
+        "Geçme ve montaj denemesi",
+        "Hızlı revizyon turları",
+        "Sunum ve fuar modeli",
+      ],
+      en: [
+        "Visual and functional prototypes",
+        "Fit and assembly checks",
+        "Fast revision rounds",
+        "Presentation and trade-show models",
+      ],
+    },
+    forWhom: {
+      tr: [
+        "Yatırımcıya ya da müşteriye ürün gösterecek ekipler",
+        "Kalıp öncesi doğrulama isteyen üreticiler",
+        "Tasarım öğrencileri ve stüdyolar",
+      ],
+      en: [
+        "Teams pitching to investors or clients",
+        "Manufacturers validating before tooling",
+        "Design students and studios",
+      ],
+    },
+    steps: [
       {
-        step: "Looks-Like Prototypes",
-        stepTr: "Görsel (Looks-Like) Modeller",
-        desc: "Color, texture, weight, and surface fidelity matching the intended mass-production aesthetic.",
-        descTr:
-          "Seri üretim estetiğini yansıtan renk, doku, ağırlık ve yüzey hassasiyetinde modeller.",
+        title: { tr: "İlk numune", en: "First sample" },
+        body: {
+          tr: "Modelden ilk baskı; ölçü ve oran kontrolü.",
+          en: "First print from the model; size and proportion check.",
+        },
       },
       {
-        step: "Works-Like Prototypes",
-        stepTr: "Fonksiyonel (Works-Like) Modeller",
-        desc: "Internal drive mechanisms, snap-fits, electronics, and battery run-time verification.",
-        descTr:
-          "Mekanizma, tırnaklı kilitler, elektronik bileşenler ve pil çalışma sürelerinin doğrulanması.",
+        title: { tr: "Test", en: "Test" },
+        body: { tr: "Montaj, geçme ve kullanım denemesi.", en: "Assembly, fit and use trials." },
       },
       {
-        step: "Multi-Material Assemblies",
-        stepTr: "Çok Malzemeli Montajlar",
-        desc: "Combining rigid frames with soft-touch overmolds, gaskets, and machined fasteners.",
-        descTr:
-          "Sert gövdeleri yumuşak contalar, overmold yüzeyler ve işlenmiş bağlantı elemanlarıyla birleştirme.",
+        title: { tr: "Revizyon", en: "Revise" },
+        body: {
+          tr: "Bulunanları düzeltir, yeni numune basarız.",
+          en: "Fix what we found and print the next sample.",
+        },
+      },
+    ],
+    deliverables: {
+      tr: ["Prototip(ler)", "Revizyon notları", "Güncel 3D model"],
+      en: ["Prototype(s)", "Revision notes", "Updated 3D model"],
+    },
+    faq: [
+      {
+        q: { tr: "Kaç prototip turu gerekir?", en: "How many rounds does it take?" },
+        a: {
+          tr: "Ürüne göre değişir; her turdan sonra bir sonrakine birlikte karar veririz.",
+          en: "It depends on the product; after each round we decide on the next together.",
+        },
       },
       {
-        step: "Iteration Feedback Loop",
-        stepTr: "İterasyon Geri Besleme Döngüsü",
-        desc: "Measurements fed immediately back into CAD for the next print cycle within 24–48 hours.",
-        descTr:
-          "Elde edilen ölçümlerin 24-48 saat içinde bir sonraki baskı için CAD'e aktarılması.",
+        q: {
+          tr: "Prototip son ürünle aynı malzemeden mi olur?",
+          en: "Is the prototype in the final material?",
+        },
+        a: {
+          tr: "Bazen evet, bazen benzer davranan bir baskı malzemesiyle; amaç neyi test ettiğimize bağlı.",
+          en: "Sometimes; otherwise in a print material that behaves similarly, depending on what we’re testing.",
+        },
       },
     ],
-    capabilities: [
-      "Physical Ergonomic Mockups",
-      "Functional Mechanical Assemblies",
-      "Painted & Textured Aesthetic Samples",
-      "Drop & Clearance Testing",
-      "Fast 48-hour Turnaround",
+    posts: [
+      "hizli-prototipleme-ile-kalip-maliyeti-dusurmek",
+      "fikirden-prototipe-urun-gelistirme-sureci",
     ],
-    capabilitiesTr: [
-      "Fiziksel Ergonomi Modelleri",
-      "Fonksiyonel Mekanik Montajlar",
-      "Boyalı ve Dokulandırılmış Estetik Numuneler",
-      "Düşme ve Geçme Testleri",
-      "48 Saatlik Hızlı İterasyon Döngüsü",
-    ],
-    materials: ["Functional Polymers", "Machined Metals", "Elastomers", "Acrylic & Optical Parts"],
-    relatedProjects: ["px-1-handheld", "aluminium-series", "velora-diffuser"],
   },
   {
-    id: "05",
     slug: "mold-design",
     number: "05",
-    title: "Mold Design & Tooling",
-    titleTr: "Kalıp Tasarımı & Tooling",
-    shortDesc:
-      "Injection mold design with draft, gating, cooling, and ejection engineered around the part geometry.",
-    shortDescTr:
-      "Açı, yolluk, soğutma ve itici sistemleri parçaya özel olarak mühendisliği yapılmış enjeksiyon kalıp tasarımı.",
-    tagline: "Tool Layout · Gating · Cooling Channels · DFM",
-    taglineTr: "Kalıp Yerleşimi · Yolluk · Soğutma Kanalları · DFM",
-    meta: "Tooling · DFM · Gating",
-    metaTr: "Kalıplama · DFM · Yolluk",
-    overview:
-      "A great part design is useless if the tool cannot run reliably at cycle. We engineer injection mold layouts, side actions, slides, sub-gates, and cooling circuits before steel cutting begins, preventing costly tool modifications and warranty sinkholes.",
-    overviewTr:
-      "Kalıbı seri üretim çevrim süresinde sorunsuz çalışmayan bir parça tasarımı eksiktir. Çelik işlenmeden önce enjeksiyon kalıp yerleşimlerini, maça mekanizmalarını, yollukları ve soğutma kanallarını tasarlayarak maliyetli kalıp revizyonlarını önlüyoruz.",
-    problemsSolved: [
-      "Sink marks, weld lines, and warpage eliminated through wall thickness optimization",
-      "Parting line placement aligned with aesthetic split lines",
-      "Side action and lifter planning for complex internal undercuts",
-      "Balancing runner and gate sizes for uniform cavity filling",
-    ],
-    problemsSolvedTr: [
-      "Et kalınlığı optimizasyonuyla çöküntü, birleşme izi ve çarpılmaların önlenmesi",
-      "Kalıp ayrım çizgisinin ürünün estetik hatlarıyla gizlenmesi",
-      "İç ters açılar için maça ve itici mekanizmalarının planlanması",
-      "Homojen dolum için yolluk ve giriş ölçülerinin dengelenmesi",
-    ],
-    workflow: [
+    title: { tr: "Kalıp & Döküm", en: "Moulds & Casting" },
+    short: {
+      tr: "Basılan ana modelden silikon kalıp; beton ve reçine döküm.",
+      en: "Silicone moulds from printed masters; concrete and resin casting.",
+    },
+    intro: {
+      tr: "Basılı bir ana modelden silikon kalıp alıp beton ya da reçineyle döküm yapıyoruz. Baskının veremediği ağırlığı, dokuyu ve yüzeyi dökümle elde ediyoruz. Enjeksiyon kalıbına gidecek parçalar için kalıplanabilirlik kontrolü de yapıyoruz.",
+      en: "We take silicone moulds from a printed master and cast in concrete or resin, getting the weight, texture and surface that printing alone can’t. For parts headed to injection moulding, we also review mouldability.",
+    },
+    includes: {
+      tr: [
+        "Ana model (master) üretimi",
+        "Silikon kalıp",
+        "Beton ve reçine döküm",
+        "Enjeksiyona uygunluk kontrolü",
+      ],
+      en: [
+        "Master model production",
+        "Silicone moulds",
+        "Concrete and resin casting",
+        "Injection-moulding review",
+      ],
+    },
+    forWhom: {
+      tr: [
+        "Beton ya da reçine obje üretmek isteyen markalar",
+        "Aynı parçadan onlarca adet gerekenler",
+        "Kalıp öncesi danışmanlık isteyen üreticiler",
+      ],
+      en: [
+        "Brands making concrete or resin objects",
+        "Anyone needing dozens of the same part",
+        "Manufacturers wanting a pre-tooling review",
+      ],
+    },
+    steps: [
       {
-        step: "DFM Audit",
-        stepTr: "DFM Denetimi",
-        desc: "Draft angle map, thickness gradient scan, and undercut analysis on final part CAD.",
-        descTr: "Kalıp açısı haritası, et kalınlığı geçiş analizi ve ters açı taraması.",
+        title: { tr: "Master", en: "Master" },
+        body: {
+          tr: "Ana model basılır ve yüzeyi kalıba hazırlanır.",
+          en: "The master is printed and its surface prepared.",
+        },
       },
       {
-        step: "Cavity & Core Split",
-        stepTr: "Erkek-Dişi Ayrımı",
-        desc: "Generate clean shut-offs and parting surfaces matching the parting line.",
-        descTr: "Kalıp ayrım çizgisine uygun temiz kapama yüzeyleri ve çekirdek ayrımı.",
+        title: { tr: "Kalıp", en: "Mould" },
+        body: {
+          tr: "Silikon kalıp dökülür, ayırma hatları planlanır.",
+          en: "The silicone mould is poured, with parting lines planned.",
+        },
       },
       {
-        step: "Gating & Ejection Strategy",
-        stepTr: "Yolluk ve İtici Stratejisi",
-        desc: "Submarine gates, edge gates, pin/blade ejectors positioned away from cosmetic faces.",
-        descTr: "Görsel yüzeylerden uzakta konumlandırılan tünel yolluklar ve itici pim yerleşimi.",
+        title: { tr: "Döküm", en: "Cast" },
+        body: {
+          tr: "Beton ya da reçine dökülür, kürlenir ve bitirilir.",
+          en: "Concrete or resin is cast, cured and finished.",
+        },
+      },
+    ],
+    deliverables: {
+      tr: ["Döküm parçalar", "İsteğe bağlı kalıp", "Ana model"],
+      en: ["Cast parts", "The mould, on request", "The master"],
+    },
+    faq: [
+      {
+        q: { tr: "Döküm ne zaman 3D baskıdan mantıklı?", en: "When does casting beat printing?" },
+        a: {
+          tr: "Aynı parçadan çok sayıda gerektiğinde ya da beton gibi ağır, dokulu bir malzeme istendiğinde.",
+          en: "When you need many of the same part, or a heavy, textured material like concrete.",
+        },
       },
       {
-        step: "Tooling Package Release",
-        stepTr: "Kalıp Üretim Paketi",
-        desc: "Full 3D mold layout with BOM, steel grades, and critical machining tolerances for moldmakers.",
-        descTr:
-          "Kalıpçılar için parça listesi, çelik kaliteleri ve işleme toleranslarını içeren 3D kalıp seti.",
+        q: {
+          tr: "Bir silikon kalıp kaç döküm çıkarır?",
+          en: "How many casts does a silicone mould give?",
+        },
+        a: {
+          tr: "Malzemeye ve parçanın formuna bağlı; teklif aşamasında projeye göre belirtiriz.",
+          en: "It depends on the material and shape; we state it per project in the quote.",
+        },
       },
     ],
-    capabilities: [
-      "Injection Mold 3D Tooling Design",
-      "Slider & Lifter Kinematics",
-      "Conformal & Baffled Cooling Layouts",
-      "Draft Angle & Thickness Analysis",
-      "Toolmaker DFM Packages",
+    posts: [
+      "silikon-kalip-ve-dokum-kucuk-seri-uretim",
+      "hizli-prototipleme-ile-kalip-maliyeti-dusurmek",
     ],
-    capabilitiesTr: [
-      "Enjeksiyon Kalıp 3D Tasarımı",
-      "Maça ve İtici Kinematik Tasarımı",
-      "Soğutma Kanalı Yerleşimi",
-      "Açı ve Et Kalınlığı Analizleri",
-      "Kalıpçı DFM İmalat Paketleri",
-    ],
-    materials: [
-      "Tool Steels (P20, H13, S136)",
-      "Beryllium Copper Inserts",
-      "Aluminium Tooling (7075)",
-    ],
-    relatedProjects: ["px-1-handheld"],
   },
   {
-    id: "06",
     slug: "manufacturing-consulting",
     number: "06",
-    title: "Manufacturing Consulting",
-    titleTr: "Üretim Danışmanlığı",
-    shortDesc:
-      "Process selection, supplier evaluation, and cost engineering to scale your hardware product to volume.",
-    shortDescTr:
-      "Ürünü seri üretime taşımak için süreç seçimi, tedarikçi değerlendirmesi ve maliyet mühendisliği.",
-    tagline: "Process Selection · Cost Engineering · Supplier Audits",
-    taglineTr: "Süreç Seçimi · Maliyet Mühendisliği · Tedarikçi Denetimi",
-    meta: "Process · Cost · Supply",
-    metaTr: "Süreç · Maliyet · Tedarik",
-    overview:
-      "Bridging the gulf between the prototype atelier and high-volume mass production. We advise on manufacturing process tradeoffs (CNC vs. Die Casting vs. Injection Molding), evaluate supplier quotes, and negotiate tolerances so quality remains high while BOM costs drop.",
-    overviewTr:
-      "Prototip atölyesi ile seri üretim hattı arasındaki köprüyü kuruyoruz. Üretim yöntemi seçiminde (CNC vs. Basınçlı Döküm vs. Enjeksiyon), tedarikçi teklif değerlendirmelerinde ve tolerans müzakerelerinde rehberlik ederek maliyetleri düşürürken kaliteyi koruyoruz.",
-    problemsSolved: [
-      "Determining optimal break-even volume for tooling investments",
-      "Reducing unit BOM cost without compromising surface finish or structural integrity",
-      "Supplier qualification and on-site production audits in Turkey and internationally",
-      "Establishing quality control criteria and inspection jigs",
-    ],
-    problemsSolvedTr: [
-      "Kalıp yatırımı için başa baş üretim hacminin belirlenmesi",
-      "Yüzey kalitesinden ödün vermeden birim parça maliyetlerinin düşürülmesi",
-      "Türkiye'de ve uluslararası pazarda tedarikçi seçimi ve üretim denetimi",
-      "Kalite kontrol kriterleri ve kontrol mastarlarının oluşturulması",
-    ],
-    workflow: [
+    title: { tr: "Üretim Danışmanlığı", en: "Manufacturing Advice" },
+    short: {
+      tr: "Hangi yöntem, hangi malzeme, kaç adet: doğru kararı birlikte veririz.",
+      en: "Which process, which material, how many: we decide it together.",
+    },
+    intro: {
+      tr: "Bir ürünün kaç adet, hangi yöntemle ve hangi maliyetle üretileceği çoğu zaman tasarım kadar önemlidir. Baskı, döküm ve enjeksiyon arasındaki eşikleri birlikte konuşur; gerektiğinde doğru tedarikçiye yönlendiririz.",
+      en: "How many units, which process and at what cost often matter as much as the design. We talk through the thresholds between printing, casting and injection moulding, and point you to the right supplier when needed.",
+    },
+    includes: {
+      tr: [
+        "Yöntem ve malzeme seçimi",
+        "Adet ve maliyet planı",
+        "Tedarikçi yönlendirme",
+        "Seri üretime geçiş",
+      ],
+      en: [
+        "Process and material choice",
+        "Quantity and cost planning",
+        "Supplier referrals",
+        "Moving to production",
+      ],
+    },
+    forWhom: {
+      tr: [
+        "İlk üretimine hazırlanan girişimler",
+        "Maliyet düşürmek isteyen üreticiler",
+        "Teklifleri karşılaştırmak isteyenler",
+      ],
+      en: [
+        "Start-ups preparing a first run",
+        "Manufacturers cutting cost",
+        "Anyone comparing quotes",
+      ],
+    },
+    steps: [
       {
-        step: "BOM & Process Analysis",
-        stepTr: "BOM ve Süreç Analizi",
-        desc: "Break down bill of materials to identify high-cost parts and secondary operations.",
-        descTr:
-          "Maliyeti artıran parçaları ve ikincil operasyonları belirlemek için parça listesi analizi.",
+        title: { tr: "Mevcut durum", en: "Where you are" },
+        body: {
+          tr: "Tasarım, hedef adet ve bütçe masaya yatırılır.",
+          en: "Design, target quantity and budget on the table.",
+        },
       },
       {
-        step: "Process Trade-Off Study",
-        stepTr: "Yöntem Karşılaştırma Çalışması",
-        desc: "Compare sheet metal vs. stamping, or urethane casting vs. aluminum tooling for your exact volume.",
-        descTr:
-          "Hedef üretim adetleriniz için CNC, döküm, kalıplama yöntemlerinin fizibilite kıyaslaması.",
+        title: { tr: "Seçenekler", en: "Options" },
+        body: {
+          tr: "Yöntemler artı ve eksileriyle karşılaştırılır.",
+          en: "Processes compared with their pros and cons.",
+        },
       },
       {
-        step: "Vendor Audit & RFQ",
-        stepTr: "Tedarikçi Denetimi & RFQ",
-        desc: "Prepare technical drawing packs, solicit bids from vetted machinists and molders, and benchmark responses.",
-        descTr:
-          "Teknik resim paketlerinin hazırlanması, güvenilir üreticilerden teklif toplanması ve karşılaştırılması.",
+        title: { tr: "Yol haritası", en: "Roadmap" },
+        body: {
+          tr: "Numuneden seriye net bir plan çıkarılır.",
+          en: "A clear plan from sample to series.",
+        },
+      },
+    ],
+    deliverables: {
+      tr: ["Yöntem önerisi", "Üretim yol haritası", "Tedarikçi listesi (gerekirse)"],
+      en: ["Process recommendation", "Production roadmap", "Supplier list (if needed)"],
+    },
+    faq: [
+      {
+        q: {
+          tr: "Ürünü siz üretmeseniz de danışmanlık alabilir miyim?",
+          en: "Can I get advice even if you don’t make it?",
+        },
+        a: {
+          tr: "Evet. Bazen en doğru cevap başka bir atölye ya da fabrikadır; bunu açıkça söyleriz.",
+          en: "Yes. Sometimes the right answer is another workshop or factory, and we’ll say so.",
+        },
       },
       {
-        step: "First Article Inspection (FAI)",
-        stepTr: "İlk Numune Onayı (FAI)",
-        desc: "Audit initial production samples against dimensional tolerances and cosmetic standards.",
-        descTr:
-          "Seri üretimden çıkan ilk numunelerin boyutsal ve görsel kriterlere göre denetlenmesi.",
+        q: { tr: "Görüşmeler yüz yüze mi?", en: "Do we meet in person?" },
+        a: {
+          tr: "Antalya'daysanız atölyede, değilseniz çevrim içi görüşüyoruz.",
+          en: "In the workshop if you’re in Antalya, online otherwise.",
+        },
       },
     ],
-    capabilities: [
-      "Manufacturing Feasibility Audits",
-      "BOM & Unit Cost Optimization",
-      "Supplier Vetting & RFQ Management",
-      "Pilot Run Oversight",
-      "Inspection Jigs & QC Plans",
+    posts: [
+      "fikirden-prototipe-urun-gelistirme-sureci",
+      "silikon-kalip-ve-dokum-kucuk-seri-uretim",
     ],
-    capabilitiesTr: [
-      "Üretilebilirlik Fizibilite Denetimleri",
-      "BOM ve Birim Maliyet Optimizasyonu",
-      "Tedarikçi Seçimi ve Teklif Yönetimi",
-      "Pilot Üretim Gözetimi",
-      "Kontrol Mastarları ve Kalite Planları",
-    ],
-    materials: ["Global Supply Chain Options", "Local Manufacturing Ecosystem (Antalya / Turkey)"],
-    relatedProjects: ["velora-diffuser", "px-1-handheld", "aluminium-series"],
   },
 ];
 

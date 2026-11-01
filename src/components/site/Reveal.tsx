@@ -1,37 +1,51 @@
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 
+/**
+ * Fades content in when it scrolls into view. Content is visible by default
+ * (no-JS, SSR, crawlers); the hidden state is only applied after hydration
+ * for elements that are still below the fold.
+ */
 export function Reveal({
   children,
   delay = 0,
-  y = 28,
-  className,
+  className = "",
 }: {
   children: ReactNode;
   delay?: number;
-  y?: number;
   className?: string;
 }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [state, setState] = useState<"idle" | "hidden" | "shown">("idle");
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (el.getBoundingClientRect().top < window.innerHeight) return;
+    setState("hidden");
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry?.isIntersecting) {
+          setState("shown");
+          io.disconnect();
+        }
+      },
+      { rootMargin: "0px 0px -60px 0px" },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
+    <div
+      ref={ref}
+      className={`${className} ${state === "hidden" ? "translate-y-4 opacity-0" : ""} ${
+        state === "shown"
+          ? "transition-[opacity,translate] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+          : ""
+      }`}
+      style={state === "shown" && delay ? { transitionDelay: `${delay}s` } : undefined}
     >
       {children}
-    </motion.div>
-  );
-}
-
-export function SectionLabel({ index, title }: { index: string; title: string }) {
-  return (
-    <Reveal>
-      <div className="flex items-baseline gap-4">
-        <span className="label-technical text-accent">{index}</span>
-        <span className="label-technical">{title}</span>
-      </div>
-    </Reveal>
+    </div>
   );
 }

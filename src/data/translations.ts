@@ -1,306 +1,170 @@
 export type Language = "en" | "tr";
 
+export const contact = {
+  email: "burak@100kraft.com",
+  phone: "+90 545 590 25 06",
+  whatsapp: "https://wa.me/905455902506",
+  instagram: "https://www.instagram.com/100kraft/",
+  store: "https://store.100kraft.com",
+};
+
+/** Builds a path for the given language: "/work" -> "/en/work" for English. */
+export function localePath(lang: Language, path: string): string {
+  if (lang === "tr") return path;
+  return path === "/" ? "/en" : `/en${path}`;
+}
+
 export const siteContent = {
-  en: {
-    nav: {
-      atelier: "Atelier",
-      services: "Services",
-      work: "Work",
-      store: "STORE",
-      startProject: "Start a Project",
-      contact: "Contact",
-    },
-    hero: {
-      badge: "Design & Manufacturing Atelier",
-      h1Line1: "From Idea",
-      h1Line2: "to ",
-      h1Highlight: "Production.",
-      subtext: "Product Design, 3D Printing, Mold Design & Manufacturing Consulting.",
-      cta: "Start a Project",
-      secondaryCta: "View selected work",
-    },
-    atelier: {
-      index: "02",
-      label: "The Atelier",
-      headline: "A design and manufacturing atelier — not a print shop.",
-      p1: "100KRAFT sits between the drawing board and the production line. We shape products with the discipline of industrial design and the constraints of real manufacturing held in the same hand — geometry, material, tooling and cost resolved together rather than in sequence.",
-      p2: "Every concept that leaves the atelier is manufacturable. We prove it in resin, filament and metal before a single mold is cut.",
-      stats: [
-        { value: "120+", label: "Products developed", note: "Across client engagements" },
-        { value: "14", label: "Industries served", note: "Consumer, medical, industrial" },
-        { value: "48h", label: "Prototype turnaround", note: "Typical in-house iteration loop" },
-        {
-          value: "0.05mm",
-          label: "Typical tolerance",
-          note: "For precision additive / CNC tooling",
-        },
-      ],
-    },
-    servicesSection: {
-      index: "03",
-      label: "Capabilities",
-      headline: "Six disciplines, one continuous workflow.",
-      subtext: "A project can enter at any point and leave as a manufacturable product.",
-      viewService: "Explore Service",
-      allServices: "All Capabilities",
-    },
-    projectsSection: {
-      index: "04",
-      label: "Selected Work",
-      viewCaseStudy: "View Case Study →",
-      allWork: "All Selected Work",
-    },
-    processSection: {
-      index: "05",
-      label: "Process",
-      subtitle: "Five stages · one continuous line",
-      deliverablesLabel: "Deliverables",
-      steps: [
-        {
-          id: "01",
-          title: "Discover",
-          body: "Brief, users, constraints, target cost. We define what the product must survive before we draw it.",
-          output: "Design brief · Benchmark · Cost target",
-        },
-        {
-          id: "02",
-          title: "Design",
-          body: "Form exploration and ergonomic studies, resolved into high-precision CAD and assembly architecture.",
-          output: "Concepts · CMF · CAD assembly",
-        },
-        {
-          id: "03",
-          title: "Prototype",
-          body: "Printed in-house in hours — engineering-grade functional and aesthetic parts for real-world testing.",
-          output: "SLA / FDM / SLS functional parts",
-        },
-        {
-          id: "04",
-          title: "Validate",
-          body: "Clearance, drop, thermal, and fit checks. We cycle through revisions until every tolerance is locked.",
-          output: "Test reports · Revision loops",
-        },
-        {
-          id: "05",
-          title: "Manufacture",
-          body: "Injection mold layout, tooling DFM, supplier vetting, and pilot production oversight.",
-          output: "Mold design · DFM · Pilot run",
-        },
-      ],
-    },
-    workshopSection: {
-      index: "06",
-      label: "The Workshop",
-      headline: "A fabrication laboratory, three metres from the drawing board.",
-      p1: "Design and production share one roof in Antalya. A geometry change in the morning is a part in hand by afternoon — which is why our iterations are measured in hours instead of weeks.",
-      equipment: [
-        { label: "Additive", detail: "FDM · SLA · SLS printers" },
-        { label: "Materials", detail: "PA12, ASA, PC, TPU, resin, carbon-filled" },
-        { label: "Metrology", detail: "Calipers, bore gauges, 3D scanning" },
-        { label: "Finishing", detail: "Sanding, vapour smoothing, painting, anodising" },
-      ],
-    },
-    expertiseSection: {
-      index: "07",
-      label: "Manufacturing Expertise",
-      headline: "Design decisions that survive the production line.",
-      items: [
-        {
-          title: "Injection Molding",
-          body: "Tool layout, gating and cooling designed with the part, plus draft, shrinkage and wall-thickness resolved before steel is cut.",
-        },
-        {
-          title: "Manufacturing Optimization",
-          body: "Cycle-time, part consolidation and process selection reviewed against volume so unit cost falls without touching perceived quality.",
-        },
-        {
-          title: "Product Development",
-          body: "End-to-end ownership from brief to pilot run, including supplier qualification, sample approval and production documentation.",
-        },
-      ],
-    },
-    contactSection: {
-      index: "08",
-      label: "Contact",
-      headlinePrefix: "Tell us what you want to ",
-      headlineAccent: "build.",
-      emailLabel: "Contact",
-      startProjectCta: "Start a Project",
-      atelierLabel: "Atelier",
-      location: "Antalya, Turkey",
-      coordinates: "36.8969° N, 30.7133° E",
-      description:
-        "Working with clients across Europe and the Middle East. Send a brief, a sketch or a CAD file — we reply within two working days.",
-    },
-    footer: {
-      tagline: "Product Design · 3D Printing · Mold Design · Manufacturing",
-      rights: "Antalya, Turkey",
-      backToTop: "Back to Top ↑",
-      grainzAttribution: "A COMPANY BY",
-    },
-  },
   tr: {
     nav: {
-      atelier: "Atölye",
-      services: "Hizmetler",
       work: "İşler",
-      store: "MAĞAZA",
-      startProject: "Proje Başlat",
-      contact: "İletişim",
+      services: "Hizmetler",
+      atelier: "Atölye",
+      blog: "Blog",
+      store: "Mağaza",
+      startProject: "Proje başlat",
+      menu: "Menü",
+      close: "Kapat",
     },
     hero: {
-      badge: "ANTALYA · TASARIM VE ÜRETİM ATÖLYESİ",
-      h1Line1: "Fikirden",
-      h1Line2: "Montaj ",
-      h1Highlight: "Masasına.",
-      subtext:
-        "Endüstriyel ürün tasarımı, hızlı prototipleme, kalıp mühendisliği ve düşük adetli üretim. Sadece ekranda değil; tezgâhta üretilen, elde çalışan ürünler geliştiriyoruz.",
-      cta: "Proje Başlat",
-      secondaryCta: "Üretilen İşleri İncele",
+      eyebrow: "100KRAFT · Antalya’da bir tasarım ve üretim atölyesi",
+      title: "Çizeriz. Basarız. Bitiririz.",
+      lead: "Bir fikri, elde tutulan bir parçaya dönüştürüyoruz. Kendi koleksiyonumuz da sizin projeniz de aynı tezgâhtan çıkıyor.",
+      cta: "Proje başlat",
+      secondary: "Mağazaya git",
+      caption: "Wall Decor #2 · tek desen, dört renk, aynı tezgâh",
+    },
+    services: {
+      title: "Hizmetler",
+      all: "Tüm hizmetler",
+    },
+    work: {
+      title: "İşler",
+      lead: "Kendi koleksiyonumuz. Çizimden paketlemeye her adım atölyede.",
+      all: "Tüm işler",
+      view: "İncele",
+      buy: "Mağazada gör",
     },
     atelier: {
-      index: "02",
-      label: "Atölye Yaklaşımı",
-      headline: "3D baskı servisi değil; malzeme, kalıp ve mekanik bilen bir üretim atölyesiyiz.",
-      p1: "Tasarımı üretimden ayrı tutmuyoruz. Ekranda çizilen her detay atölyede doğrudan test edilir: Kalıp ayırma hatları, et kalınlığı, çekme payı, montaj toleransı ve birim maliyet. Parçanın nasıl üretileceğini ilk eskiz aşamasında hesaba katarız.",
-      p2: "Kalıp çeliği işletmeden önce tasarımı kendi atölyemizde prototipliyor, fonksiyonel testlerini yapıyor ve seri üretime sorunsuz geçecek şekilde teslim ediyoruz.",
-      stats: [
-        {
-          value: "120+",
-          label: "Geliştirilen Ürün & Parça",
-          note: "Fiziksel prototipler ve nihai üretim parçaları",
-        },
-        {
-          value: "48s",
-          label: "İlk Fonksiyonel Prototip",
-          note: "Atölye içi hızlı iterasyon ve test döngüsü",
-        },
-        {
-          value: "0.05mm",
-          label: "Mekanik Tolerans",
-          note: "Hassas reçine, FDM ve kalıp eşleşmeleri",
-        },
-        {
-          value: "6",
-          label: "Yetkinlik Alanı",
-          note: "Tasarım, prototip, kalıp ve montaj tek çatıda",
-        },
-      ],
+      title: "Atölye",
+      lead: "Yazıcıların, kalıpların ve zımpara tozunun arasında: Burak Yüzgüç’ün Antalya’daki atölyesi.",
+      body: "Burada çizilen her şey burada üretilir. Kendi ürünlerimizi tasarlayıp satıyoruz; aynı tezgâhı markaların, tasarımcıların ve aklında bir parça olan herkesin projesi için açıyoruz.",
+      facts: {
+        place: "Konum",
+        placeValue: "Antalya, Türkiye",
+        store: "Mağaza",
+        storeValue: "ürün, store.100kraft.com",
+        custom: "Özel üretim",
+        customValue: "Ölçü, renk ve kişiye özel model",
+      },
+      instagram: "Atölyeden kareler: @100kraft",
     },
-    servicesSection: {
-      index: "03",
-      label: "Disiplinler",
-      headline: "Fikirden nihai ürüne kesintisiz hat.",
-      subtext:
-        "İster peçete eskiziyle gelin, ister üretim öncesi son kalıp aşamasında. Sürece doğrudan atölye pratiğiyle dahil oluruz.",
-      viewService: "Hizmeti İncele",
-      allServices: "Tüm Yetkinlikler",
-    },
-    projectsSection: {
-      index: "04",
-      label: "Seçilmiş İşler",
-      viewCaseStudy: "Üretim Hikayesini İncele →",
-      allWork: "Tüm Seçilmiş İşler",
-    },
-    processSection: {
-      index: "05",
-      label: "Çalışma Şekli",
-      subtitle: "Beş aşama · tezgâhtan geçen net süreç",
-      deliverablesLabel: "Teslim Edilenler",
+    process: {
+      title: "Bir parça nasıl doğar",
       steps: [
         {
-          id: "01",
-          title: "Keşif & Fizibilite",
-          body: "Ürünün çalışacağı ortam, mekanik zorlamalar, malzeme seçimi ve hedef adetler masaya yatırılır. Çizime başlamadan önce ürünün gerçek kısıtlamalarını belirleriz.",
-          output: "Tasarım şartnamesi · Malzeme seçimi · Hedef parça maliyeti",
+          title: "Dinleriz",
+          body: "Ne işe yarayacak, nerede duracak, kaç tane lazım? İlk konuşma sonraki her kararı belirler.",
         },
         {
-          id: "02",
-          title: "CAD & Mekanik Tasarım",
-          body: "Form ve ergonomi çalışmaları, üretime uygun (DFM) parametrik CAD montaj modeline dönüştürülür.",
-          output: "3D CAD montajı · STEP/Parasolid modeller · CMF dokümanı",
+          title: "Çizeriz",
+          body: "Eskizden 3D modele. Ölçüyü, geçmeyi ve baskı yönünü baştan düşünürüz.",
         },
         {
-          id: "03",
-          title: "Hızlı Prototipleme",
-          body: "Saatler içinde kendi yazıcılarımız ve işleme tezgahlarımızla çalışan fonksiyonel modeller üretiriz.",
-          output: "FDM / SLA / SLS mekanik prototipler",
+          title: "Basarız",
+          body: "İlk numune atölyede çıkar. Elde tutar, dener, gerekirse yeniden basarız.",
         },
         {
-          id: "04",
-          title: "Test & Fonksiyon Doğrulama",
-          body: "Geçme boşlukları, vida yuvaları, yük testleri ve montaj ergonomisi sahada test edilir. Hatalar kalıba girmeden elenir.",
-          output: "Test raporu · Tolerans doğrulaması · Revizyon döngüsü",
-        },
-        {
-          id: "05",
-          title: "Kalıp & Düşük Adetli Üretim",
-          body: "Enjeksiyon kalıp tasarımı, silikon döküm veya doğrudan atölyede küçük seri üretimle ilk partiyi teslim ederiz.",
-          output: "Kalıp verisi · DFM onayı · İlk parti ürün teslimi",
+          title: "Bitiririz",
+          body: "Zımpara, boya, montaj ya da kalıp ve döküm. Teslim edilen parça, onayladığınız numunedir.",
         },
       ],
     },
-    workshopSection: {
-      index: "06",
-      label: "Atölye Altyapısı",
-      headline: "Çizim masasından bir adım ötede üretim tezgâhları.",
-      p1: "Tasarım ofisimiz ve atölyemiz Antalya'da aynı alanda. Sabah bilgisayarda değiştirilen bir vida yuvası veya et kalınlığı, öğleden sonra elde tutulan çalışan bir numuneye dönüşür. Bu yüzden iterasyonlarımız haftalarla değil, saatlerle ilerler.",
-      equipment: [
-        {
-          label: "Katmanlı Üretim",
-          detail: "Endüstriyel FDM, yüksek çözünürlüklü SLA ve SLS sistemleri",
-        },
-        {
-          label: "Mühendislik Malzemeleri",
-          detail: "PA12, Karbon Takviyeli Naylon, PC, ASA, TPU, Teknik Reçine, Döküm Beton",
-        },
-        {
-          label: "Ölçüm & Metroloji",
-          detail: "Hassas kumpaslar, mikrometreler ve 3D optik tarama",
-        },
-        {
-          label: "Yüzey & Son İşlem",
-          detail: "Kumlama, buharla pürüzsüzleştirme, eloksal, boya ve montaj",
-        },
-      ],
-    },
-    expertiseSection: {
-      index: "07",
-      label: "Üretim Bilgisi",
-      headline: "Sahada ve tezgâhta çalışan tasarım kararları.",
-      items: [
-        {
-          title: "Enjeksiyon Kalıp Tasarımı",
-          body: "Çelik işlenmeden önce kalıp açısı, maça hareketleri, yolluk girişleri ve çekme payları parçayla birlikte çözülür.",
-        },
-        {
-          title: "Üretilebilirlik Analizi (DFM)",
-          body: "Montaj kolaylığı sağlamak, parça birleştirmek ve birim maliyeti düşürmek için her detay üretim yöntemine göre optimize edilir.",
-        },
-        {
-          title: "Uçtan Uca Ürün Geliştirme",
-          body: "Tasarımından malzeme seçimine, prototipten kalıba kadar tüm üretim sürecini tek elden yönetiyoruz.",
-        },
-      ],
-    },
-    contactSection: {
-      index: "08",
-      label: "İletişim",
-      headlinePrefix: "Aklınızdaki ürünü ",
-      headlineAccent: "birlikte konuşalım.",
-      emailLabel: "E-posta",
-      startProjectCta: "Proje Başlat",
-      atelierLabel: "Atölye",
+    contact: {
+      title: "Masanızda ne var?",
+      lead: "Bir eskiz, bir fotoğraf, bir STL ya da sadece bir fikir. Gönderin; iki iş günü içinde nasıl yapılacağını konuşalım.",
+      cta: "Proje başlat",
+      whatsapp: "WhatsApp",
       location: "Antalya, Türkiye",
-      coordinates: "36.8969° N, 30.7133° E",
-      description:
-        "Fikrinizi, eskizinizi veya CAD dosyanızı iletin. Üretim fizibilitesini ve yol haritasını değerlendirip 2 iş günü içinde dönüş yapalım.",
     },
     footer: {
-      tagline: "Endüstriyel Ürün Tasarımı · Fonksiyonel Prototipleme · Kalıp Mühendisliği · Üretim",
-      rights: "Antalya, Türkiye",
-      backToTop: "Başa Dön ↑",
-      grainzAttribution: "A COMPANY BY",
+      by: "Site: Grainz Digital",
+    },
+  },
+  en: {
+    nav: {
+      work: "Work",
+      services: "Services",
+      atelier: "Atelier",
+      blog: "Journal",
+      store: "Store",
+      startProject: "Start a project",
+      menu: "Menu",
+      close: "Close",
+    },
+    hero: {
+      eyebrow: "100KRAFT · A design and fabrication workshop in Antalya",
+      title: "Draw. Print. Finish.",
+      lead: "We turn an idea into a part you can hold. Our own collection and your project come off the same bench.",
+      cta: "Start a project",
+      secondary: "Visit the store",
+      caption: "Wall Decor #2 · one pattern, four colours, one bench",
+    },
+    services: {
+      title: "Services",
+      all: "All services",
+    },
+    work: {
+      title: "Work",
+      lead: "Our own collection. Every step from sketch to packing happens in the workshop.",
+      all: "All work",
+      view: "View",
+      buy: "View in store",
+    },
+    atelier: {
+      title: "Atelier",
+      lead: "Among the printers, moulds and sanding dust: Burak Yüzgüç’s workshop in Antalya.",
+      body: "Everything drawn here is made here. We design and sell our own products, and open the same bench to brands, designers and anyone with a part in mind.",
+      facts: {
+        place: "Location",
+        placeValue: "Antalya, Turkey",
+        store: "Store",
+        storeValue: "products, store.100kraft.com",
+        custom: "Made to order",
+        customValue: "Size, colour and personalised models",
+      },
+      instagram: "From the workshop: @100kraft",
+    },
+    process: {
+      title: "How a part is born",
+      steps: [
+        {
+          title: "Listen",
+          body: "What does it do, where will it live, how many do you need? The first talk shapes every later decision.",
+        },
+        {
+          title: "Draw",
+          body: "From sketch to 3D model, with size, fit and print orientation thought through early.",
+        },
+        {
+          title: "Print",
+          body: "The first sample comes off our printers. We hold it, test it and reprint if needed.",
+        },
+        {
+          title: "Finish",
+          body: "Sanding, paint, assembly, or moulds and casting. What you receive is the sample you approved.",
+        },
+      ],
+    },
+    contact: {
+      title: "What’s on your desk?",
+      lead: "A sketch, a photo, an STL or just an idea. Send it over and within two working days we’ll talk about how to make it.",
+      cta: "Start a project",
+      whatsapp: "WhatsApp",
+      location: "Antalya, Turkey",
+    },
+    footer: {
+      by: "Site by Grainz Digital",
     },
   },
 };
