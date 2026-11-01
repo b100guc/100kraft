@@ -45,7 +45,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/3d-baski-fiyatlari-nasil-belirlenir",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAkAA4BaJZwAAl3RF3TOTwAA/vObdtI0cyvKw3lfxBBI8MbrF9xPJgHdCmXXxp74OEerwoRvPAdp/VtYVM+9AAA=",
@@ -93,7 +97,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/3d-baski-icin-dosya-hazirlama-stl-step",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAkAA4BaJZQC7ADc+KU1dDrAAP7zm3bSND8buLDREgoWDTpQCFgf7jpPl1bPzPNPaMG/554AMnXGi5HngfRFCsAAAA==",
@@ -141,7 +149,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/3d-baski-malzeme-secimi-pla-petg-abs-tpu",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAAkAA4BaJbACdAEN4K/2L8AA/vOay6CXfyD+0W5E+VKJdSI46SbqGZOHFOUjkO3h2p01I3h/5aIbJBRTmb9ZAAlbLXyPoDj1gFmYOl6/YvxKB9BTbMIA",
@@ -197,7 +209,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/3d-baski-yuzey-islemleri-zimpara-astar-boya",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAkAA4BaJZQC7AELh0vJbZ8AAP7zmsuIBuf7qu37iOC84LysMu4tZ2aJBa8VtKLaQ8dm2LuypdxmRFlzRIw1WRNCMUlAAAA=",
@@ -249,7 +265,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/eklemli-flexi-figur-nasil-tasarlanir",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAkAA4BaJQBOgBujYIjz+AD+9Z277z+O8pGnIn0B9S1Xwioe3R+mnEuE3s3ZYxI8upDwbE50ICys434LKabDEWlc9I7ZAAA=",
@@ -260,7 +280,7 @@
       "slug": "fdm-sla-sls-hangi-3d-baski-teknolojisi",
       "title": "FDM, SLA ve SLS: Hangi 3D baskı teknolojisi projenize uygun?",
       "description": "FDM, SLA ve SLS 3D baskı teknolojileri arasındaki yüzey, dayanım ve maliyet farklarını karşılaştırarak projeniz için doğru üretim yöntemini seçin.",
-      "html": "<p>Atölyeye yeni bir proje dosyası geldiğinde ilk baktığımız şey sadece modelin üç boyutlu geometrisi olmaz. O parçanın nerede duracağı, elinize aldığınızda nasıl bir his vereceği, güneşe veya darbeye maruz kalıp kalmayacağı ve kaç adet üretileceği gibi sorular asıl üretim rotasını çizer. Bazen müşterimiz elinde çok detaylı bir figür dosyasıyla gelip sağlam olsun diye standart filament baskı ister, bazen de basit bir mekanik aparatı sırf yüzeyi pürüzsüz görünüyor diye reçine ile üretmeyi düşünür. 100KRAFT olarak Antalya'daki atölyemizde kendi ürünlerimizi geliştirirken de dışarıdan gelen prototip veya son ürün taleplerini değerlendirirken de aynı temel soruyu soruyoruz: Bu parça için en doğru üretim yöntemi hangisi? Çoğu zaman bu sorunun cevabı, en yaygın üç katmanlı üretim yöntemi olan FDM, SLA ve SLS arasındaki teknik sınırları doğru okumaktan geçer.</p>\n  <h2 id=\"uc-temel-3d-baski-teknolojisi-nasil-calisir\">Üç temel 3D baskı teknolojisi nasıl çalışır?</h2>\n  <p>Farklı <strong>3d baskı teknolojileri</strong> temelde aynı mantığı paylaşır: Dijital bir modeli katman katman üst üste ekleyerek fiziksel bir nesneye dönüştürmek. Ancak bu katmanları oluştururken kullandıkları hammadde ve birleştirme enerjisi birbirinden tamamen farklıdır. Bu fark, elinize geçen son parçanın karakterini doğrudan belirler.</p>\n  <p><strong>FDM (Ergiyik Yığma Modelleme)</strong>, muhtemelen birçoğumuzun zihnindeki klasik 3D yazıcı görüntüsüdür. Makaraya sarılı termoplastik bir filament (PLA, PETG, ABS, ASA veya TPU gibi), ısıtılmış bir meme (nozul) içinden geçerek erir ve baskı tablasına ince çizgiler halinde serilir. Katman soğuyup katılaştıkça bir üst katmana geçilir. 100KRAFT mağazasında yer alan eklemli ejderha figürleri, Wall Decor duvar panelleri veya GrainzTag NFC künyeler gibi ürünlerde FDM yönteminin malzeme çeşitliliğinden ve yapısal avantajlarından doğrudan faydalanıyoruz.</p>\n  <p><strong>SLA (Stereolitografi)</strong> ise katı bir tel yerine sıvı fotopolimer reçine kullanır. Reçine tankının altından veya üstünden verilen ultraviyole (UV) ışık ya da lazer, sıvı reçineyi yalnızca ışığın değdiği noktalarda kürleyerek katılaştırır. Her katman mikron düzeyinde bir hassasiyetle dondurulur. Özellikle The Dragon's Keeper ejderha takı askısı gibi ince dokuların, keskin pençe veya pul detaylarının kaybolmaması gereken işlerde ya da silikon kalıplama öncesi ana model (master model) hazırlığında SLA bambaşka bir alan açar.</p>\n  <p><strong>SLS (Seçici Lazer Sinterleme)</strong> tarafına geçtiğimizde işin içine toz yataklı endüstriyel sistemler girer. Genellikle poliamid (PA12 gibi naylon türevleri) tozları, ısıtılmış bir hazneye çok ince bir tabaka halinde yayılır. Güçlü bir lazer, modelin o katmandaki kesitini tarayarak toz taneciklerini birbirine kaynaştırır (sinterler). Katman bittiğinde tabla bir kademe aşağı iner, yeni toz serilir ve işlem tekrarlanır. Burada en kritik olay, sinterlenmemiş tozun parçanın etrafını sararak doğal bir destek görevi görmesidir. Yani FDM ve SLA'da gördüğümüz o sonradan kırılan destek yapılarına SLS'te ihtiyaç duyulmaz.</p>\n  <h2 id=\"yuzey-kalitesi-detay-cozunurlugu-ve-katman-izleri\">Yüzey kalitesi, detay çözünürlüğü ve katman izleri</h2>\n  <p>Bir parçayı elinize aldığınızda ilk fark ettiğiniz şey yüzey dokusudur. <strong>FDM SLA SLS farkı</strong> en net bu aşamada, yani parçaya yakından baktığınızda ve parmağınızı yüzeyinde gezdirdiğinizde ortaya çıkar.</p>\n  <ul>\n  <li><strong>FDM yüzey karakteri:</strong> Erimiş plastik üst üste dizildiği için parçanın yan yüzeylerinde yatay katman çizgileri gözle görülür ve elle hissedilir. Katman yüksekliğini düşürerek veya değişken katman ayarları kullanarak bu izleri azaltmak mümkündür ancak tamamen yok etmek için zımpara ve astar gibi ardıl işlemler gerekir. Öte yandan, Kamp Ateşi lamba tasarımımızda olduğu gibi ışığı kıran yarı saydam veya dokulu yüzeylerde ya da geometrik duvar panellerinde bu katmanlı doku tasarıma karakter katan estetik bir unsura da dönüşebilir.</li>\n  <li><strong>SLA yüzey karakteri:</strong> Sıvı reçine ışıkla katılaştığı için katman geçişleri neredeyse görünmezdir. Enjeksiyon kalıptan çıkmışçasına pürüzsüz yüzeyler, keskin köşeler, mikroskobik yazılar ve organik kıvrımlar SLA ile net şekilde üretilir. Atölyede beton veya reçine döküm yapacağımız zaman, silikon kalıbı alacağımız ilk ana modeli SLA ile basmayı tercih etmemizin sebebi budur; çünkü silikon, ana modelin üzerindeki en ufak bir katman izini bile kopyalar.</li>\n  <li><strong>SLS yüzey karakteri:</strong> Toz taneciklerinin lazerle birleşmesi, parçaya hafif pütürlü, mat ve homojen bir yüzey kazandırır. Küp şeker dokusuna veya ince bir kumlama yüzeyine benzetebileceğiniz bu yapı, katman çizgilerini gizlerken parçaya endüstriyel bir bitiş verir. SLA kadar ayna pürüzsüzlüğünde değildir ama FDM gibi belirgin merdiven basamağı izleri de taşımaz; ayrıca boyanmaya ve renklendirilmeye oldukça müsaittir.</li>\n  </ul>\n  <h2 id=\"mekanik-dayanim-malzeme-davranisi-ve-dis-ortam-direnci\">Mekanik dayanım, malzeme davranışı ve dış ortam direnci</h2>\n  <p>Tasarım sadece güzel görünmekle bitmiyor; parçanın düşmeye, esnemeye, sıcaklığa ve zamana karşı nasıl direneceği de bir o kadar önemli. Üç teknolojinin mekanik davranışları birbirinden keskin çizgilerle ayrılır.</p>\n  <p>FDM baskılarda dayanım, katmanların birbirine ne kadar iyi yapıştığıyla (katman adezyonu) doğrudan ilişkilidir. Bir FDM parça, katmanlara paralel yönde uygulanan kuvvetlere karşı çok dirençliyken, katmanları birbirinden ayırmaya çalışan dikey kuvvetlerde daha zayıf kalabilir (anizotropi). Yine de doğru malzeme seçimiyle —örneğin iç mekan dekorasyonunda PLA, darbeye ve ısıya dayanması gereken fonksiyonel parçalarda PETG veya ASA, esnek parçalarda TPU kullanarak— çok uzun ömürlü ürünler çıkarılabilir.</p>\n  <p>SLA reçineleri ise detay konusunda rakipsiz olsa da standart formüllerde FDM ve SLS'e göre daha kırılgandır. Sert bir zemine düştüğünde esnemek yerine çatlama eğilimi gösterir. Ayrıca UV ışığıyla kürlenen bir malzeme olduğu için uzun süre doğrudan güneş ışığına maruz kaldığında zamanla sararma veya gevrekleşme yapabilir. Günümüzde ABS benzeri (tough) veya esnek mühendislik reçineleriyle bu dayanım artırılsa da mekanik yük taşıyacak parçalarda reçine her zaman ilk tercih değildir.</p>\n  <p>SLS ise mekanik performans ve tasarım özgürlüğü noktasında ayrı bir ligde durur. Naylon tozuyla üretilen parçalar hem esneklik hem de yüksek darbe direnci sunar. Katmanlar arası bağ çok güçlü olduğu için parça her yönden gelen kuvvete neredeyse eşit direnç gösterir. Destek yapısı gerekmediği için iç içe geçmiş hareketli mekanizmalar, menteşeler, klipsler ve karmaşık iç kanallar tek seferde ve kırılma korkusu olmadan üretilebilir.</p>\n  <h2 id=\"maliyet-uretim-suresi-ve-ardil-islemler\">Maliyet, üretim süresi ve ardıl işlemler</h2>\n  <p>Bir projenin bütçesini sadece yazıcının harcadığı malzeme belirlemez; baskı öncesi hazırlık ve baskı sonrası temizlik (post-process) işçiliği toplam maliyeti doğrudan etkiler.</p>\n  <ol>\n  <li><strong>FDM ekonomisi:</strong> Makine ve hammadde erişilebilirliği en yüksek yöntemdir. Baskı bittiğinde parça tabladan alınır, varsa destek yapıları pense yardımıyla sökülür ve parça kullanıma hazır hale gelir. Büyük hacimli parçaları, ön prototipleri veya kendi e-ticaret ürünlerimizi makul maliyetlerle ve hızlıca üretmek istediğimizde FDM en verimli çözümdür.</li>\n  <li><strong>SLA işçiliği:</strong> Reçine maliyetleri filamente göre daha yüksektir ancak asıl maliyet baskı sonrasındaki süreçtir. Yazıcıdan çıkan parça izopropil alkol (IPA) banyosunda yıkanarak üzerindeki sıvı reçineden arındırılır, destekler dikkatlice kesilir, destek izleri zımparalanır ve parça UV kürleme kabininde son sertliğine ulaştırılır. Bu adımlar titiz bir atölye işçiliği gerektirir.</li>\n  <li><strong>SLS ölçeklenebilirliği:</strong> Tekil ve küçük bir parça için SLS başlangıç maliyeti yüksek görünebilir çünkü endüstriyel sistemlerin kurulum ve toz hazırlık süreci kapsamlıdır. Ancak SLS'te baskı haznesi üç boyutlu bir yapboz gibi doldurulabilir (nesting). Destek yapısı olmadığı için onca parçayı üst üste ve yan yana dizerek tek seferde basmak mümkündür. Dolayısıyla karmaşık geometrili parçaların küçük ve orta ölçekli seri üretiminde parça başı maliyet şaşırtıcı derecede mantıklı seviyelere iner.</li>\n  </ol>\n  <h2 id=\"karar-tablosu-hangi-durumda-hangisi-secilmeli\">Karar tablosu: Hangi durumda hangisi seçilmeli?</h2>\n  <p>Projenize en uygun yöntemi hızlıca karşılaştırabilmeniz için atölyede kendi kararlarımızı verirken de baz aldığımız temel kriterleri aşağıdaki tabloda özetledik:</p>\n  <table><thead><tr><th>Kriter</th><th>FDM (Filament)</th><th>SLA (Reçine)</th><th>SLS (Toz Sinterleme)</th></tr></thead><tbody><tr><td><strong>Yüzey Kalitesi</strong></td><td>Orta (Katman izleri belirgin)</td><td>Çok Yüksek (Pürüzsüz, keskin detaylar)</td><td>Yüksek (Mat, homojen, hafif dokulu)</td></tr><tr><td><strong>Detay Çözünürlüğü</strong></td><td>Standart (Nozul çapıyla sınırlı)</td><td>Çok Yüksek (Mikron düzeyinde)</td><td>Yüksek (İnce duvarlar ve karmaşık kanallar)</td></tr><tr><td><strong>Mekanik Dayanım</strong></td><td>İyi (Malzemeye ve baskı yönüne bağlı)</td><td>Düşük / Orta (Standart reçineler kırılgan)</td><td>Çok Yüksek (Yüksek darbe, aşınma ve ısı direnci)</td></tr><tr><td><strong>Destek İhtiyacı</strong></td><td>Var (Sonradan mekanik olarak sökülür)</td><td>Var (İnce uçlu destekler, iz bırakabilir)</td><td>Yok (Toz yatağı parçayı kendisi destekler)</td></tr><tr><td><strong>Ardıl İşlem Süresi</strong></td><td>Kısa (Sadece destek kırma)</td><td>Uzun (Yıkama, destek kesme, UV kürleme)</td><td>Orta (Toz temizleme ve kumlama)</td></tr><tr><td><strong>Maliyet Yapısı</strong></td><td>Düşük (Prototip ve büyük parçalar için ideal)</td><td>Orta (Detay ve işçilik odaklı)</td><td>Orta / Yüksek (Çoklu üretimde birim maliyet düşer)</td></tr><tr><td><strong>Tipik Kullanım Alanı</strong></td><td>Fonksiyonel aparatlar, büyük modeller, dekoratif ürünler</td><td>Figürler, takı modelleri, silikon kalıp ana modelleri</td><td>Son kullanım parçaları, karmaşık mekanizmalar, az adetli seri üretim</td></tr></tbody></table>\n  <p>Bazen tek bir teknolojiye bağlı kalmak yerine hibrit bir yol izlemek de gerekir. Örneğin 100KRAFT'ta yeni bir ürün tasarlarken boyutları ve ergonomiyi test etmek için önce hızlıca FDM ile kaba prototipler alırız. Form netleştiğinde, eğer yüzeyde kusursuz bir doku istiyorsak SLA ile ana modeli basar, ardından silikon kalıp alarak beton veya döküm reçinesi ile seri üretime geçeriz. Böylece her teknolojinin güçlü yanını projenin doğru aşamasında kullanmış oluruz.</p>\n  <h2 id=\"sik-sorulanlar\">Sık sorulanlar</h2>\n  <h3>Elimde hazır bir 3D model dosyası yok, sadece bir fikir veya çizim var; yine de üretim yapılabilir mi?</h3>\n  <p>Evet, süreç zaten çoğu zaman böyle başlıyor. Atölyemizde sadece hazır dosyaları basmıyoruz; ürün tasarımı ve 3D modelleme aşamasından başlayarak fikrinizi üretime uygun bir CAD veya organik modele dönüştürüyoruz. Tasarımı yaparken hangi baskı teknolojisiyle veya kalıplama yöntemiyle üretileceğini baştan hesaba kattığımız için sonradan yaşanacak üretim sorunlarının da önüne geçmiş oluyoruz.</p>\n  <h3>Üretilecek parçanın çok sağlam olması gerekiyor, doğrudan SLS mi seçmeliyim?</h3>\n  <p>Her zaman değil. Parçanın maruz kalacağı yükün yönü, çalışma ortamı ve geometrisi burada belirleyicidir. Eğer parça çok karmaşık kanallara sahip değilse, doğru yönlendirilmiş ve iç dolgu (infill) yapısı optimize edilmiş bir PETG, ABS veya karbon fiber katkılı FDM baskı da işinizi fazlasıyla görebilir. Parça geometrisi destek sökümüne izin vermeyecek kadar kapalıysa veya esnek klipsler içeriyorsa o zaman SLS çok daha güvenli bir tercih olur.</p>\n  <h3>3D baskı ile seri üretim yapmak mantıklı mı, yoksa kalıp mı yaptırmalıyım?</h3>\n  <p>Bu tamamen üretilecek adede ve parçanın formuna bağlı. Plastik enjeksiyon kalıpları binlerce adetlik üretimlerde birim maliyeti düşürse de başlangıç yatırım maliyeti çok yüksektir. Onlarca veya birkaç yüz adetlik üretimlerde FDM çiftlikleri veya SLS baskı ile doğrudan üretim yapmak ya da SLA ile ürettiğimiz ana modelden silikon kalıp alarak poliüretan, reçine veya beton döküm yapmak çok daha esnek ve ekonomik bir geçiş sağlar.</p>\n  <p>Aklınızda hayata geçirmeyi planladığınız bir ürün fikri, test edilmesi gereken bir prototip veya hangi yöntemle üretileceğine karar veremediğiniz bir 3D model varsa projenizi 100KRAFT atölyesine gönderebilirsiniz. Tasarımdan malzeme seçimine, ilk prototipten son ürüne kadar projenize en uygun üretim rotasını birlikte planlayabiliriz.</p>",
+      "html": "<p>Atölyeye yeni bir proje dosyası geldiğinde ilk baktığımız şey sadece modelin üç boyutlu geometrisi olmaz. O parçanın nerede duracağı, elinize aldığınızda nasıl bir his vereceği, güneşe veya darbeye maruz kalıp kalmayacağı ve kaç adet üretileceği gibi sorular asıl üretim rotasını çizer. Bazen müşterimiz elinde çok detaylı bir figür dosyasıyla gelip sağlam olsun diye standart filament baskı ister, bazen de basit bir mekanik aparatı sırf yüzeyi pürüzsüz görünüyor diye reçine ile üretmeyi düşünür. 100KRAFT olarak Antalya'daki atölyemizde kendi ürünlerimizi geliştirirken de dışarıdan gelen prototip veya son ürün taleplerini değerlendirirken de aynı temel soruyu soruyoruz: Bu parça için en doğru üretim yöntemi hangisi? Çoğu zaman bu sorunun cevabı, en yaygın üç katmanlı üretim yöntemi olan FDM, SLA ve SLS arasındaki teknik sınırları doğru okumaktan geçer.</p>\n  <h2 id=\"uc-temel-3d-baski-teknolojisi-nasil-calisir\">Üç temel 3D baskı teknolojisi nasıl çalışır?</h2>\n  <p>Farklı <strong>3d baskı teknolojileri</strong> temelde aynı mantığı paylaşır: Dijital bir modeli katman katman üst üste ekleyerek fiziksel bir nesneye dönüştürmek. Ancak bu katmanları oluştururken kullandıkları hammadde ve birleştirme enerjisi birbirinden tamamen farklıdır. Bu fark, elinize geçen son parçanın karakterini doğrudan belirler.</p>\n  <p><strong>FDM (Ergiyik Yığma Modelleme)</strong>, muhtemelen birçoğumuzun zihnindeki klasik 3D yazıcı görüntüsüdür. Makaraya sarılı termoplastik bir filament (PLA, PETG, ABS, ASA veya TPU gibi), ısıtılmış bir meme (nozul) içinden geçerek erir ve baskı tablasına ince çizgiler halinde serilir. Katman soğuyup katılaştıkça bir üst katmana geçilir. 100KRAFT mağazasında yer alan eklemli ejderha figürleri, Wall Decor duvar panelleri veya GrainzTag NFC künyeler gibi ürünlerde FDM yönteminin malzeme çeşitliliğinden ve yapısal avantajlarından doğrudan faydalanıyoruz.</p>\n  <p><strong>SLA (Stereolitografi)</strong> ise katı bir tel yerine sıvı fotopolimer reçine kullanır. Reçine tankının altından veya üstünden verilen ultraviyole (UV) ışık ya da lazer, sıvı reçineyi yalnızca ışığın değdiği noktalarda kürleyerek katılaştırır. Her katman mikron düzeyinde bir hassasiyetle dondurulur. Özellikle The Dragon's Keeper ejderha takı askısı gibi ince dokuların, keskin pençe veya pul detaylarının kaybolmaması gereken işlerde ya da silikon kalıplama öncesi ana model (master model) hazırlığında SLA bambaşka bir alan açar.</p>\n  <p><strong>SLS (Seçici Lazer Sinterleme)</strong> tarafına geçtiğimizde işin içine toz yataklı endüstriyel sistemler girer. Genellikle poliamid (PA12 gibi naylon türevleri) tozları, ısıtılmış bir hazneye çok ince bir tabaka halinde yayılır. Güçlü bir lazer, modelin o katmandaki kesitini tarayarak toz taneciklerini birbirine kaynaştırır (sinterler). Katman bittiğinde tabla bir kademe aşağı iner, yeni toz serilir ve işlem tekrarlanır. Burada en kritik olay, sinterlenmemiş tozun parçanın etrafını sararak doğal bir destek görevi görmesidir. Yani FDM ve SLA'da gördüğümüz o sonradan kırılan destek yapılarına SLS'te ihtiyaç duyulmaz.</p>\n  <figure><picture><source type=\"image/avif\" srcset=\"/blog/fdm-sla-sls-hangi-3d-baski-teknolojisi-figure-640.avif 640w, /blog/fdm-sla-sls-hangi-3d-baski-teknolojisi-figure-1024.avif 1024w, /blog/fdm-sla-sls-hangi-3d-baski-teknolojisi-figure-1600.avif 1600w\" sizes=\"(min-width: 1024px) 58vw, 100vw\"><img src=\"/blog/fdm-sla-sls-hangi-3d-baski-teknolojisi-figure-1600.webp\" srcset=\"/blog/fdm-sla-sls-hangi-3d-baski-teknolojisi-figure-640.webp 640w, /blog/fdm-sla-sls-hangi-3d-baski-teknolojisi-figure-1024.webp 1024w, /blog/fdm-sla-sls-hangi-3d-baski-teknolojisi-figure-1600.webp 1600w\" sizes=\"(min-width: 1024px) 58vw, 100vw\" width=\"1600\" height=\"900\" loading=\"lazy\" decoding=\"async\" alt=\"FDM, SLA ve SLS: Hangi 3D baskı teknolojisi projenize uygun? — illüstrasyon\"></picture><figcaption>İllüstrasyon: Gemini ile üretildi.</figcaption></figure>\n<h2 id=\"yuzey-kalitesi-detay-cozunurlugu-ve-katman-izleri\">Yüzey kalitesi, detay çözünürlüğü ve katman izleri</h2>\n  <p>Bir parçayı elinize aldığınızda ilk fark ettiğiniz şey yüzey dokusudur. <strong>FDM SLA SLS farkı</strong> en net bu aşamada, yani parçaya yakından baktığınızda ve parmağınızı yüzeyinde gezdirdiğinizde ortaya çıkar.</p>\n  <ul>\n  <li><strong>FDM yüzey karakteri:</strong> Erimiş plastik üst üste dizildiği için parçanın yan yüzeylerinde yatay katman çizgileri gözle görülür ve elle hissedilir. Katman yüksekliğini düşürerek veya değişken katman ayarları kullanarak bu izleri azaltmak mümkündür ancak tamamen yok etmek için zımpara ve astar gibi ardıl işlemler gerekir. Öte yandan, Kamp Ateşi lamba tasarımımızda olduğu gibi ışığı kıran yarı saydam veya dokulu yüzeylerde ya da geometrik duvar panellerinde bu katmanlı doku tasarıma karakter katan estetik bir unsura da dönüşebilir.</li>\n  <li><strong>SLA yüzey karakteri:</strong> Sıvı reçine ışıkla katılaştığı için katman geçişleri neredeyse görünmezdir. Enjeksiyon kalıptan çıkmışçasına pürüzsüz yüzeyler, keskin köşeler, mikroskobik yazılar ve organik kıvrımlar SLA ile net şekilde üretilir. Atölyede beton veya reçine döküm yapacağımız zaman, silikon kalıbı alacağımız ilk ana modeli SLA ile basmayı tercih etmemizin sebebi budur; çünkü silikon, ana modelin üzerindeki en ufak bir katman izini bile kopyalar.</li>\n  <li><strong>SLS yüzey karakteri:</strong> Toz taneciklerinin lazerle birleşmesi, parçaya hafif pütürlü, mat ve homojen bir yüzey kazandırır. Küp şeker dokusuna veya ince bir kumlama yüzeyine benzetebileceğiniz bu yapı, katman çizgilerini gizlerken parçaya endüstriyel bir bitiş verir. SLA kadar ayna pürüzsüzlüğünde değildir ama FDM gibi belirgin merdiven basamağı izleri de taşımaz; ayrıca boyanmaya ve renklendirilmeye oldukça müsaittir.</li>\n  </ul>\n  <h2 id=\"mekanik-dayanim-malzeme-davranisi-ve-dis-ortam-direnci\">Mekanik dayanım, malzeme davranışı ve dış ortam direnci</h2>\n  <p>Tasarım sadece güzel görünmekle bitmiyor; parçanın düşmeye, esnemeye, sıcaklığa ve zamana karşı nasıl direneceği de bir o kadar önemli. Üç teknolojinin mekanik davranışları birbirinden keskin çizgilerle ayrılır.</p>\n  <p>FDM baskılarda dayanım, katmanların birbirine ne kadar iyi yapıştığıyla (katman adezyonu) doğrudan ilişkilidir. Bir FDM parça, katmanlara paralel yönde uygulanan kuvvetlere karşı çok dirençliyken, katmanları birbirinden ayırmaya çalışan dikey kuvvetlerde daha zayıf kalabilir (anizotropi). Yine de doğru malzeme seçimiyle —örneğin iç mekan dekorasyonunda PLA, darbeye ve ısıya dayanması gereken fonksiyonel parçalarda PETG veya ASA, esnek parçalarda TPU kullanarak— çok uzun ömürlü ürünler çıkarılabilir.</p>\n  <p>SLA reçineleri ise detay konusunda rakipsiz olsa da standart formüllerde FDM ve SLS'e göre daha kırılgandır. Sert bir zemine düştüğünde esnemek yerine çatlama eğilimi gösterir. Ayrıca UV ışığıyla kürlenen bir malzeme olduğu için uzun süre doğrudan güneş ışığına maruz kaldığında zamanla sararma veya gevrekleşme yapabilir. Günümüzde ABS benzeri (tough) veya esnek mühendislik reçineleriyle bu dayanım artırılsa da mekanik yük taşıyacak parçalarda reçine her zaman ilk tercih değildir.</p>\n  <p>SLS ise mekanik performans ve tasarım özgürlüğü noktasında ayrı bir ligde durur. Naylon tozuyla üretilen parçalar hem esneklik hem de yüksek darbe direnci sunar. Katmanlar arası bağ çok güçlü olduğu için parça her yönden gelen kuvvete neredeyse eşit direnç gösterir. Destek yapısı gerekmediği için iç içe geçmiş hareketli mekanizmalar, menteşeler, klipsler ve karmaşık iç kanallar tek seferde ve kırılma korkusu olmadan üretilebilir.</p>\n  <h2 id=\"maliyet-uretim-suresi-ve-ardil-islemler\">Maliyet, üretim süresi ve ardıl işlemler</h2>\n  <p>Bir projenin bütçesini sadece yazıcının harcadığı malzeme belirlemez; baskı öncesi hazırlık ve baskı sonrası temizlik (post-process) işçiliği toplam maliyeti doğrudan etkiler.</p>\n  <ol>\n  <li><strong>FDM ekonomisi:</strong> Makine ve hammadde erişilebilirliği en yüksek yöntemdir. Baskı bittiğinde parça tabladan alınır, varsa destek yapıları pense yardımıyla sökülür ve parça kullanıma hazır hale gelir. Büyük hacimli parçaları, ön prototipleri veya kendi e-ticaret ürünlerimizi makul maliyetlerle ve hızlıca üretmek istediğimizde FDM en verimli çözümdür.</li>\n  <li><strong>SLA işçiliği:</strong> Reçine maliyetleri filamente göre daha yüksektir ancak asıl maliyet baskı sonrasındaki süreçtir. Yazıcıdan çıkan parça izopropil alkol (IPA) banyosunda yıkanarak üzerindeki sıvı reçineden arındırılır, destekler dikkatlice kesilir, destek izleri zımparalanır ve parça UV kürleme kabininde son sertliğine ulaştırılır. Bu adımlar titiz bir atölye işçiliği gerektirir.</li>\n  <li><strong>SLS ölçeklenebilirliği:</strong> Tekil ve küçük bir parça için SLS başlangıç maliyeti yüksek görünebilir çünkü endüstriyel sistemlerin kurulum ve toz hazırlık süreci kapsamlıdır. Ancak SLS'te baskı haznesi üç boyutlu bir yapboz gibi doldurulabilir (nesting). Destek yapısı olmadığı için onca parçayı üst üste ve yan yana dizerek tek seferde basmak mümkündür. Dolayısıyla karmaşık geometrili parçaların küçük ve orta ölçekli seri üretiminde parça başı maliyet şaşırtıcı derecede mantıklı seviyelere iner.</li>\n  </ol>\n  <h2 id=\"karar-tablosu-hangi-durumda-hangisi-secilmeli\">Karar tablosu: Hangi durumda hangisi seçilmeli?</h2>\n  <p>Projenize en uygun yöntemi hızlıca karşılaştırabilmeniz için atölyede kendi kararlarımızı verirken de baz aldığımız temel kriterleri aşağıdaki tabloda özetledik:</p>\n  <table><thead><tr><th>Kriter</th><th>FDM (Filament)</th><th>SLA (Reçine)</th><th>SLS (Toz Sinterleme)</th></tr></thead><tbody><tr><td><strong>Yüzey Kalitesi</strong></td><td>Orta (Katman izleri belirgin)</td><td>Çok Yüksek (Pürüzsüz, keskin detaylar)</td><td>Yüksek (Mat, homojen, hafif dokulu)</td></tr><tr><td><strong>Detay Çözünürlüğü</strong></td><td>Standart (Nozul çapıyla sınırlı)</td><td>Çok Yüksek (Mikron düzeyinde)</td><td>Yüksek (İnce duvarlar ve karmaşık kanallar)</td></tr><tr><td><strong>Mekanik Dayanım</strong></td><td>İyi (Malzemeye ve baskı yönüne bağlı)</td><td>Düşük / Orta (Standart reçineler kırılgan)</td><td>Çok Yüksek (Yüksek darbe, aşınma ve ısı direnci)</td></tr><tr><td><strong>Destek İhtiyacı</strong></td><td>Var (Sonradan mekanik olarak sökülür)</td><td>Var (İnce uçlu destekler, iz bırakabilir)</td><td>Yok (Toz yatağı parçayı kendisi destekler)</td></tr><tr><td><strong>Ardıl İşlem Süresi</strong></td><td>Kısa (Sadece destek kırma)</td><td>Uzun (Yıkama, destek kesme, UV kürleme)</td><td>Orta (Toz temizleme ve kumlama)</td></tr><tr><td><strong>Maliyet Yapısı</strong></td><td>Düşük (Prototip ve büyük parçalar için ideal)</td><td>Orta (Detay ve işçilik odaklı)</td><td>Orta / Yüksek (Çoklu üretimde birim maliyet düşer)</td></tr><tr><td><strong>Tipik Kullanım Alanı</strong></td><td>Fonksiyonel aparatlar, büyük modeller, dekoratif ürünler</td><td>Figürler, takı modelleri, silikon kalıp ana modelleri</td><td>Son kullanım parçaları, karmaşık mekanizmalar, az adetli seri üretim</td></tr></tbody></table>\n  <p>Bazen tek bir teknolojiye bağlı kalmak yerine hibrit bir yol izlemek de gerekir. Örneğin 100KRAFT'ta yeni bir ürün tasarlarken boyutları ve ergonomiyi test etmek için önce hızlıca FDM ile kaba prototipler alırız. Form netleştiğinde, eğer yüzeyde kusursuz bir doku istiyorsak SLA ile ana modeli basar, ardından silikon kalıp alarak beton veya döküm reçinesi ile seri üretime geçeriz. Böylece her teknolojinin güçlü yanını projenin doğru aşamasında kullanmış oluruz.</p>\n  <h2 id=\"sik-sorulanlar\">Sık sorulanlar</h2>\n  <h3>Elimde hazır bir 3D model dosyası yok, sadece bir fikir veya çizim var; yine de üretim yapılabilir mi?</h3>\n  <p>Evet, süreç zaten çoğu zaman böyle başlıyor. Atölyemizde sadece hazır dosyaları basmıyoruz; ürün tasarımı ve 3D modelleme aşamasından başlayarak fikrinizi üretime uygun bir CAD veya organik modele dönüştürüyoruz. Tasarımı yaparken hangi baskı teknolojisiyle veya kalıplama yöntemiyle üretileceğini baştan hesaba kattığımız için sonradan yaşanacak üretim sorunlarının da önüne geçmiş oluyoruz.</p>\n  <h3>Üretilecek parçanın çok sağlam olması gerekiyor, doğrudan SLS mi seçmeliyim?</h3>\n  <p>Her zaman değil. Parçanın maruz kalacağı yükün yönü, çalışma ortamı ve geometrisi burada belirleyicidir. Eğer parça çok karmaşık kanallara sahip değilse, doğru yönlendirilmiş ve iç dolgu (infill) yapısı optimize edilmiş bir PETG, ABS veya karbon fiber katkılı FDM baskı da işinizi fazlasıyla görebilir. Parça geometrisi destek sökümüne izin vermeyecek kadar kapalıysa veya esnek klipsler içeriyorsa o zaman SLS çok daha güvenli bir tercih olur.</p>\n  <h3>3D baskı ile seri üretim yapmak mantıklı mı, yoksa kalıp mı yaptırmalıyım?</h3>\n  <p>Bu tamamen üretilecek adede ve parçanın formuna bağlı. Plastik enjeksiyon kalıpları binlerce adetlik üretimlerde birim maliyeti düşürse de başlangıç yatırım maliyeti çok yüksektir. Onlarca veya birkaç yüz adetlik üretimlerde FDM çiftlikleri veya SLS baskı ile doğrudan üretim yapmak ya da SLA ile ürettiğimiz ana modelden silikon kalıp alarak poliüretan, reçine veya beton döküm yapmak çok daha esnek ve ekonomik bir geçiş sağlar.</p>\n  <p>Aklınızda hayata geçirmeyi planladığınız bir ürün fikri, test edilmesi gereken bir prototip veya hangi yöntemle üretileceğine karar veremediğiniz bir 3D model varsa projenizi 100KRAFT atölyesine gönderebilirsiniz. Tasarımdan malzeme seçimine, ilk prototipten son ürüne kadar projenize en uygun üretim rotasını birlikte planlayabiliriz.</p>",
       "toc": [
         {
           "id": "uc-temel-3d-baski-teknolojisi-nasil-calisir",
@@ -297,11 +317,15 @@
           "a": "Bu tamamen üretilecek adede ve parçanın formuna bağlı. Plastik enjeksiyon kalıpları binlerce adetlik üretimlerde birim maliyeti düşürse de başlangıç yatırım maliyeti çok yüksektir. Onlarca veya birkaç yüz adetlik üretimlerde FDM çiftlikleri veya SLS baskı ile doğrudan üretim yapmak ya da SLA ile ürettiğimiz ana modelden silikon kalıp alarak poliüretan, reçine veya beton döküm yapmak çok daha esnek ve ekonomik bir geçiş sağlar."
         }
       ],
-      "words": 1498,
-      "minutes": 7,
+      "words": 1502,
+      "minutes": 8,
       "cover": {
         "src": "/blog/fdm-sla-sls-hangi-3d-baski-teknolojisi",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAkAA4BaJZwAD4WtYfO2xPAA/vWdO6Wu/CHPmIFK+J2dSKINoggHjNqs8DpAfyQTuO085d1bS1EnpPPXGVuuL0AAAA==",
@@ -349,7 +373,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/fikirden-prototipe-urun-gelistirme-sureci",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAkAA4BaJZQC7ADGD95+AAD+9Z28Jaivxat1VJfy0m+bcekKG9CcD5H4PW2sPJy9cAu6PbG4Yl+CxxBeK4AA",
@@ -397,7 +425,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/hizli-prototipleme-ile-kalip-maliyeti-dusurmek",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADwAQCdASoQAAkAA4BaJZwC7ADdHGSVsAAA/vWdvCWor8WrdVbdjVbNiBtQglqda6M8zgqJ+d6FmoMwbBaIkhlLk0sC4unMUQOsDLETvAA=",
@@ -445,7 +477,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/moduler-duvar-dekoru-wall-decor",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAQCdASoQAAkAA4BaJQBdgB+MjsLGnwAA/vWd2/ZwMf2lGf9vj/O4g4UQpBTwhke/68tpyi1IKgSeeFodSIQ+dUT7SMeCwVV3X6LK6ukv9gAA",
@@ -497,7 +533,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/nfc-etiketli-akilli-urunler-grainztag",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAkAA4BaJZQCdAYt9lHwErCwAP7zmoIpk8fDYf21LZve5955cIBEqV55DPnH58xkz/2qOIdzCzVygDAgC/aR7IAAAA==",
@@ -545,7 +585,11 @@
       "minutes": 7,
       "cover": {
         "src": "/blog/silikon-kalip-ve-dokum-kucuk-seri-uretim",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAkAA4BaJZwC7AEGvGlAAP702RZ4A1t9b8C3zW1FXbfxGpqiU0pE63gbt7vq/2A7dYYI5F5YkAAA",
@@ -597,7 +641,11 @@
       "minutes": 6,
       "cover": {
         "src": "/blog/tersine-muhendislik-kirik-parcayi-yeniden-uretmek",
-        "widths": [640, 1024, 1600],
+        "widths": [
+          640,
+          1024,
+          1600
+        ],
         "width": 1600,
         "height": 900,
         "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAkAA4BaJZgCdADG9NFCCQAA/vWfPUdrsJ29BJDW51zOWVRSu1hlc9RmNUL63i5WuApX94RKw61P1DCIN+YEZmVj+AAA",
