@@ -41,10 +41,10 @@ export function Nav({ lang, overlay = false }: { lang: Language; overlay?: boole
     };
   }, [open]);
 
-  // Over a dark hero video, until the user scrolls.
+  // Over the dark hero video (phones only; desktop has a light hero), until the user scrolls.
   const light = overlay && !scrolled && !open;
   const linkTone = light
-    ? "text-background/80 hover:text-background"
+    ? "text-background/80 hover:text-background md:text-foreground/70 md:hover:text-foreground"
     : "text-foreground/70 hover:text-foreground";
 
   const links: { href: string; hash?: string; label: string }[] = [
@@ -66,7 +66,7 @@ export function Nav({ lang, overlay = false }: { lang: Language; overlay?: boole
         <Link
           to={localePath(lang, "/")}
           aria-label="100KRAFT"
-          className={light ? "text-background" : "text-foreground"}
+          className={light ? "text-background md:text-foreground" : "text-foreground"}
         >
           <Logo />
         </Link>
@@ -110,7 +110,9 @@ export function Nav({ lang, overlay = false }: { lang: Language; overlay?: boole
             to={startHref}
             onClick={() => trackEvent({ name: "start_project_click", location: "nav" })}
             className={`hidden h-10 items-center px-4 text-[0.875rem] font-medium transition-colors hover:bg-accent hover:text-accent-foreground sm:inline-flex ${
-              light ? "bg-background text-foreground" : "bg-foreground text-background"
+              light
+                ? "bg-background text-foreground md:bg-foreground md:text-background"
+                : "bg-foreground text-background"
             }`}
           >
             {t.startProject}

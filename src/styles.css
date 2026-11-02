@@ -188,6 +188,43 @@
   }
 }
 
+/*
+ * Desktop hero, played once on load and only on desktop with motion allowed. Phones keep
+ * a static title so it stays the instant LCP element over the video.
+ *
+ * .print-title  hidden while <PrintedTitle> prints it on a canvas; if the script never runs,
+ *               it shows itself after 3s.
+ * .tile-set     each Wall Decor tile starts turned off-pattern and clicks round into place.
+ */
+@keyframes print-fallback {
+  to {
+    color: var(--foreground);
+  }
+}
+
+@keyframes tile-set {
+  from {
+    transform: rotate(var(--turn, 90deg)) scale(0.94);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@media (min-width: 768px) and (prefers-reduced-motion: no-preference) {
+  .print-title:not([data-print="done"]) {
+    color: transparent;
+  }
+
+  .print-title:not([data-print]) {
+    animation: print-fallback 0s 3s forwards;
+  }
+
+  .tile-set {
+    animation: tile-set 0.9s cubic-bezier(0.34, 1.45, 0.64, 1) both;
+  }
+}
+
 /* Long-form article typography (blog). */
 @utility prose-kraft {
   font-size: 1.125rem;
