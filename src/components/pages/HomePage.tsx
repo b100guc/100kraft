@@ -1,20 +1,22 @@
 import type { CSSProperties } from "react";
-import { heroPanels, type Img } from "@/data/projects";
+import { heroPanels, projects, storeProducts, type Img } from "@/data/projects";
 import { contact, localePath, siteContent, type Language } from "@/data/translations";
 import { trackEvent } from "@/lib/analytics";
 import { Arrow, ButtonLink } from "@/components/site/Button";
-import { CollectionGrid } from "@/components/site/Catalogue";
 import { InstagramIcon } from "@/components/site/Instagram";
 import { Picture } from "@/components/site/Picture";
 import { PrintedTitle } from "@/components/site/PrintedTitle";
 import { ContactBlock, SiteLayout } from "@/components/site/Layout";
 import { ReelPhone } from "@/components/site/ReelPhone";
-import { SectionHead, ServiceList } from "@/components/site/Sections";
+import { Reveal } from "@/components/site/Reveal";
+import { Label, SectionHead, ServiceList } from "@/components/site/Sections";
+import { WorkIndex } from "@/components/site/WorkIndex";
 
 export function HomePage({ lang }: { lang: Language }) {
   return (
     <SiteLayout lang={lang} navOverlay>
       <Hero lang={lang} />
+      <Chain lang={lang} />
       <Work lang={lang} />
       <Workshop lang={lang} />
       <Services lang={lang} />
@@ -135,15 +137,49 @@ function WallTile({ panel, index, lang }: { panel: Img; index: number; lang: Lan
   );
 }
 
+/** The whole chain under one roof, lit step by step like a job moving down the bench. */
+function Chain({ lang }: { lang: Language }) {
+  const t = siteContent[lang].chain;
+  return (
+    <section className="on-ink layers">
+      <div className="wrap flex flex-col gap-4 py-6 md:flex-row md:items-center md:gap-10 md:py-7">
+        <p className="eyebrow shrink-0 !text-accent">{t.label}</p>
+        <ol className="flex flex-wrap items-center gap-x-3 gap-y-2 md:flex-1 md:justify-between md:gap-x-4">
+          {t.steps.map((step, i) => (
+            <li key={step} className="flex items-center gap-3 md:flex-1 md:gap-4">
+              <span
+                className="rise display text-2xl md:text-3xl xl:text-4xl"
+                style={{ animationDelay: `${500 + i * 140}ms` }}
+              >
+                {step}
+              </span>
+              {i < t.steps.length - 1 && (
+                <span aria-hidden className="h-px w-4 bg-border md:w-auto md:flex-1" />
+              )}
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
 function Work({ lang }: { lang: Language }) {
   const t = siteContent[lang].work;
   return (
-    <section className="border-t border-border">
+    <section>
       <div className="wrap py-20 md:py-28">
-        <SectionHead title={t.title} href={localePath(lang, "/work")} linkLabel={t.all} />
-        <p className="mt-4 max-w-md text-lg text-muted-foreground">{t.lead}</p>
+        <SectionHead
+          title={t.title}
+          index="01"
+          label={t.label}
+          aside={`${projects.length} ${t.collections} · ${storeProducts.length} ${t.products}`}
+          href={localePath(lang, "/work")}
+          linkLabel={t.all}
+        />
+        <p className="mt-5 max-w-md text-lg text-muted-foreground">{t.lead}</p>
         <div className="mt-10 md:mt-14">
-          <CollectionGrid lang={lang} />
+          <WorkIndex lang={lang} />
         </div>
       </div>
     </section>
@@ -153,24 +189,31 @@ function Work({ lang }: { lang: Language }) {
 function Workshop({ lang }: { lang: Language }) {
   const t = siteContent[lang].workshop;
   return (
-    <section className="overflow-hidden bg-tile">
-      <div className="wrap grid items-center gap-14 py-20 md:grid-cols-12 md:py-28">
-        <div className="md:col-span-6 lg:col-span-5">
-          <h2 className="display text-[13vw] md:text-7xl">{t.title}</h2>
-          <p className="mt-6 max-w-md text-lg text-muted-foreground">{t.lead}</p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={contact.instagram}>
-              <InstagramIcon className="h-[18px] w-[18px]" />
-              @100kraft
-            </ButtonLink>
-            <ButtonLink href={localePath(lang, "/atelier")} variant="outline">
-              {t.about}
-              <Arrow />
-            </ButtonLink>
+    <section className="on-ink layers overflow-hidden">
+      <div className="wrap py-20 md:py-28">
+        <Label index="02" aside="@100kraft">
+          {t.label}
+        </Label>
+        <div className="mt-10 grid items-center gap-14 md:mt-0 md:grid-cols-12">
+          <div className="md:col-span-6 lg:col-span-5">
+            <Reveal>
+              <h2 className="display text-[15vw] md:text-7xl lg:text-8xl">{t.title}</h2>
+            </Reveal>
+            <p className="mt-6 max-w-md text-lg text-muted-foreground">{t.lead}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink href={contact.instagram}>
+                <InstagramIcon className="h-[18px] w-[18px]" />
+                @100kraft
+              </ButtonLink>
+              <ButtonLink href={localePath(lang, "/atelier")} variant="outline">
+                {t.about}
+                <Arrow />
+              </ButtonLink>
+            </div>
           </div>
-        </div>
-        <div className="md:col-span-6 lg:col-start-7">
-          <ReelPhone lang={lang} />
+          <div className="md:col-span-6 lg:col-start-7">
+            <ReelPhone lang={lang} />
+          </div>
         </div>
       </div>
     </section>
@@ -180,12 +223,17 @@ function Workshop({ lang }: { lang: Language }) {
 function Services({ lang }: { lang: Language }) {
   const t = siteContent[lang].services;
   return (
-    <section className="border-t border-border">
-      <div className="wrap grid gap-10 py-20 md:grid-cols-12 md:py-28">
-        <div className="md:col-span-4">
-          <SectionHead title={t.title} />
-        </div>
-        <div className="md:col-span-8">
+    <section>
+      <div className="wrap py-20 md:py-28">
+        <SectionHead
+          title={t.title}
+          index="03"
+          label={t.label}
+          href={localePath(lang, "/services")}
+          linkLabel={t.all}
+        />
+        <p className="mt-5 max-w-lg text-lg text-muted-foreground">{t.lead}</p>
+        <div className="mt-10 md:mt-14">
           <ServiceList lang={lang} />
         </div>
       </div>

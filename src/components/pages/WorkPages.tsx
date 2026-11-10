@@ -1,5 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { getNextProject, optionSummary, productLabel, type ProjectItem } from "@/data/projects";
+import {
+  getNextProject,
+  optionSummary,
+  productLabel,
+  projects,
+  storeProducts,
+  type ProjectItem,
+} from "@/data/projects";
 import { services } from "@/data/services";
 import { contact, localePath, siteContent, type Language } from "@/data/translations";
 import { trackEvent } from "@/lib/analytics";
@@ -8,7 +15,7 @@ import { CatalogueGrid, CollectionGrid, Price } from "@/components/site/Catalogu
 import { ContactBlock, SiteLayout } from "@/components/site/Layout";
 import { Picture } from "@/components/site/Picture";
 import { Reveal } from "@/components/site/Reveal";
-import { PageHeader, SectionHead } from "@/components/site/Sections";
+import { Label, PageHeader, SectionHead } from "@/components/site/Sections";
 
 const copy = {
   tr: {
@@ -42,12 +49,19 @@ export function WorkIndexPage({ lang }: { lang: Language }) {
   const c = copy[lang];
   return (
     <SiteLayout lang={lang}>
-      <PageHeader title={t.title} lead={t.lead} />
+      <PageHeader
+        title={t.title}
+        lead={t.lead}
+        eyebrow={`${projects.length} ${t.collections} · ${storeProducts.length} ${t.products}`}
+      />
       <section className="wrap pb-20 md:pb-28">
         <CollectionGrid lang={lang} />
       </section>
       <section className="border-t border-border">
         <div className="wrap py-20 md:py-28">
+          <Label aside="store.100kraft.com" className="mb-8">
+            {c.inStore}
+          </Label>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <SectionHead title={c.all} />
@@ -72,33 +86,42 @@ export function WorkDetailPage({ lang, project }: { lang: Language; project: Pro
   const c = copy[lang];
   const next = getNextProject(project.slug);
   const related = services.filter((s) => project.services.includes(s.slug));
+  const position = projects.findIndex((p) => p.slug === project.slug);
 
   return (
     <SiteLayout lang={lang}>
       <article className="wrap pt-24 pb-20 md:pt-28 md:pb-28">
-        <Link
-          to={localePath(lang, "/work")}
-          className="group inline-flex items-center gap-2 text-[0.9375rem] text-muted-foreground hover:text-foreground"
-        >
-          <Arrow className="rotate-180 transition-transform group-hover:-translate-x-1" />
-          {c.back}
-        </Link>
+        <div className="eyebrow flex items-center gap-3">
+          <Link
+            to={localePath(lang, "/work")}
+            className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
+          >
+            <Arrow className="h-3 w-3 rotate-180 transition-transform group-hover:-translate-x-1" />
+            {c.back}
+          </Link>
+          <span className="text-border">/</span>
+          <span className="text-accent">{project.name}</span>
+          <span aria-hidden className="h-px flex-1 bg-border" />
+          <span>
+            0{position + 1} / 0{projects.length}
+          </span>
+        </div>
 
-        <div className="mt-8 grid gap-10 lg:grid-cols-12 lg:gap-12">
+        <div className="mt-6 grid gap-10 lg:grid-cols-12 lg:gap-12">
           <div className="lg:col-span-7">
             <Picture
               image={project.cover}
               alt={project.cover.alt[lang]}
               sizes="(min-width: 1024px) 56vw, 100vw"
               priority
-              className="aspect-square overflow-hidden bg-tile"
+              className="print-in aspect-square overflow-hidden bg-tile"
             />
           </div>
 
           <div className="lg:col-span-5">
             <div className="lg:sticky lg:top-24">
               <p className="eyebrow">{project.category[lang]}</p>
-              <h1 className="display mt-4 text-[13vw] md:text-7xl">{project.name}</h1>
+              <h1 className="display mt-4 text-[13vw] md:text-7xl xl:text-8xl">{project.name}</h1>
               <p className="mt-6 text-xl leading-snug">{project.summary[lang]}</p>
               <p className="mt-4 text-[1.0625rem] text-muted-foreground">{project.body[lang]}</p>
 
@@ -106,14 +129,14 @@ export function WorkDetailPage({ lang, project }: { lang: Language; project: Pro
                 {project.specs.map((s) => (
                   <div
                     key={s.label.en}
-                    className="grid grid-cols-[7rem_1fr] gap-4 border-b border-border py-3 text-[0.9375rem]"
+                    className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-b border-border py-3 text-[0.9375rem]"
                   >
-                    <dt className="text-muted-foreground">{s.label[lang]}</dt>
+                    <dt className="eyebrow">{s.label[lang]}</dt>
                     <dd>{s.value[lang]}</dd>
                   </div>
                 ))}
-                <div className="grid grid-cols-[7rem_1fr] gap-4 border-b border-border py-3 text-[0.9375rem]">
-                  <dt className="text-muted-foreground">{c.services}</dt>
+                <div className="grid grid-cols-[7rem_1fr] items-baseline gap-4 border-b border-border py-3 text-[0.9375rem]">
+                  <dt className="eyebrow">{c.services}</dt>
                   <dd className="flex flex-wrap gap-x-3 gap-y-1">
                     {related.map((s) => (
                       <Link
@@ -153,8 +176,8 @@ export function WorkDetailPage({ lang, project }: { lang: Language; project: Pro
                           {p.inStock ? optionSummary(p, lang) : c.soldOut}
                         </span>
                       </span>
-                      <span className="flex shrink-0 items-center gap-3 text-[0.9375rem]">
-                        <Price product={p} />
+                      <span className="flex shrink-0 items-center gap-3">
+                        <Price product={p} className="spec" />
                         <ArrowUpRight />
                       </span>
                     </a>
@@ -165,6 +188,7 @@ export function WorkDetailPage({ lang, project }: { lang: Language; project: Pro
               <div className="mt-8">
                 <ButtonLink href={localePath(lang, "/start-project")} variant="outline">
                   {c.similar}
+                  <Arrow />
                 </ButtonLink>
               </div>
             </div>
@@ -174,7 +198,7 @@ export function WorkDetailPage({ lang, project }: { lang: Language; project: Pro
         {project.gallery.length > 0 && (
           <div className="mt-12 grid grid-cols-2 gap-3 md:grid-cols-3 lg:mt-3">
             {project.gallery.map((image, i) => (
-              <Reveal key={image.src} delay={(i % 3) * 0.05}>
+              <Reveal key={image.src} variant="print" delay={(i % 3) * 0.06}>
                 <Picture
                   image={image}
                   alt={image.alt[lang]}
@@ -187,22 +211,23 @@ export function WorkDetailPage({ lang, project }: { lang: Language; project: Pro
         )}
       </article>
 
-      <Link
-        to={localePath(lang, `/work/${next.slug}`)}
-        className="group block border-t border-border"
-      >
-        <div className="wrap flex items-center justify-between gap-6 py-10 md:py-14">
+      <Link to={localePath(lang, `/work/${next.slug}`)} className="group on-ink layers block">
+        <div className="wrap flex items-center justify-between gap-6 py-12 md:py-20">
           <div>
-            <p className="eyebrow">{c.next}</p>
-            <p className="display mt-3 text-5xl transition-colors group-hover:text-accent md:text-7xl">
+            <p className="eyebrow flex items-center gap-3">
+              <span className="text-accent">{c.next}</span>
+              {next.category[lang]}
+            </p>
+            <p className="display mt-4 flex items-center gap-5 text-5xl md:text-8xl">
               {next.name}
+              <Arrow className="h-8 w-8 transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:translate-x-3 md:h-14 md:w-14" />
             </p>
           </div>
           <Picture
             image={next.cover}
             alt=""
-            sizes="128px"
-            className="hidden h-24 w-24 shrink-0 overflow-hidden bg-tile sm:block md:h-32 md:w-32"
+            sizes="176px"
+            className="hidden h-28 w-28 shrink-0 overflow-hidden bg-tile transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:rotate-90 sm:block md:h-44 md:w-44"
           />
         </div>
       </Link>

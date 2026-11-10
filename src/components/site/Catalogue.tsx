@@ -42,12 +42,14 @@ export function CollectionGrid({ lang }: { lang: Language }) {
       {projects.map((p, i) => (
         <Reveal
           key={p.slug}
-          delay={(i % 4) * 0.05}
+          variant="print"
+          delay={(i % 4) * 0.06}
           className={i === 0 ? "col-span-2 lg:row-span-2" : ""}
         >
           <ProjectCard
             project={p}
             lang={lang}
+            index={i}
             sizes={i === 0 ? "(min-width: 640px) 50vw, 100vw" : "(min-width: 1024px) 25vw, 50vw"}
           />
         </Reveal>
@@ -102,9 +104,9 @@ export function ProductTile({
           </p>
           {summary && <p className="mt-0.5 text-sm text-muted-foreground">{summary}</p>}
         </div>
-        <ArrowUpRight className="mt-1 shrink-0 text-muted-foreground transition-colors group-hover:text-foreground" />
+        <ArrowUpRight className="mt-1 shrink-0 text-muted-foreground transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
       </div>
-      <Price product={product} className="mt-1 block text-[0.9375rem]" />
+      <Price product={product} className="spec mt-1.5 block" />
     </a>
   );
 }

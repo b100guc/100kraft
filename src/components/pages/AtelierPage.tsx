@@ -154,7 +154,8 @@ export function AtelierPage({ lang }: { lang: Language }) {
               href={post.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative block aspect-[4/5] overflow-hidden bg-tile"
+              className="print-in group relative block aspect-[4/5] overflow-hidden bg-tile"
+              style={{ animationDelay: `${150 + i * 120}ms` }}
             >
               <picture>
                 <source type="image/avif" srcSet={`/instagram/${post.code}.avif`} />
@@ -167,7 +168,7 @@ export function AtelierPage({ lang }: { lang: Language }) {
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
               </picture>
-              <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-ink/80 to-transparent p-4 pt-12 text-[0.9375rem] text-background">
+              <span className="absolute inset-x-0 bottom-0 flex items-center justify-between bg-gradient-to-t from-ink/80 to-transparent p-4 pt-12 font-mono text-xs tracking-wide text-background uppercase">
                 {post.alt[lang]}
                 <ArrowUpRight />
               </span>
@@ -178,12 +179,12 @@ export function AtelierPage({ lang }: { lang: Language }) {
 
       <section className="border-t border-border">
         <div className="wrap grid gap-10 py-20 md:grid-cols-12 md:py-28">
-          <div className="md:col-span-5">
-            <Reveal>
-              <h2 className="display text-[11vw] md:text-6xl">{c.storyTitle}</h2>
+          <div className="md:col-span-6">
+            <Reveal variant="print">
+              <h2 className="display text-[12vw] md:text-7xl xl:text-8xl">{c.storyTitle}</h2>
             </Reveal>
           </div>
-          <div className="md:col-span-6 md:col-start-7">
+          <div className="md:col-span-5 md:col-start-8">
             {c.story.map((p) => (
               <p key={p.slice(0, 20)} className="mb-6 text-xl leading-relaxed">
                 {p}
@@ -193,9 +194,9 @@ export function AtelierPage({ lang }: { lang: Language }) {
               {c.facts.map(([label, value]) => (
                 <div
                   key={label}
-                  className="grid grid-cols-[8rem_1fr] gap-4 border-b border-border py-3 text-[0.9375rem]"
+                  className="grid grid-cols-[8rem_1fr] items-baseline gap-4 border-b border-border py-3 text-[0.9375rem]"
                 >
-                  <dt className="text-muted-foreground">{label}</dt>
+                  <dt className="eyebrow">{label}</dt>
                   <dd>{value}</dd>
                 </div>
               ))}
@@ -225,8 +226,8 @@ export function AtelierPage({ lang }: { lang: Language }) {
                   />
                 </picture>
                 <h3 className="display mt-8 text-4xl md:text-5xl">{m.name}</h3>
-                <p className="mt-3 text-[1.0625rem]">{c.role}</p>
-                <p className="mt-1 text-[0.9375rem] text-muted-foreground">{m.school[lang]}</p>
+                <p className="eyebrow mt-4 !text-accent">{c.role}</p>
+                <p className="mt-2 text-[0.9375rem] text-muted-foreground">{m.school[lang]}</p>
                 <a
                   href={`https://www.instagram.com/${m.instagram}/`}
                   target="_blank"
@@ -246,11 +247,14 @@ export function AtelierPage({ lang }: { lang: Language }) {
           <SectionHead title={c.benchTitle} />
           <div className="mt-12 grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
             {c.bench.map((b, i) => (
-              <div key={b.title} className="border-t border-foreground pt-5">
-                <span className="text-sm tabular-nums text-muted-foreground">0{i + 1}</span>
-                <h3 className="mt-3 text-2xl font-medium">{b.title}</h3>
-                <p className="mt-2 text-[0.9375rem] text-muted-foreground">{b.body}</p>
-              </div>
+              <Reveal key={b.title} delay={i * 0.08}>
+                <div className="flex items-center gap-3">
+                  <span className="spec text-accent">0{i + 1}</span>
+                  <span aria-hidden className="h-px flex-1 bg-foreground" />
+                </div>
+                <h3 className="display mt-5 text-4xl">{b.title}</h3>
+                <p className="mt-3 text-[0.9375rem] text-muted-foreground">{b.body}</p>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -262,13 +266,16 @@ export function AtelierPage({ lang }: { lang: Language }) {
             <SectionHead title={c.principlesTitle} />
           </div>
           <ol className="md:col-span-8">
-            {c.principles.map((p) => (
+            {c.principles.map((p, i) => (
               <li
                 key={p.title}
-                className="grid gap-2 border-t border-border py-6 last:border-b md:grid-cols-[14rem_1fr] md:gap-8"
+                className="grid grid-cols-[2.25rem_1fr] items-baseline gap-x-3 gap-y-2 border-t border-border py-6 last:border-b md:grid-cols-[3.5rem_16rem_1fr] md:gap-x-6"
               >
-                <h3 className="text-xl font-medium md:text-2xl">{p.title}</h3>
-                <p className="text-[1.0625rem] text-muted-foreground">{p.body}</p>
+                <span className="spec text-accent">0{i + 1}</span>
+                <h3 className="display text-3xl md:text-4xl">{p.title}</h3>
+                <p className="col-start-2 text-[1.0625rem] text-muted-foreground md:col-start-auto">
+                  {p.body}
+                </p>
               </li>
             ))}
           </ol>

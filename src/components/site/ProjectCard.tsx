@@ -9,10 +9,12 @@ export function ProjectCard({
   project,
   lang,
   sizes = "(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw",
+  index,
 }: {
   project: ProjectItem;
   lang: Language;
   sizes?: string;
+  index?: number | undefined;
 }) {
   const price = collectionPrice(project);
   const count = project.products.length;
@@ -55,19 +57,16 @@ export function ProjectCard({
           />
         )}
       </div>
-      <div className="mt-3 flex flex-col gap-1 sm:mt-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
-        <div>
-          <h3 className="text-lg font-medium leading-tight transition-colors group-hover:text-accent">
-            {project.name}
-          </h3>
-          <p className="mt-1 text-[0.9375rem] text-muted-foreground">{project.category[lang]}</p>
-        </div>
-        {meta && (
-          <span className="shrink-0 text-[0.9375rem] tabular-nums text-muted-foreground">
-            {meta}
-          </span>
-        )}
+      <div className="eyebrow mt-3 flex items-center justify-between gap-3">
+        <span>
+          {index != null && <span className="mr-2 text-accent">0{index + 1}</span>}
+          {project.category[lang]}
+        </span>
+        {meta && <span className="shrink-0">{meta}</span>}
       </div>
+      <h3 className="display mt-2 text-3xl transition-colors group-hover:text-accent md:text-4xl">
+        {project.name}
+      </h3>
     </Link>
   );
 }

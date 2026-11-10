@@ -7,8 +7,10 @@ import { PostCard } from "@/components/pages/BlogPages";
 import { Arrow, ButtonLink } from "@/components/site/Button";
 import { ContactBlock, SiteLayout } from "@/components/site/Layout";
 import { ProjectCard } from "@/components/site/ProjectCard";
+import { Reveal } from "@/components/site/Reveal";
 import {
   FaqSection,
+  Label,
   PageHeader,
   ProcessSection,
   SectionHead,
@@ -97,19 +99,22 @@ export function ServicesIndexPage({ lang }: { lang: Language }) {
       <PageHeader title={siteContent[lang].services.title} lead={c.lead} />
 
       <section className="wrap pb-20 md:pb-28">
-        <h2 className="eyebrow">{c.startTitle}</h2>
-        <div className="mt-5 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
-          {c.starts.map((s) => (
+        <Label>{c.startTitle}</Label>
+        <div className="mt-6 grid gap-px bg-border sm:grid-cols-2 lg:grid-cols-4">
+          {c.starts.map((s, i) => (
             <Link
               key={s.title}
               to={localePath(lang, `/services/${s.slug}`)}
-              className="group flex min-h-48 flex-col justify-between bg-background p-6 transition-colors hover:bg-tile"
+              className="group relative isolate flex min-h-56 overflow-hidden flex-col justify-between bg-background p-6 transition-colors duration-300 before:absolute before:inset-0 before:-z-10 before:translate-y-full before:bg-foreground before:transition-transform before:duration-300 before:ease-[steps(8,end)] hover:text-background hover:before:translate-y-0 motion-reduce:before:transition-none"
             >
               <div>
-                <h3 className="text-2xl font-medium">{s.title}</h3>
-                <p className="mt-2 text-[0.9375rem] text-muted-foreground">{s.body}</p>
+                <span className="spec text-accent">{String.fromCharCode(65 + i)}</span>
+                <h3 className="display mt-4 text-3xl">{s.title}</h3>
+                <p className="mt-3 text-[0.9375rem] text-muted-foreground transition-colors duration-300 group-hover:text-background/70">
+                  {s.body}
+                </p>
               </div>
-              <Arrow className="mt-6 transition-transform group-hover:translate-x-1" />
+              <Arrow className="mt-6 transition-transform duration-300 group-hover:translate-x-2" />
             </Link>
           ))}
         </div>
@@ -130,10 +135,14 @@ export function ServicesIndexPage({ lang }: { lang: Language }) {
 function ListBlock({ title, items }: { title: string; items: string[] }) {
   return (
     <div>
-      <h2 className="eyebrow">{title}</h2>
-      <ul className="mt-4 border-t border-border">
-        {items.map((item) => (
-          <li key={item} className="border-b border-border py-3 text-[1.0625rem]">
+      <Label>{title}</Label>
+      <ul className="mt-2">
+        {items.map((item, i) => (
+          <li
+            key={item}
+            className="grid grid-cols-[2rem_1fr] items-baseline border-b border-border py-3 text-[1.0625rem]"
+          >
+            <span className="spec text-muted-foreground">{String(i + 1).padStart(2, "0")}</span>
             {item}
           </li>
         ))}
@@ -153,9 +162,9 @@ export function ServiceDetailPage({ lang, service }: { lang: Language; service: 
         eyebrow={
           <Link
             to={localePath(lang, "/services")}
-            className="group inline-flex items-center gap-2 hover:text-foreground"
+            className="group inline-flex items-center gap-2 transition-colors hover:text-foreground"
           >
-            <Arrow className="rotate-180 transition-transform group-hover:-translate-x-1" />
+            <Arrow className="h-3 w-3 rotate-180 transition-transform group-hover:-translate-x-1" />
             {c.back} / {service.number}
           </Link>
         }
@@ -178,15 +187,22 @@ export function ServiceDetailPage({ lang, service }: { lang: Language; service: 
         </div>
       </section>
 
-      <section className="bg-ink text-background">
-        <div className="wrap py-20 md:py-24">
-          <h2 className="display text-5xl md:text-6xl">{c.steps}</h2>
-          <ol className="mt-10 grid gap-x-8 gap-y-10 md:grid-cols-3">
+      <section className="on-ink layers">
+        <div className="wrap py-20 md:py-28">
+          <SectionHead title={c.steps} label={service.title[lang]} aside={service.number} />
+          <ol className="mt-12 grid gap-x-6 gap-y-10 md:mt-16 md:grid-cols-3">
             {service.steps.map((s, i) => (
-              <li key={s.title.en} className="border-t border-background/15 pt-5">
-                <span className="text-sm tabular-nums text-[#df917d]">0{i + 1}</span>
-                <h3 className="mt-3 text-2xl font-medium">{s.title[lang]}</h3>
-                <p className="mt-2 max-w-sm text-[0.9375rem] text-background/65">{s.body[lang]}</p>
+              <li key={s.title.en}>
+                <Reveal delay={i * 0.08}>
+                  <div className="flex items-center gap-3">
+                    <span className="spec text-accent">0{i + 1}</span>
+                    <span aria-hidden className="h-px flex-1 bg-border" />
+                  </div>
+                  <h3 className="display mt-5 text-4xl">{s.title[lang]}</h3>
+                  <p className="mt-3 max-w-sm text-[0.9375rem] text-muted-foreground">
+                    {s.body[lang]}
+                  </p>
+                </Reveal>
               </li>
             ))}
           </ol>
@@ -225,10 +241,10 @@ export function ServiceDetailPage({ lang, service }: { lang: Language; service: 
       {examples.length > 0 && (
         <section className="border-t border-border">
           <div className="wrap py-20 md:py-28">
-            <h2 className="display text-5xl md:text-6xl">{c.examples}</h2>
+            <SectionHead title={c.examples} />
             <div className="mt-10 grid gap-x-3 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
-              {examples.map((p) => (
-                <ProjectCard key={p.slug} project={p} lang={lang} />
+              {examples.map((p, i) => (
+                <ProjectCard key={p.slug} project={p} lang={lang} index={i} />
               ))}
             </div>
           </div>
@@ -238,7 +254,7 @@ export function ServiceDetailPage({ lang, service }: { lang: Language; service: 
       {reading.length > 0 && (
         <section className="border-t border-border">
           <div className="wrap py-20 md:py-28">
-            <h2 className="display text-5xl md:text-6xl">{c.reading}</h2>
+            <SectionHead title={c.reading} />
             <div className="mt-10 grid gap-x-6 gap-y-14 sm:grid-cols-2 lg:grid-cols-3">
               {reading.slice(0, 3).map((p) => (
                 <PostCard key={p.slug} post={p} />
@@ -250,7 +266,7 @@ export function ServiceDetailPage({ lang, service }: { lang: Language; service: 
 
       <section className="border-t border-border">
         <div className="wrap grid gap-10 py-20 md:grid-cols-12 md:py-28">
-          <h2 className="display text-5xl md:col-span-4 md:text-6xl">{c.other}</h2>
+          <h2 className="display text-5xl md:col-span-4 md:text-7xl">{c.other}</h2>
           <div className="md:col-span-8">
             <ServiceList lang={lang} exclude={service.slug} />
           </div>
