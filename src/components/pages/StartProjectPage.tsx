@@ -3,9 +3,9 @@ import { services } from "@/data/services";
 import { contact, type Language } from "@/data/translations";
 import { trackEvent } from "@/lib/analytics";
 import type { ContactInput } from "@/lib/contact";
-import { ButtonLink } from "@/components/site/Button";
+import { Arrow, ButtonLink } from "@/components/site/Button";
 import { SiteLayout } from "@/components/site/Layout";
-import { PageHeader } from "@/components/site/Sections";
+import { Label, PageHeader } from "@/components/site/Sections";
 
 const copy = {
   tr: {
@@ -27,6 +27,15 @@ const copy = {
     sent: "E-posta uygulamanız açıldı. Açılmadıysa doğrudan yazın:",
     subject: "Proje talebi",
     labels: { name: "Ad", email: "E-posta", phone: "Telefon", need: "İhtiyaç" },
+    groups: ["Siz", "İhtiyaç", "Proje"],
+    sheet: "İş emri",
+    nextTitle: "Sonra ne olur",
+    next: [
+      "Mesajınızı okur, gerekirse birkaç soru sorarız.",
+      "İki iş günü içinde nasıl yapılacağını ve yaklaşık bütçeyi yazarız.",
+      "Onaylarsanız ilk numuneyle başlarız.",
+    ],
+    direct: "Doğrudan ulaşın",
   },
   en: {
     title: "Start a project",
@@ -47,11 +56,20 @@ const copy = {
     sent: "Your email app should have opened. If not, write to us directly:",
     subject: "Project enquiry",
     labels: { name: "Name", email: "Email", phone: "Phone", need: "Need" },
+    groups: ["You", "Need", "Project"],
+    sheet: "Job sheet",
+    nextTitle: "What happens next",
+    next: [
+      "We read your message and ask a few questions if needed.",
+      "Within two working days we write back with how we would make it and a rough budget.",
+      "If you approve, we start with a first sample.",
+    ],
+    direct: "Reach us directly",
   },
 };
 
 const field =
-  "mt-2 block w-full border-0 border-b border-input bg-transparent px-0 py-3 text-lg outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground";
+  "mt-2 block w-full border-0 border-b border-input bg-transparent px-0 py-3 font-sans text-lg tracking-normal normal-case outline-none transition-colors placeholder:text-muted-foreground/60 focus:border-foreground";
 
 export function StartProjectPage({ lang }: { lang: Language }) {
   const c = copy[lang];
@@ -114,7 +132,7 @@ export function StartProjectPage({ lang }: { lang: Language }) {
 
   return (
     <SiteLayout lang={lang}>
-      <PageHeader title={c.title} lead={c.lead} />
+      <PageHeader title={c.title} lead={c.lead} eyebrow={c.sheet} />
 
       <section className="wrap grid gap-14 pb-20 md:pb-28 lg:grid-cols-12">
         <form onSubmit={onSubmit} noValidate className="lg:col-span-7">
@@ -129,8 +147,9 @@ export function StartProjectPage({ lang }: { lang: Language }) {
             onChange={(e) => setForm({ ...form, website: e.target.value })}
           />
 
-          <div className="grid gap-8 sm:grid-cols-2">
-            <label className="block text-[0.9375rem] text-muted-foreground">
+          <Label index="01">{c.groups[0]}</Label>
+          <div className="mt-6 grid gap-8 sm:grid-cols-2">
+            <label className="eyebrow block">
               {c.name}
               <input
                 required
@@ -140,7 +159,7 @@ export function StartProjectPage({ lang }: { lang: Language }) {
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
             </label>
-            <label className="block text-[0.9375rem] text-muted-foreground">
+            <label className="eyebrow block">
               {c.email}
               <input
                 required
@@ -151,7 +170,7 @@ export function StartProjectPage({ lang }: { lang: Language }) {
                 onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
             </label>
-            <label className="block text-[0.9375rem] text-muted-foreground sm:col-span-2">
+            <label className="eyebrow block sm:col-span-2">
               {c.phone}
               <input
                 type="tel"
@@ -163,9 +182,12 @@ export function StartProjectPage({ lang }: { lang: Language }) {
             </label>
           </div>
 
-          <fieldset className="mt-10">
-            <legend className="text-[0.9375rem] text-muted-foreground">{c.need}</legend>
-            <div className="mt-4 flex flex-wrap gap-2">
+          <fieldset className="mt-14">
+            <legend className="sr-only">{c.need}</legend>
+            <Label index="02" aside={c.need}>
+              {c.groups[1]}
+            </Label>
+            <div className="mt-6 flex flex-wrap gap-2">
               {services.map((s) => {
                 const on = selected.includes(s.slug);
                 return (
@@ -174,7 +196,7 @@ export function StartProjectPage({ lang }: { lang: Language }) {
                     type="button"
                     aria-pressed={on}
                     onClick={() => toggle(s.slug)}
-                    className={`h-10 border px-4 text-[0.9375rem] transition-colors ${
+                    className={`h-11 border px-4 text-[0.9375rem] transition-colors ${
                       on
                         ? "border-foreground bg-foreground text-background"
                         : "border-input hover:border-foreground"
@@ -187,7 +209,10 @@ export function StartProjectPage({ lang }: { lang: Language }) {
             </div>
           </fieldset>
 
-          <label className="mt-10 block text-[0.9375rem] text-muted-foreground">
+          <Label index="03" className="mt-14">
+            {c.groups[2]}
+          </Label>
+          <label className="eyebrow mt-6 block">
             {c.message}
             <textarea
               required
@@ -209,9 +234,10 @@ export function StartProjectPage({ lang }: { lang: Language }) {
             <button
               type="submit"
               disabled={status === "sending" || status === "done"}
-              className="inline-flex h-12 items-center bg-foreground px-6 text-[0.9375rem] font-medium text-background transition-colors hover:bg-accent disabled:opacity-60"
+              className="group relative isolate inline-flex h-12 items-center gap-2 overflow-hidden bg-foreground px-8 text-[0.9375rem] font-medium text-background transition-colors duration-300 before:absolute before:inset-0 before:-z-10 before:translate-y-full before:bg-accent before:transition-transform before:duration-300 before:ease-[steps(6,end)] hover:text-accent-foreground hover:before:translate-y-0 disabled:opacity-60"
             >
               {status === "sending" ? c.sending : c.submit}
+              <Arrow className="transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             <span className="text-[0.9375rem] text-muted-foreground">{c.or}</span>
             <ButtonLink href={contact.whatsapp} variant="outline">
@@ -236,29 +262,44 @@ export function StartProjectPage({ lang }: { lang: Language }) {
         </form>
 
         <aside className="lg:col-span-4 lg:col-start-9">
-          <dl className="border-t border-border text-[0.9375rem]">
-            {[
-              [c.labels.email, <a href={`mailto:${contact.email}`}>{contact.email}</a>],
-              [
-                c.labels.phone,
-                <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>,
-              ],
-              [
-                "Instagram",
-                <a href={contact.instagram} target="_blank" rel="noopener noreferrer">
-                  @100kraft
-                </a>,
-              ],
-            ].map(([label, value]) => (
-              <div
-                key={String(label)}
-                className="grid grid-cols-[6rem_1fr] gap-4 border-b border-border py-4"
-              >
-                <dt className="text-muted-foreground">{label}</dt>
-                <dd className="hover:[&_a]:text-accent">{value}</dd>
-              </div>
-            ))}
-          </dl>
+          <div className="lg:sticky lg:top-24">
+            <Label>{c.nextTitle}</Label>
+            <ol className="mt-2">
+              {c.next.map((step, i) => (
+                <li
+                  key={step}
+                  className="grid grid-cols-[2rem_1fr] items-baseline border-b border-border py-4 text-[0.9375rem]"
+                >
+                  <span className="spec text-accent">0{i + 1}</span>
+                  {step}
+                </li>
+              ))}
+            </ol>
+            <Label className="mt-12">{c.direct}</Label>
+            <dl className="mt-2 text-[0.9375rem]">
+              {[
+                [c.labels.email, <a href={`mailto:${contact.email}`}>{contact.email}</a>],
+                [
+                  c.labels.phone,
+                  <a href={`tel:${contact.phone.replace(/\s/g, "")}`}>{contact.phone}</a>,
+                ],
+                [
+                  "Instagram",
+                  <a href={contact.instagram} target="_blank" rel="noopener noreferrer">
+                    @100kraft
+                  </a>,
+                ],
+              ].map(([label, value]) => (
+                <div
+                  key={String(label)}
+                  className="grid grid-cols-[6rem_1fr] items-baseline gap-4 border-b border-border py-4"
+                >
+                  <dt className="eyebrow">{label}</dt>
+                  <dd className="hover:[&_a]:text-accent">{value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </aside>
       </section>
     </SiteLayout>

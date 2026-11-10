@@ -27,26 +27,36 @@ export const siteContent = {
       close: "Kapat",
     },
     hero: {
-      eyebrow: "Tasarım · 3D baskı · Kalıp & döküm · Antalya",
+      eyebrow: "Tasarım ve üretim atölyesi · Antalya",
       title: "Yüzde yüz zanaat.",
-      lead: "Tasarımdan döküme, her parça Antalya’daki atölyemizde elde biter.",
+      lead: "Çizer, basar, kalıbını alır, dökeriz. Bir parçanın bütün yolculuğu Antalya’daki tek bir atölyede geçer.",
       cta: "Proje başlat",
       secondary: "Mağazaya git",
     },
+    chain: {
+      label: "Tek atölyede",
+      steps: ["Tasarım", "3D baskı", "Kalıp", "Döküm", "Boya", "Montaj"],
+    },
     services: {
+      label: "Sizin projeniz için",
       title: "Hizmetler",
+      lead: "Kendi ürünlerimizi yaptığımız tezgâh, sizin parçanız için de çalışır. Tek bir numune de olur, küçük bir seri de.",
       all: "Tüm hizmetler",
     },
     work: {
+      label: "Koleksiyon",
       title: "İşler",
-      lead: "Kendi koleksiyonumuz. Çizimden paketlemeye her adım atölyede.",
+      collections: "koleksiyon",
+      products: "ürün",
+      lead: "Önce kendimiz için tasarladık, sonra mağazaya koyduk. Hepsi aynı tezgâhtan çıkıyor.",
       all: "Tüm işler",
       view: "İncele",
       buy: "Mağazada gör",
     },
     workshop: {
+      label: "Instagram",
       title: "Atölyeden",
-      lead: "Kalıptan çıkan ilk parça, baskıdan yeni gelen renkler. En son ne yaptığımızı Instagram’da paylaşıyoruz.",
+      lead: "Kalıptan yeni çıkan parça, yazıcıdan gelen ilk renk. O hafta tezgâhta ne varsa burada.",
       about: "Biz kimiz",
     },
     atelier: {
@@ -64,6 +74,8 @@ export const siteContent = {
       instagram: "Atölyeden kareler: @100kraft",
     },
     process: {
+      label: "Süreç",
+      unit: "adım",
       title: "Bir parça nasıl doğar",
       steps: [
         {
@@ -85,13 +97,19 @@ export const siteContent = {
       ],
     },
     contact: {
+      label: "İletişim",
+      reply: "2 iş günü içinde dönüş",
       title: "Masanızda ne var?",
-      lead: "Bir eskiz, bir fotoğraf, bir STL ya da sadece bir fikir. Gönderin; iki iş günü içinde nasıl yapılacağını konuşalım.",
+      lead: "Bir eskiz, bir fotoğraf, bir STL ya da sadece bir fikir. Gönderin; nasıl yapılacağını birlikte konuşalım.",
       cta: "Proje başlat",
       whatsapp: "WhatsApp",
       location: "Antalya, Türkiye",
     },
     footer: {
+      tagline: "Tasarım ve üretim atölyesi",
+      menu: "Site",
+      reach: "Ulaşın",
+      top: "Başa dön",
       by: "Site: Grainz Digital",
     },
   },
@@ -107,26 +125,36 @@ export const siteContent = {
       close: "Close",
     },
     hero: {
-      eyebrow: "Design · 3D printing · Moulds & casting · Antalya",
+      eyebrow: "Design and fabrication workshop · Antalya",
       title: "One hundred percent craft.",
-      lead: "From design to casting, every piece is finished by hand in our Antalya workshop.",
+      lead: "We draw it, print it, mould it and cast it. A part’s whole journey happens in one workshop in Antalya.",
       cta: "Start a project",
       secondary: "Visit the store",
     },
+    chain: {
+      label: "Under one roof",
+      steps: ["Design", "3D printing", "Moulds", "Casting", "Paint", "Assembly"],
+    },
     services: {
+      label: "For your project",
       title: "Services",
+      lead: "The bench that makes our own products works for your part too. One sample or a small batch.",
       all: "All services",
     },
     work: {
+      label: "Collection",
       title: "Work",
-      lead: "Our own collection. Every step from sketch to packing happens in the workshop.",
+      collections: "collections",
+      products: "products",
+      lead: "We designed them for ourselves first, then put them in the store. All off the same bench.",
       all: "All work",
       view: "View",
       buy: "View in store",
     },
     workshop: {
+      label: "Instagram",
       title: "From the workshop",
-      lead: "First pulls from the mould, fresh colours off the printer. We share what we’re making on Instagram.",
+      lead: "A part fresh out of the mould, the first colour off the printer. Whatever is on the bench that week.",
       about: "Who we are",
     },
     atelier: {
@@ -144,6 +172,8 @@ export const siteContent = {
       instagram: "From the workshop: @100kraft",
     },
     process: {
+      label: "Process",
+      unit: "steps",
       title: "How a part is born",
       steps: [
         {
@@ -165,13 +195,19 @@ export const siteContent = {
       ],
     },
     contact: {
+      label: "Contact",
+      reply: "Reply within 2 working days",
       title: "What’s on your desk?",
-      lead: "A sketch, a photo, an STL or just an idea. Send it over and within two working days we’ll talk about how to make it.",
+      lead: "A sketch, a photo, an STL or just an idea. Send it over and we’ll talk through how to make it.",
       cta: "Start a project",
       whatsapp: "WhatsApp",
       location: "Antalya, Turkey",
     },
     footer: {
+      tagline: "Design and fabrication workshop",
+      menu: "Site",
+      reach: "Reach us",
+      top: "Back to top",
       by: "Site by Grainz Digital",
     },
   },

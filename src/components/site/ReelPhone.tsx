@@ -62,11 +62,11 @@ export function ReelPhone({ lang }: { lang: Language }) {
     <div className="flex flex-col items-center">
       <div
         ref={frame}
-        className="relative h-[540px] w-[250px] shrink-0 rounded-[44px] bg-ink p-[10px] shadow-[0_40px_80px_-30px_rgba(20,19,18,0.55)] ring-1 ring-black/40 sm:h-[600px] sm:w-[277px]"
+        className="relative h-[540px] w-[250px] shrink-0 rounded-[44px] bg-[#0b0a0a] p-[10px] shadow-[0_40px_80px_-30px_rgba(0,0,0,0.7)] ring-1 ring-white/15 sm:h-[600px] sm:w-[277px]"
       >
         <span
           aria-hidden
-          className="absolute top-[18px] left-1/2 z-10 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-ink"
+          className="absolute top-[18px] left-1/2 z-10 h-[22px] w-[86px] -translate-x-1/2 rounded-full bg-[#0b0a0a]"
         />
         <div className="relative h-full w-full overflow-hidden rounded-[34px] bg-ink">
           <div

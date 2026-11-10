@@ -1,18 +1,22 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
 /**
- * Fades content in when it scrolls into view. Content is visible by default
+ * Reveals content when it scrolls into view. Content is visible by default
  * (no-JS, SSR, crawlers); the hidden state is only applied after hydration
  * for elements that are still below the fold.
+ *
+ * variant "rise" fades up; "print" builds the block bottom-up in layers, for images.
  */
 export function Reveal({
   children,
   delay = 0,
   className = "",
+  variant = "rise",
 }: {
   children: ReactNode;
   delay?: number;
   className?: string;
+  variant?: "rise" | "print";
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const [state, setState] = useState<"idle" | "hidden" | "shown">("idle");
@@ -35,16 +39,17 @@ export function Reveal({
     return () => io.disconnect();
   }, []);
 
+  const base = variant === "print" ? "reveal-print" : "reveal";
+  const stateClass = state === "idle" ? "" : `${base}-${state}`;
+  const delayStyle =
+    state === "shown" && delay
+      ? variant === "print"
+        ? { animationDelay: `${delay}s` }
+        : { transitionDelay: `${delay}s` }
+      : undefined;
+
   return (
-    <div
-      ref={ref}
-      className={`${className} ${state === "hidden" ? "translate-y-4 opacity-0" : ""} ${
-        state === "shown"
-          ? "transition-[opacity,translate] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-          : ""
-      }`}
-      style={state === "shown" && delay ? { transitionDelay: `${delay}s` } : undefined}
-    >
+    <div ref={ref} className={`${className} ${stateClass}`} style={delayStyle}>
       {children}
     </div>
   );

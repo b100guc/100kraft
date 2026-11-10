@@ -4,13 +4,15 @@ import { cn } from "@/lib/utils";
 
 type Variant = "solid" | "outline" | "light";
 
+// On hover the fill rises from the bottom in steps, like layers going down on a print.
 const base =
-  "inline-flex h-12 items-center justify-center gap-2 px-6 text-[0.9375rem] font-medium transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground";
+  "group/btn relative isolate inline-flex h-12 items-center justify-center gap-2 overflow-hidden px-6 text-[0.9375rem] font-medium transition-colors duration-300 before:absolute before:inset-0 before:-z-10 before:translate-y-full before:transition-transform before:duration-300 before:ease-[steps(6,end)] hover:before:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-foreground motion-reduce:before:transition-none [&>svg]:transition-transform [&>svg]:duration-300 hover:[&>svg]:translate-x-1";
 
 const variants: Record<Variant, string> = {
-  solid: "bg-foreground text-background hover:bg-accent",
-  outline: "border border-foreground/25 text-foreground hover:border-foreground",
-  light: "bg-background text-foreground hover:bg-accent hover:text-accent-foreground",
+  solid: "bg-foreground text-background before:bg-accent hover:text-accent-foreground",
+  outline:
+    "border border-foreground/25 text-foreground before:bg-foreground hover:border-foreground hover:text-background",
+  light: "bg-background text-foreground before:bg-accent hover:text-accent-foreground",
 };
 
 interface Props {
